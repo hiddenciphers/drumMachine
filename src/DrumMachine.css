@@ -1,0 +1,374 @@
+#container {
+    height: 80vh;
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+#drum-machine {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    gap: 2.5em;
+    padding: 30px;
+    background-color: rgb(242, 238, 209);
+    clip-path: polygon(
+        5% 0,   /* Top-left corner */
+        95% 0,  /* Top-right corner */
+        100% 5%, /* Top-right corner */
+        100% 95%, /* Bottom-right corner */
+        95% 100%, /* Bottom-right corner */
+        5% 100%, /* Bottom-left corner */
+        0 95%, /* Bottom-left corner */
+        0 5% /* Top-left corner */
+    );
+}
+
+#left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    
+}
+
+#display-container {
+    position: relative;
+    border: 1px solid black;
+    min-width: 400px;
+    height: 150px;
+    margin-left: 20px;
+    display: flex;
+    padding: 10px;
+    background-color: rgb(58, 56, 56);
+    clip-path: polygon(
+        5% 0,   /* Top-left corner */
+        95% 0,  /* Top-right corner */
+        100% 5%, /* Top-right corner */
+        100% 95%, /* Bottom-right corner */
+        95% 100%, /* Bottom-right corner */
+        5% 100%, /* Bottom-left corner */
+        0 95%, /* Bottom-left corner */
+        0 5% /* Top-left corner */
+    );
+}
+
+#inner-display {
+    background-color: black;
+    margin: auto;
+    height: 80%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+#display {
+    height: 80%;
+    width: 80%;
+    background-color: rgba(67, 252, 150, 0.58);
+    padding: 5px;
+    text-align: center;
+    align-content: center;
+    font-family: "Genos", sans-serif;
+    font-size: 32pt;
+}
+
+#logo {
+    height: 150px;
+    width: 100%;
+    padding: 10px;
+    margin-top: -85px;
+    
+}
+
+#akai-logo {
+    width: 250px;
+}
+
+#logo-div {
+    margin-top: -175px;
+    margin-left: 250px;
+    font-family: "Genos", sans-serif;
+    font-size: 34pt;
+}
+
+#midi {
+    font-size: 15pt;
+    margin-top: -30px;
+    margin-left: 0px;
+    margin-top: -3px;
+}
+
+#line {
+    height: 3px;
+    width: 89%;
+    background: linear-gradient(to right, black 50%, red 50%);
+}
+
+
+
+#right-col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 1em;
+    align-items: center;
+}
+
+
+#panel {
+    border: 1px solid black;
+    height: 170px;
+    width: 90%;
+    background-color: darkgrey;
+}
+
+#drum-pad {
+    padding: 30px 0px 30px 0px;
+    border: 1px solid black;
+    width: 90%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+    background-color: darkgrey;
+    border-radius: 2px;
+}
+
+.drum-pad {
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    align-content: center;
+    background-color: rgb(134, 133, 133);
+    border-radius: 4px;
+    font-family: "Genos", sans-serif;
+    font-size: 0pt;
+    color: transparent;
+    box-shadow: 2.5px 2.5px 5px .5px #000000;
+    cursor: pointer;
+    
+}
+
+.pressed {
+    transition: background-color 0.1s ease;
+    /* background-color: rgba(213, 229, 236, 0.935); */
+    box-shadow: 2.5px 2.5px 5px .5px darkgrey;
+    
+}
+
+#dials {
+    border: 1px solid black;
+    min-width: 45%;
+    height: 64.5%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#dials-top {
+    border: 1px solid black;
+    width: 100%;
+    height: 50%;
+}
+
+
+
+#dials-bottom {
+    border: 1px solid black;
+    width: 100%;
+    height: 60%;
+    
+}
+
+#bottom-left {
+    border: 1px solid black;
+    margin: 20px;
+    width: 70px;
+    height: 210px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
+    gap: 1em;
+}
+
+#power {
+    margin-top: -40px;
+    width: 70px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
+    gap: 0.4em;
+}
+
+#power-light {
+    border: 0.5px solid black;
+    width: 5px;
+    height: 5px; 
+    border-radius: 60px;
+}
+
+#power-button {
+    position: relative;
+    border: .5px solid black;
+    width: 25px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: rgb(30, 30, 30);
+    left: 135px;
+    bottom: 20px;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#power-button:hover {
+    background-color: rgba(171, 170, 170, 0.237);
+}
+
+
+
+#volume-container { 
+    transform: rotate(270deg);
+}
+
+
+.volume-slider {
+    -webkit-appearance: none; /* Override default CSS styles */
+    appearance: none;
+    width: 120px; /* Full-width */
+    height: 5px; /* Height of the slider */
+    background: black; /* Track color */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    transition: opacity .2s; /* 0.2 seconds transition on hover */
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  /* Mouse-over effects */
+  .volume-slider:hover {
+    opacity: 1; /* Fully shown on hover */
+  }
+  
+  /* The slider handle (the thumb) */
+  .volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 20px; /* Handle width */
+    height: 40px; /* Handle height */
+    background: white; /* Handle color */
+    cursor: pointer; /* Mouse pointer on hover */
+    border: .5px solid black;
+  }
+  
+  .volume-slider::-moz-range-thumb {
+    width: 20px; /* Handle width */
+    height: 20px; /* Handle height */
+    background: white; /* Handle color */
+    cursor: pointer; /* Mouse pointer on hover */
+    border-radius: 50%; /* Rounded handle */
+    border: .5px solid black;
+  }
+    
+
+.on {
+    background-color: green;
+}
+
+.off {
+    background-color: red;
+}
+
+#display-spans {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#time {
+    font-size: 22px;
+    margin-left: 215px;
+    margin-top: -10px;
+
+}
+
+#text {
+    font-size: 32px;
+    margin-left: 10px;
+    width: auto;
+    height: 50px;
+    margin-top: -50px;
+}
+
+#volume {
+    margin-left: 190px;
+    margin-top: -50px;
+    font-size: 20px;
+    height: 20px;
+}
+
+#data-knob {
+    position: relative;
+    border: 1px solid black;
+    height: 150px;
+    width: 150px;
+    border-radius: 100px;
+    top: 80px;
+    left: 200px;
+    background-color: rgb(58, 56, 56);
+    display: flex;
+    transform: rotate(200deg);
+    filter: drop-shadow(-5px -2.5px 2.5px #000000);
+}
+
+#inner-knob {
+    border: 1px solid black;
+    height: 90px;
+    width: 90px;
+    border-radius: 100px;
+    display: flex;
+    margin: auto;
+    filter: drop-shadow(-5px -2.5px 2.5px #000000);
+}
+
+#knob {
+    border: 1px solid black;
+    background-color: rgb(58, 56, 56);
+    height: 40px;
+    width: 40px;
+    border-radius: 100px;
+    top: 100px;
+    
+}
+
+#data-knob-container {
+    width: 50px;
+    border: 1px solid orange;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+}
+
+#H {
+    position: relative;
+    font-size: 54px;
+    top: -115px;
+    left: 20px;
+    margin-left: -40px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+    color: #bc012dea;
+}
