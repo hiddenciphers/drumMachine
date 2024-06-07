@@ -128,7 +128,7 @@
     padding: 30px 0px 30px 0px;
     border: 1px solid black;
     width: 90%;
-    height: 50%;
+    height: 49.5%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -178,19 +178,17 @@
     flex-direction: column;
 }
 
-
-
 #dials-bottom {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 110%;
     height: 50%;
-    margin-top: 40px;
+    margin-top: 60px;
     margin-left: -13px;
 }
 
 #bottom-left {
     border: 1px solid black;
-    margin-left: 2.5px;
+    margin-left: 7px;
     width: 70px;
     height: 210px;
     border-radius: 2px;
@@ -199,7 +197,6 @@
     justify-content:space-evenly;
     align-items: center;
     gap: 1em;
-    margin-bottom: 0;
 }
 
 #power {
@@ -242,7 +239,9 @@
 
 
 #volume-container { 
-    transform: rotate(270deg);
+    transform: rotate(450deg);
+    margin-top: 100px;
+    margin-left: 5px;
 }
 
 
@@ -256,6 +255,7 @@
     opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
     transition: opacity .2s; /* 0.2 seconds transition on hover */
     border-radius: 5px; /* Rounded corners */
+    margin-right: 20px;
   }
   
   /* Mouse-over effects */
@@ -269,18 +269,26 @@
     appearance: none;
     width: 20px; /* Handle width */
     height: 40px; /* Handle height */
-    background: beige; /* Handle color */
+    /* background: beige; */
     cursor: pointer; /* Mouse pointer on hover */
     border: .5px solid black;
-    border-radius: 2px;
+    border-radius: 4px;
+    box-shadow: 1.25px -1.25px 2.5px .5px #000000;
+    background-image: url('../public/blue-line.png');
+    background-size: 20px;
+    
+  }
+
+  .volume-slider::-webkit-slider-thumb:hover {
+    background-color: #f3f4c8;
   }
   
   .volume-slider::-moz-range-thumb {
     width: 20px; /* Handle width */
-    height: 20px; /* Handle height */
+    height: 40px; /* Handle height */
     background: beige; /* Handle color */
     cursor: pointer; /* Mouse pointer on hover */
-    border-radius: 50%; /* Rounded handle */
+    border-radius: 2px; /* Rounded handle */
     border: .5px solid black;
     border-radius: 2px;
   }
@@ -324,12 +332,12 @@
 
 #data-knob {
     position: relative;
-    border: 1px solid black;
+    border: 3px solid black;
     height: 150px;
     width: 150px;
     border-radius: 100px;
     top: 100px;
-    left: 200px;
+    left: 196px;
     background-color: rgb(58, 56, 56);
     display: flex;
     transform: rotate(200deg);
@@ -337,7 +345,7 @@
 }
 
 #inner-knob {
-    border: 1px solid black;
+    border: 2px solid black;
     height: 90px;
     width: 90px;
     border-radius: 100px;
@@ -430,7 +438,7 @@
     border-radius: 2px;
     background-color: rgb(6, 104, 184);
     box-shadow: 1.25px 1.25px 2.5px .5px #000000;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
     
 }
 
@@ -448,7 +456,7 @@
     width: auto;
     padding:3px;
     margin-left: -10px;
-    margin-top: -5px;
+    margin-top: -10px;
     border-radius: 2px;
     font-size: 5pt;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -519,3 +527,169 @@
     font-size: 6pt;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+#bottom-left-top {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    margin-top: -110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+}
+
+#note-variation {
+    margin-top: -52px;
+    text-align: center;
+    font-size: 6pt;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(242, 238, 209);
+    width: auto;
+    padding: 2px;
+}
+
+#after {
+    text-align: center;
+    font-size: 6pt;
+    margin-bottom: -5px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#bottom-left-button {
+    border: 0.5px solid black;
+    width: 40px;
+    height: 18px;
+    border-radius: 3px;
+    background-color: beige;
+    box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+}
+
+#bottom-left-right-bottom {
+    position: absolute;
+    height: 35px;
+    width: 340px;
+    margin-left: 78px;
+    margin-top: -33px;
+}
+
+#bottom-left-right-bottom-row-2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+
+}
+
+.bottom-left-right-bottom-row-2-buttons {
+    border: 0.5px solid black;
+    height: 30px;
+    width: 40px;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 6pt;
+    background-color: beige;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+}
+
+#rec {
+    position: absolute;
+    margin-top: -19.5px;
+    margin-left: -13px;
+    width: 40px;
+}
+
+#over-dub {
+    position: absolute;
+    margin-top: -25px;
+    margin-left: -7px;
+}
+
+#stop {
+    position: absolute;
+    margin-top: -20px;
+    margin-left: -8px;
+}
+
+#play {
+    position: absolute;
+    margin-top: -20px;
+    margin-left: -5px;
+}
+
+#play-start {
+    position: absolute;
+    margin-top: -25px;
+    margin-left: -11px;
+}
+
+#rec-light {
+    position: absolute;
+    border: 0.5px solid black;
+    width: 5px;
+    height: 5px; 
+    border-radius: 60px;
+    margin-top: -18px;
+    margin-left: 10px;
+}
+
+#over-dub-light {
+    position: absolute;
+    border: 0.5px solid black;
+    width: 5px;
+    height: 5px; 
+    border-radius: 60px;
+    margin-top: -18px;
+    margin-left: 4px;
+}
+
+#play-light {
+    position: absolute;
+    border: 0.5px solid black;
+    width: 5px;
+    height: 5px; 
+    border-radius: 60px;
+    margin-top: -18px;
+    margin-left: 6px;
+}
+
+.red-button {
+    background-color: #bc012dea;
+}
+
+#bottom-left-right-bottom-row-1 {
+    position: absolute;
+    border-top: 1px solid black;
+    width: 300px;
+    height: 50px;
+    margin-top: -75px;
+    margin-left: 21px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-radius: 2px;
+    justify-content: space-evenly;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.bottom-left-right-bottom-row-1-buttons {
+    border: 0.5px solid black;
+    height: 14px;
+    width: 35px;
+    border-radius: 2px;
+    background-color: beige;
+}
+
+#locate {
+    position: absolute;
+    padding: 2px;
+    margin-top: -50px;
+    font-size: 6pt;
+    background-color: rgb(242, 238, 209);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+

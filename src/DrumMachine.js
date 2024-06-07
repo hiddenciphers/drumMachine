@@ -130,7 +130,12 @@ const DrumMachine = () => {
             </div>
             <div id='dials-bottom'>
               <div id='bottom-left'>
-                <div id='power'></div>
+                <div id='bottom-left-top'>
+                  <div id='note-variation'>NOTE<br></br>VARIATION</div>
+                  <div id='after'>AFTER</div>
+                  <div id='bottom-left-light'><div id='power-light' className={isPoweredOn ? 'on' : 'off'}></div></div>
+                  <div id='bottom-left-button'><span id='assign'></span></div>
+                </div>
                 <div id="volume-container">
                   <input
                     type="range"
@@ -144,10 +149,23 @@ const DrumMachine = () => {
                   />
                 </div>
               </div>
-              <div id=''></div>
-              <div id='bank'>
-                <div id='bank-switch'></div>
-              </div>
+              <div id='bottom-left-right-bottom'>
+                  <div id='bottom-left-right-bottom-row-0'></div>
+                  <div id='bottom-left-right-bottom-row-1'><span id='locate'>LOCATE</span>
+                    <div className='bottom-left-right-bottom-row-1-buttons'></div>
+                    <div className='bottom-left-right-bottom-row-1-buttons'></div>
+                    <div className='bottom-left-right-bottom-row-1-buttons'></div>
+                    <div className='bottom-left-right-bottom-row-1-buttons'></div>
+                    <div className='bottom-left-right-bottom-row-1-buttons'></div>
+                  </div>
+                  <div id='bottom-left-right-bottom-row-2'>
+                    <div className='bottom-left-right-bottom-row-2-buttons red-button'><div id='rec-light' className={isPoweredOn ? 'on' : 'off'}></div><div id='bottom-left-light'></div><span id='rec'>REC</span></div>
+                    <div className='bottom-left-right-bottom-row-2-buttons red-button'><div id='over-dub-light' className={isPoweredOn ? 'on' : 'off'}></div><span id='over-dub'><div id='bottom-left-light'></div>OVER<br></br>DUB</span></div>
+                    <div className='bottom-left-right-bottom-row-2-buttons'><span id='stop'>STOP</span></div>
+                    <div className='bottom-left-right-bottom-row-2-buttons'><div id='play-light' className={isPoweredOn ? 'on' : 'off'}></div><span id='play'><div id='bottom-left-light'></div>PLAY</span></div>
+                    <div className='bottom-left-right-bottom-row-2-buttons'><span id='play-start'>PLAY<br></br>START</span></div>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
