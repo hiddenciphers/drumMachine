@@ -95,6 +95,33 @@ const DrumMachine = () => {
           </div>
           <div id='dials'>
             <div id='dials-top'>
+              <div id='f-numbers'>
+                <div className='f-number'><p className='f-labels'>F1</p></div>
+                <div className='f-number'><p className='f-labels'>F2</p></div>
+                <div className='f-number'><p className='f-labels'>F3</p></div>
+                <div className='f-number'><p className='f-labels'>F4</p></div>
+                <div className='f-number'><p className='f-labels'>F5</p></div>
+                <div className='f-number'><p className='f-labels'>F6</p></div>
+              </div>
+              <div id='blue-buttons-container'>
+                <span className='shift no-shift'>7<div className='blue-buttons'></div><span className='blue-button-label-spans'>MIXER</span></span>
+                <span className='shift no-shift'>8<div className='blue-buttons'></div><span className='blue-button-label-spans'>OTHER</span></span>
+                <span className='shift no-shift'>9<div className='blue-buttons'></div><span className='blue-button-label-spans'>MIDI/SYNC</span></span>
+                <span className='shift no-shift'>4<div className='blue-buttons'></div><span className='blue-button-label-spans'>SAMPLE</span></span>
+                <span className='shift no-shift'>5<div className='blue-buttons'></div><span className='blue-button-label-spans'>TRIM</span></span>
+                <span className='shift no-shift'>6<div className='blue-buttons'></div><span className='blue-button-label-spans'>PROGRAM</span></span>
+                <span className='shift no-shift'>1<div className='blue-buttons'></div><span className='blue-button-label-spans'>SOUND</span></span>
+                <span className='shift no-shift'>2<div className='blue-buttons'></div><span className='blue-button-label-spans'>MISC.</span></span>
+                <span className='shift no-shift'>3<div className='blue-buttons '></div><span className='blue-button-label-spans'>LOAD</span></span>
+                <span className='shift'>SHIFT<div className='blue-buttons white-button left'></div></span>
+                <span className='shift no-shift'>0<div className='blue-buttons '></div></span>
+                <span className='shift no-shift'>ENTER<div className='blue-buttons white-button left'></div><span className='blue-button-label-spans'>SAVE</span></span>
+              </div>
+              <div id='above-data-dial'>
+                <div id='main-screen-button' className='above-dd-btns'><span id='main-screen-label'>MAIN SCREEN</span></div>
+                <div id='open-window-button' className='above-dd-btns'><span id='open-window-label'>OPEN WINDOW</span></div>
+                <div id='data'>DATA</div>
+              </div>
               <div id='data-knob'>
                 <div id='inner-knob'>
                   <div id='knob'></div>
