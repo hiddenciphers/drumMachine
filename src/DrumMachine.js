@@ -79,6 +79,7 @@ const DrumMachine = () => {
         <div id='power-light' className={isPoweredOn ? 'on' : 'off'}></div>
       </div>
       <div id='drum-machine'>
+        <div id='top-line'></div>
         <div id='left-col'>
           <div id='display-container'>
             <div id='inner-display'>
@@ -133,7 +134,7 @@ const DrumMachine = () => {
                 <div id='bottom-left-top'>
                   <div id='note-variation'>NOTE<br></br>VARIATION</div>
                   <div id='after'>AFTER</div>
-                  <div id='bottom-left-light'><div id='power-light' className={isPoweredOn ? 'on' : 'off'}></div></div>
+                  <div id='bottom-left-light'><div id='after-light' className={isPoweredOn ? 'after-on' : 'after-off'}></div></div>
                   <div id='bottom-left-button'><span id='assign'></span></div>
                 </div>
                 <div id="volume-container">
@@ -159,10 +160,10 @@ const DrumMachine = () => {
                     <div className='bottom-left-right-bottom-row-1-buttons'></div>
                   </div>
                   <div id='bottom-left-right-bottom-row-2'>
-                    <div className='bottom-left-right-bottom-row-2-buttons red-button'><div id='rec-light' className={isPoweredOn ? 'on' : 'off'}></div><div id='bottom-left-light'></div><span id='rec'>REC</span></div>
-                    <div className='bottom-left-right-bottom-row-2-buttons red-button'><div id='over-dub-light' className={isPoweredOn ? 'on' : 'off'}></div><span id='over-dub'><div id='bottom-left-light'></div>OVER<br></br>DUB</span></div>
+                    <div className='bottom-left-right-bottom-row-2-buttons red-button'><div id='rec-light' className={isPoweredOn ? 'rec-on' : 'rec-off'}></div><div id='bottom-left-light'></div><span id='rec'>REC</span></div>
+                    <div className='bottom-left-right-bottom-row-2-buttons red-button'><div id='over-dub-light' className={isPoweredOn ? 'over-dub-on' : 'over-dub-off'}></div><span id='over-dub'><div id='bottom-left-light'></div>OVER<br></br>DUB</span></div>
                     <div className='bottom-left-right-bottom-row-2-buttons'><span id='stop'>STOP</span></div>
-                    <div className='bottom-left-right-bottom-row-2-buttons'><div id='play-light' className={isPoweredOn ? 'on' : 'off'}></div><span id='play'><div id='bottom-left-light'></div>PLAY</span></div>
+                    <div className='bottom-left-right-bottom-row-2-buttons'><div id='play-light' className={isPoweredOn ? 'play-on' : 'play-off'}></div><span id='play'><div id='bottom-left-light'></div>PLAY</span></div>
                     <div className='bottom-left-right-bottom-row-2-buttons'><span id='play-start'>PLAY<br></br>START</span></div>
                   </div>
                 </div>
@@ -179,7 +180,9 @@ const DrumMachine = () => {
             </div>
           </div>
           <div id='panel'>
-            <div id='panel-inner'></div>
+            <div id='panel-inner'>
+
+            </div>
           </div>
           <div id='drum-pad'>
             <div className='drum-pad'>Q
@@ -209,8 +212,30 @@ const DrumMachine = () => {
             <div className='drum-pad'>C
               <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Cev_H2.mp3' name='Closed HH' type='audio/mpeg' id='C'></audio>
             </div>
+            <div className='drum-pad'>C
+              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Cev_H2.mp3' name='Closed HH' type='audio/mpeg' id='C'></audio>
+            </div>
+            <div className='drum-pad'>C
+              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Cev_H2.mp3' name='Closed HH' type='audio/mpeg' id='C'></audio>
+            </div>
+            <div className='drum-pad'>C
+              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Cev_H2.mp3' name='Closed HH' type='audio/mpeg' id='C'></audio>
+            </div>
+            <div className='drum-pad'>C
+              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Cev_H2.mp3' name='Closed HH' type='audio/mpeg' id='C'></audio>
+            </div>
+            <div className='drum-pad'>C
+              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Cev_H2.mp3' name='Closed HH' type='audio/mpeg' id='C'></audio>
+            </div>
+            <div className='drum-pad'>C
+              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Cev_H2.mp3' name='Closed HH' type='audio/mpeg' id='C'></audio>
+            </div>
+            <div className='drum-pad'>C
+              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Cev_H2.mp3' name='Closed HH' type='audio/mpeg' id='C'></audio>
+            </div>
           </div>
         </div>
+        <div id='bottom-line'></div>
       </div>
     </div>
   );
