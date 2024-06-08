@@ -25,113 +25,6 @@ const DrumMachine = () => {
     const interval = setInterval(() => {
       setCurrentTime(new Date());
     }, 1000);
-////////////////// REC-GAIN DIAL START //////////////////////////////
-const recGainDial = document.querySelector('.rec-gain-dial');
-    
-Draggable.create(recGainDial, {
-  type: 'rotation',
-  bounds: { minRotation: -120, maxRotation: 120 },
-  inertia: true,
-  onDrag: function () {
-    const angle = this.rotation;
-    console.log(`Rec-gain dial is being dragged. Angle: ${angle}`);
-    setRecGainText(`REC GAIN: ${angle}`); 
-    const newRecGain = (angle + 120) / 239;
-    setRecGainText(`REC GAIN: ${Math.round(newRecGain * 100)}`);
-  },
-  onThrowUpdate: function () {
-    const angle = this.rotation;
-    console.log(`Rec-gain dial is being updated. Angle: ${angle}`);
-    const newRecGain = (angle + 120) / 239;
-    setRecGainText(`REC GAIN: ${Math.round(newRecGain * 100)}`);
-  },
-  onThrowComplete: function () {
-    console.log(`Rec-gain dial drag complete.`);
-  }
-});
-////////////////// REC-GAIN DIAL END //////////////////////////////
-////////////////// VOLUME DIAL START //////////////////////////////
-    const volumeDial = document.querySelectorAll('.volume-dial');
-    
-      Draggable.create(volumeDial, {
-        type: 'rotation',
-        bounds: { minRotation: -120, maxRotation: 120 },
-        inertia: true,
-        onDrag: function () {
-          const angle = this.rotation;
-          console.log(`Volume dial is being dragged. Angle: ${angle}`);
-          const newVolume = (angle + 120) / 239;
-          setVolume(newVolume);
-          setVolumeText(`Volume: ${Math.round(newVolume * 100)}`);
-        },
-        onThrowUpdate: function () {
-          const angle = this.rotation;
-          console.log(`Volume dial is being updated. Angle: ${angle}`);
-          const newVolume = (angle + 120) / 239;
-          setVolume(newVolume);
-          setVolumeText(`Volume: ${Math.round(newVolume * 100)}`);
-        },
-        onThrowComplete: function () {
-          console.log(`Volume dial drag complete.`);
-        }
-      });
-////////////////// VOLUME DIAL END //////////////////////////////
-////////////////// DATA DIAL START //////////////////////////////
-    const dial = document.querySelector('.data-dial');
-
-      Draggable.create(dial, {
-        type: 'rotation',
-        bounds: { minRotation: -10000, maxRotation: 10000 },
-        inertia: true,
-        onDrag: function () {
-          const angle = this.rotation;
-          console.log(`Dial is being dragged. Angle: ${angle}`);
-          setDataText(`DATA: ${angle}`);  
-        },
-        onThrowUpdate: function () {
-          const angle = this.rotation;
-          console.log(`Dial is being updated. Angle: ${angle}`);
-          setDataText(`Data: ${angle}`);
-        },
-        onThrowComplete: function () {
-          console.log(`Dial drag complete.`);
-        }
-      });
-////////////////// DATA DIAL END ///////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     return () => {
       pads.forEach(pad => {
@@ -141,7 +34,77 @@ Draggable.create(recGainDial, {
       clearInterval(interval);
     };
   }, [volume, isPoweredOn]);
-
+  ////////////////// REC-GAIN DIAL START //////////////////////////////
+  const recGainDial = document.querySelector('.rec-gain-dial');
+  Draggable.create(recGainDial, {
+    type: 'rotation',
+    bounds: { minRotation: -120, maxRotation: 120 },
+    inertia: true,
+    onDrag: function () {
+      const angle = this.rotation;
+      console.log(`Rec-gain dial is being dragged. Angle: ${angle}`);
+      setRecGainText(`REC GAIN: ${angle}`); 
+      const newRecGain = (angle + 120) / 239;
+      setRecGainText(`REC GAIN: ${Math.round(newRecGain * 100)}`);
+    },
+    onThrowUpdate: function () {
+      const angle = this.rotation;
+      console.log(`Rec-gain dial is being updated. Angle: ${angle}`);
+      const newRecGain = (angle + 120) / 239;
+      setRecGainText(`REC GAIN: ${Math.round(newRecGain * 100)}`);
+    },
+    onThrowComplete: function () {
+      console.log(`Rec-gain dial drag complete.`);
+    }
+  });
+  ////////////////// REC-GAIN DIAL END //////////////////////////////
+  ////////////////// VOLUME DIAL START //////////////////////////////
+  const volumeDial = document.querySelectorAll('.volume-dial')
+  Draggable.create(volumeDial, {
+    type: 'rotation',
+    bounds: { minRotation: -120, maxRotation: 120 },
+    inertia: true,
+    onDrag: function () {
+      const angle = this.rotation;
+      console.log(`Volume dial is being dragged. Angle: ${angle}`);
+      const newVolume = (angle + 120) / 239;
+      setVolume(newVolume);
+      setVolumeText(`Volume: ${Math.round(newVolume * 100)}`);
+    },
+    onThrowUpdate: function () {
+      const angle = this.rotation;
+      console.log(`Volume dial is being updated. Angle: ${angle}`);
+      const newVolume = (angle + 120) / 239;
+      setVolume(newVolume);
+      setVolumeText(`Volume: ${Math.round(newVolume * 100)}`);
+    },
+    onThrowComplete: function () {
+      console.log(`Volume dial drag complete.`);
+    }
+  });
+  ////////////////// VOLUME DIAL END //////////////////////////////
+  ////////////////// DATA DIAL START //////////////////////////////
+  const dial = document.querySelector('.data-dial')
+  Draggable.create(dial, {
+    type: 'rotation',
+    bounds: { minRotation: -10000, maxRotation: 10000 },
+    inertia: true,
+    onDrag: function () {
+      const angle = this.rotation;
+      console.log(`Dial is being dragged. Angle: ${angle}`);
+      setDataText(`DATA: ${angle}`);  
+    },
+    onThrowUpdate: function () {
+      const angle = this.rotation;
+      console.log(`Dial is being updated. Angle: ${angle}`);
+      setDataText(`Data: ${angle}`);
+    },
+    onThrowComplete: function () {
+      console.log(`Dial drag complete.`);
+    }
+  });
+  ////////////////// DATA DIAL END ///////////////////////////////
+  ////////////////// FUNCTIONS START ///////////////////////////////
   const handlePadClick = (event) => {
     if (!isPoweredOn) return;
 
@@ -167,12 +130,6 @@ Draggable.create(recGainDial, {
     }
   };
 
-  // const handleVolumeChange = (event) => {
-  //   const newVolume = event.target.value / 100;
-  //   setVolume(newVolume);
-  //   setVolumeText(`Volume: ${Math.round(newVolume * 100)}`);
-  // };
-
   const togglePower = () => {
     setIsPoweredOn(prevState => !prevState);
     if (!isPoweredOn) {
@@ -185,6 +142,14 @@ Draggable.create(recGainDial, {
     }
   };
 
+  // const handleVolumeChange = (event) => {
+  //   const newVolume = event.target.value / 100;
+  //   setVolume(newVolume);
+  //   setVolumeText(`Volume: ${Math.round(newVolume * 100)}`);
+  // };
+
+  ////////////////// FUNCTIONS END ///////////////////////////////
+  ////////////////// HTML START ///////////////////////////////
   return (
     <div id='container'>
       <div id='power-button' onClick={togglePower}>
@@ -241,8 +206,9 @@ Draggable.create(recGainDial, {
                 <div id='open-window-button' className='above-dd-btns'><span id='open-window-label'>OPEN WINDOW</span></div>
                 <div id='data'>DATA</div>
               </div>
-              <div id='data-knob'>
-                <div id='inner-knob' className="data-dial">
+              <div id='data-knob' className="data-dial">
+              <img id='dial-png3' src='https://www.svgrepo.com/show/521865/sun.svg' alt='Dial'/>
+                <div id='inner-knob'>
                   <div id='knob'></div>
                 </div>
               </div>
@@ -300,7 +266,6 @@ Draggable.create(recGainDial, {
           <div id='panel'>
             <div id='panel-top'>
               <div id='panel-top-left'>
-
                 <div id='full-level'>
                   <span id='full-level-span'>FULL LEVEL</span>
                   <div id='full-level-light' className={isPoweredOn ? 'full-level-on' : 'full-level-off'}></div>
@@ -309,7 +274,6 @@ Draggable.create(recGainDial, {
                   <div id='sixteen-levels-light' className={isPoweredOn ? 'sixteen-levels-on' : 'sixteen-levels-off'}></div>
                   <div id='space'><span id='space-span'>SPACE</span></div>
                 </div>
-
               </div>
               <div id='panel-top-right'>
                   <div id='panel-top-right-labels'>
@@ -329,8 +293,34 @@ Draggable.create(recGainDial, {
                 </div>
             </div>
             <div id='panel-bottom'>
-            <div id='panel-bottom-left'></div>
-            <div id='panel-bottom-right'></div>
+            <div id='panel-bottom-left'>
+                <div id='full-level'>
+                  <span id='next-seq-span'>NEXT SEQ</span>
+                  <div id='next-seq-light' className={isPoweredOn ? 'full-level-on' : 'full-level-off'}></div>
+                  <span>TRACK MUTE</span>
+                  <div id='sixteen-levels-light' className={isPoweredOn ? 'sixteen-levels-on' : 'sixteen-levels-off'}></div>
+                </div>
+            </div>
+            <div id='panel-bottom-right'>
+              <div id='pad-bank-line'>
+                <div id='pad-bank-top-border'></div>
+                <span id='pad-bank-label'>PAD BANK</span>
+                <div id='pad-bank-labels'>
+                  <div>A<div id='pad-bank-a-light' className={isPoweredOn ? 'pad-bank-a-on' : 'pad-bank-a-off'}></div></div>
+                  <div>B<div id='pad-bank-b-light' className={isPoweredOn ? 'pad-bank-b-on' : 'pad-bank-b-off'}></div></div>
+                  <div>C<div id='pad-bank-c-light' className={isPoweredOn ? 'pad-bank-c-on' : 'pad-bank-c-off'}></div></div>
+                  <div>D<div id='pad-bank-d-light' className={isPoweredOn ? 'pad-bank-d-on' : 'pad-bank-d-off'}></div></div>
+                </div>
+              </div>
+              <div id='pad-bank-buttons'>
+                <div className='pad-bank-buttons'></div>
+                <div className='pad-bank-buttons'></div>
+                <div className='pad-bank-buttons'></div>
+                <div className='pad-bank-buttons'></div>
+                <div className='pad-bank-buttons'></div>
+                <div className='pad-bank-buttons'></div>
+              </div>
+            </div>
             </div>
           </div>
           <div id='drum-pad'>
