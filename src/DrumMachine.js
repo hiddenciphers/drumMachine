@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './DrumMachine.css';
+import { Draggable } from 'gsap/Draggable';
+import { gsap } from 'gsap';
+
+gsap.registerPlugin(Draggable);
 
 const DrumMachine = () => {
   const [volume, setVolume] = useState(0.5);
@@ -7,6 +11,8 @@ const DrumMachine = () => {
   const [isPoweredOn, setIsPoweredOn] = useState(true);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [volumeText, setVolumeText] = useState('');
+  const [dataText, setDataText] = useState('');
+  const [recGainText, setRecGainText] = useState('');
 
   useEffect(() => {
     const pads = document.querySelectorAll('.drum-pad');
@@ -14,15 +20,119 @@ const DrumMachine = () => {
       pad.addEventListener('click', handlePadClick);
     });
 
-    // Add keydown event listener
     document.addEventListener('keydown', handleKeyPress);
 
-    // Update the current time every second
     const interval = setInterval(() => {
       setCurrentTime(new Date());
     }, 1000);
+////////////////// REC-GAIN DIAL START //////////////////////////////
+const recGainDial = document.querySelector('.rec-gain-dial');
+    
+Draggable.create(recGainDial, {
+  type: 'rotation',
+  bounds: { minRotation: -120, maxRotation: 120 },
+  inertia: true,
+  onDrag: function () {
+    const angle = this.rotation;
+    console.log(`Rec-gain dial is being dragged. Angle: ${angle}`);
+    setRecGainText(`REC GAIN: ${angle}`); 
+    const newRecGain = (angle + 120) / 239;
+    setRecGainText(`REC GAIN: ${Math.round(newRecGain * 100)}`);
+  },
+  onThrowUpdate: function () {
+    const angle = this.rotation;
+    console.log(`Rec-gain dial is being updated. Angle: ${angle}`);
+    const newRecGain = (angle + 120) / 239;
+    setRecGainText(`REC GAIN: ${Math.round(newRecGain * 100)}`);
+  },
+  onThrowComplete: function () {
+    console.log(`Rec-gain dial drag complete.`);
+  }
+});
+////////////////// REC-GAIN DIAL END //////////////////////////////
+////////////////// VOLUME DIAL START //////////////////////////////
+    const volumeDial = document.querySelectorAll('.volume-dial');
+    
+      Draggable.create(volumeDial, {
+        type: 'rotation',
+        bounds: { minRotation: -120, maxRotation: 120 },
+        inertia: true,
+        onDrag: function () {
+          const angle = this.rotation;
+          console.log(`Volume dial is being dragged. Angle: ${angle}`);
+          const newVolume = (angle + 120) / 239;
+          setVolume(newVolume);
+          setVolumeText(`Volume: ${Math.round(newVolume * 100)}`);
+        },
+        onThrowUpdate: function () {
+          const angle = this.rotation;
+          console.log(`Volume dial is being updated. Angle: ${angle}`);
+          const newVolume = (angle + 120) / 239;
+          setVolume(newVolume);
+          setVolumeText(`Volume: ${Math.round(newVolume * 100)}`);
+        },
+        onThrowComplete: function () {
+          console.log(`Volume dial drag complete.`);
+        }
+      });
+////////////////// VOLUME DIAL END //////////////////////////////
+////////////////// DATA DIAL START //////////////////////////////
+    const dial = document.querySelector('.data-dial');
 
-    // Cleanup event listeners and interval on component unmount
+      Draggable.create(dial, {
+        type: 'rotation',
+        bounds: { minRotation: -10000, maxRotation: 10000 },
+        inertia: true,
+        onDrag: function () {
+          const angle = this.rotation;
+          console.log(`Dial is being dragged. Angle: ${angle}`);
+          setDataText(`DATA: ${angle}`);  
+        },
+        onThrowUpdate: function () {
+          const angle = this.rotation;
+          console.log(`Dial is being updated. Angle: ${angle}`);
+          setDataText(`Data: ${angle}`);
+        },
+        onThrowComplete: function () {
+          console.log(`Dial drag complete.`);
+        }
+      });
+////////////////// DATA DIAL END ///////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return () => {
       pads.forEach(pad => {
         pad.removeEventListener('click', handlePadClick);
@@ -41,7 +151,7 @@ const DrumMachine = () => {
     setDisplayText(soundName);
 
     audio.volume = volume;
-    audio.currentTime = 0; // Rewind to the start
+    audio.currentTime = 0;
     audio.play();
     pad.classList.add('pressed');
     setTimeout(() => pad.classList.remove('pressed'), 100);
@@ -57,17 +167,19 @@ const DrumMachine = () => {
     }
   };
 
-  const handleVolumeChange = (event) => {
-    const newVolume = event.target.value / 100;
-    setVolume(newVolume);
-    setVolumeText(`Volume: ${Math.round(newVolume * 100)}`);
-  };
+  // const handleVolumeChange = (event) => {
+  //   const newVolume = event.target.value / 100;
+  //   setVolume(newVolume);
+  //   setVolumeText(`Volume: ${Math.round(newVolume * 100)}`);
+  // };
 
   const togglePower = () => {
     setIsPoweredOn(prevState => !prevState);
     if (!isPoweredOn) {
       setDisplayText('');
       setVolumeText('');
+      setDataText('');
+      setRecGainText('');
     } else {
       setDisplayText('Power Off');
     }
@@ -84,12 +196,18 @@ const DrumMachine = () => {
           <div id='display-container'>
             <div id='inner-display'>
               <div id='display'>
-                <div id='display-spans'>
-                  <span id='time'>{currentTime.toLocaleTimeString()}</span>
-                  <br />
-                  <span id='text'>{displayText}</span>
-                  <br />
-                  <span id='volume'>{volumeText}</span>
+                <div id='display-border'>
+                  <div id='display-spans'>
+                    <span id='time'>{currentTime.toLocaleTimeString()}</span>
+
+                    <span id='display-text'>{displayText}</span>
+
+                    <span id='volume'>{volumeText}</span>
+
+                    <span id='data-text'>{dataText}</span>
+
+                    <span id='rec-gain-text'>{recGainText}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -124,7 +242,7 @@ const DrumMachine = () => {
                 <div id='data'>DATA</div>
               </div>
               <div id='data-knob'>
-                <div id='inner-knob'>
+                <div id='inner-knob' className="data-dial">
                   <div id='knob'></div>
                 </div>
               </div>
@@ -142,10 +260,10 @@ const DrumMachine = () => {
                     type="range"
                     min="1"
                     max="100"
-                    value={volume * 100}
+                    // value={volume * 100}
                     className="volume-slider"
-                    id="volume-range"
-                    onChange={handleVolumeChange}
+                    // id="volume-range"
+                    // onChange={handleVolumeChange}
                     disabled={!isPoweredOn}
                   />
                 </div>
@@ -180,8 +298,39 @@ const DrumMachine = () => {
             </div>
           </div>
           <div id='panel'>
-            <div id='panel-inner'>
+            <div id='panel-top'>
+              <div id='panel-top-left'>
 
+                <div id='full-level'>
+                  <span id='full-level-span'>FULL LEVEL</span>
+                  <div id='full-level-light' className={isPoweredOn ? 'full-level-on' : 'full-level-off'}></div>
+                  <div id='Aa'><span id='Aa-span'>A/a</span></div>
+                  <span>16 LEVELS</span>
+                  <div id='sixteen-levels-light' className={isPoweredOn ? 'sixteen-levels-on' : 'sixteen-levels-off'}></div>
+                  <div id='space'><span id='space-span'>SPACE</span></div>
+                </div>
+
+              </div>
+              <div id='panel-top-right'>
+                  <div id='panel-top-right-labels'>
+                    <div id='rec-gain-label'>REC GAIN</div>
+                    <div id='main-volume-label'>MAIN VOLUME</div>
+                  </div>
+                  <img id='dial-png' src='https://www.svgrepo.com/show/478370/volume-knob.svg' alt='Dial'/>
+                  <div className="viewport-box">
+                    <div className="rec-gain-dial"><div className="dial-inner"></div><div className='indicator'></div></div>
+                  </div>
+                  <div id='min-max'><div>MIN</div><div>MAX</div></div>
+                  <img id='dial-png2' src='https://www.svgrepo.com/show/478370/volume-knob.svg' alt='Dial'/>
+                  <div className="viewport-box">
+                    <div className="volume-dial"><div className="dial-inner"></div><div className='indicator'></div></div>
+                  </div>
+                  <div id='min-max2'><div>MIN</div><div>MAX</div></div>
+                </div>
+            </div>
+            <div id='panel-bottom'>
+            <div id='panel-bottom-left'></div>
+            <div id='panel-bottom-right'></div>
             </div>
           </div>
           <div id='drum-pad'>
@@ -242,6 +391,8 @@ const DrumMachine = () => {
 };
 
 export default DrumMachine;
+
+
 
   
   
