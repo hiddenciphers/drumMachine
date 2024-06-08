@@ -34,77 +34,63 @@ const DrumMachine = () => {
       clearInterval(interval);
     };
   }, [volume, isPoweredOn]);
-  ////////////////// REC-GAIN DIAL START //////////////////////////////
-  const recGainDial = document.querySelector('.rec-gain-dial');
-  Draggable.create(recGainDial, {
-    type: 'rotation',
-    bounds: { minRotation: -120, maxRotation: 120 },
-    inertia: true,
-    onDrag: function () {
-      const angle = this.rotation;
-      console.log(`Rec-gain dial is being dragged. Angle: ${angle}`);
-      setRecGainText(`REC GAIN: ${angle}`); 
-      const newRecGain = (angle + 120) / 239;
-      setRecGainText(`REC GAIN: ${Math.round(newRecGain * 100)}`);
-    },
-    onThrowUpdate: function () {
-      const angle = this.rotation;
-      console.log(`Rec-gain dial is being updated. Angle: ${angle}`);
-      const newRecGain = (angle + 120) / 239;
-      setRecGainText(`REC GAIN: ${Math.round(newRecGain * 100)}`);
-    },
-    onThrowComplete: function () {
-      console.log(`Rec-gain dial drag complete.`);
-    }
-  });
-  ////////////////// REC-GAIN DIAL END //////////////////////////////
-  ////////////////// VOLUME DIAL START //////////////////////////////
-  const volumeDial = document.querySelectorAll('.volume-dial')
-  Draggable.create(volumeDial, {
-    type: 'rotation',
-    bounds: { minRotation: -120, maxRotation: 120 },
-    inertia: true,
-    onDrag: function () {
-      const angle = this.rotation;
-      console.log(`Volume dial is being dragged. Angle: ${angle}`);
-      const newVolume = (angle + 120) / 239;
-      setVolume(newVolume);
-      setVolumeText(`Volume: ${Math.round(newVolume * 100)}`);
-    },
-    onThrowUpdate: function () {
-      const angle = this.rotation;
-      console.log(`Volume dial is being updated. Angle: ${angle}`);
-      const newVolume = (angle + 120) / 239;
-      setVolume(newVolume);
-      setVolumeText(`Volume: ${Math.round(newVolume * 100)}`);
-    },
-    onThrowComplete: function () {
-      console.log(`Volume dial drag complete.`);
-    }
-  });
-  ////////////////// VOLUME DIAL END //////////////////////////////
-  ////////////////// DATA DIAL START //////////////////////////////
-  const dial = document.querySelector('.data-dial')
-  Draggable.create(dial, {
-    type: 'rotation',
-    bounds: { minRotation: -10000, maxRotation: 10000 },
-    inertia: true,
-    onDrag: function () {
-      const angle = this.rotation;
-      console.log(`Dial is being dragged. Angle: ${angle}`);
-      setDataText(`DATA: ${angle}`);  
-    },
-    onThrowUpdate: function () {
-      const angle = this.rotation;
-      console.log(`Dial is being updated. Angle: ${angle}`);
-      setDataText(`Data: ${angle}`);
-    },
-    onThrowComplete: function () {
-      console.log(`Dial drag complete.`);
-    }
-  });
-  ////////////////// DATA DIAL END ///////////////////////////////
-  ////////////////// FUNCTIONS START ///////////////////////////////
+
+  useEffect(() => {
+    // REC-GAIN DIAL
+    const recGainDial = document.querySelector('.rec-gain-dial');
+    Draggable.create(recGainDial, {
+      type: 'rotation',
+      bounds: { minRotation: -120, maxRotation: 120 },
+      inertia: true,
+      onDrag: function () {
+        const angle = this.rotation;
+        const newRecGain = (angle + 120) / 239;
+        setRecGainText(`REC GAIN: ${Math.round(newRecGain * 100)}`);
+      },
+      onThrowUpdate: function () {
+        const angle = this.rotation;
+        const newRecGain = (angle + 120) / 239;
+        setRecGainText(`REC GAIN: ${Math.round(newRecGain * 100)}`);
+      },
+    });
+
+    // VOLUME DIAL
+    const volumeDial = document.querySelector('.volume-dial');
+    Draggable.create(volumeDial, {
+      type: 'rotation',
+      bounds: { minRotation: -120, maxRotation: 120 },
+      inertia: true,
+      onDrag: function () {
+        const angle = this.rotation;
+        const newVolume = (angle + 120) / 239;
+        setVolume(newVolume);
+        setVolumeText(`Volume: ${Math.round(newVolume * 100)}`);
+      },
+      onThrowUpdate: function () {
+        const angle = this.rotation;
+        const newVolume = (angle + 120) / 239;
+        setVolume(newVolume);
+        setVolumeText(`Volume: ${Math.round(newVolume * 100)}`);
+      },
+    });
+
+    // DATA DIAL
+    const dataDial = document.querySelector('.data-dial');
+    Draggable.create(dataDial, {
+      type: 'rotation',
+      bounds: { minRotation: -10000, maxRotation: 10000 },
+      inertia: true,
+      onDrag: function () {
+        const angle = this.rotation;
+        setDataText(`DATA: ${angle}`);
+      },
+      onThrowUpdate: function () {
+        const angle = this.rotation;
+        setDataText(`DATA: ${angle}`);
+      },
+    });
+  }, []);
+
   const handlePadClick = (event) => {
     if (!isPoweredOn) return;
 
@@ -142,14 +128,6 @@ const DrumMachine = () => {
     }
   };
 
-  // const handleVolumeChange = (event) => {
-  //   const newVolume = event.target.value / 100;
-  //   setVolume(newVolume);
-  //   setVolumeText(`Volume: ${Math.round(newVolume * 100)}`);
-  // };
-
-  ////////////////// FUNCTIONS END ///////////////////////////////
-  ////////////////// HTML START ///////////////////////////////
   return (
     <div id='container'>
       <div id='power-button' onClick={togglePower}>
@@ -164,13 +142,9 @@ const DrumMachine = () => {
                 <div id='display-border'>
                   <div id='display-spans'>
                     <span id='time'>{currentTime.toLocaleTimeString()}</span>
-
                     <span id='display-text'>{displayText}</span>
-
                     <span id='volume'>{volumeText}</span>
-
                     <span id='data-text'>{dataText}</span>
-
                     <span id='rec-gain-text'>{recGainText}</span>
                   </div>
                 </div>
@@ -207,7 +181,7 @@ const DrumMachine = () => {
                 <div id='data'>DATA</div>
               </div>
               <div id='data-knob' className="data-dial">
-              <img id='dial-png3' src='https://www.svgrepo.com/show/521865/sun.svg' alt='Dial'/>
+                <img id='dial-png3' src='https://www.svgrepo.com/show/521865/sun.svg' alt='Dial'/>
                 <div id='inner-knob'>
                   <div id='knob'></div>
                 </div>
@@ -226,10 +200,7 @@ const DrumMachine = () => {
                     type="range"
                     min="1"
                     max="100"
-                    // value={volume * 100}
                     className="volume-slider"
-                    // id="volume-range"
-                    // onChange={handleVolumeChange}
                     disabled={!isPoweredOn}
                   />
                 </div>
@@ -256,7 +227,7 @@ const DrumMachine = () => {
         </div>
         <div id='right-col'>
           <div id='logo'>
-          <span id='H'>H</span>
+            <span id='H'>H</span>
             <img id='akai-logo' src='https://musiccitycanada.com/cdn/shop/collections/akai_1200x630.png?v=1554830919' alt='Akai Logo' />
             <div id='logo-div'>FCC<strong>2000</strong>XL
               <div id='line'></div>
@@ -293,34 +264,34 @@ const DrumMachine = () => {
                 </div>
             </div>
             <div id='panel-bottom'>
-            <div id='panel-bottom-left'>
+              <div id='panel-bottom-left'>
                 <div id='full-level'>
                   <span id='next-seq-span'>NEXT SEQ</span>
                   <div id='next-seq-light' className={isPoweredOn ? 'full-level-on' : 'full-level-off'}></div>
                   <span>TRACK MUTE</span>
                   <div id='sixteen-levels-light' className={isPoweredOn ? 'sixteen-levels-on' : 'sixteen-levels-off'}></div>
                 </div>
-            </div>
-            <div id='panel-bottom-right'>
-              <div id='pad-bank-line'>
-                <div id='pad-bank-top-border'></div>
-                <span id='pad-bank-label'>PAD BANK</span>
-                <div id='pad-bank-labels'>
-                  <div>A<div id='pad-bank-a-light' className={isPoweredOn ? 'pad-bank-a-on' : 'pad-bank-a-off'}></div></div>
-                  <div>B<div id='pad-bank-b-light' className={isPoweredOn ? 'pad-bank-b-on' : 'pad-bank-b-off'}></div></div>
-                  <div>C<div id='pad-bank-c-light' className={isPoweredOn ? 'pad-bank-c-on' : 'pad-bank-c-off'}></div></div>
-                  <div>D<div id='pad-bank-d-light' className={isPoweredOn ? 'pad-bank-d-on' : 'pad-bank-d-off'}></div></div>
+              </div>
+              <div id='panel-bottom-right'>
+                <div id='pad-bank-line'>
+                  <div id='pad-bank-top-border'></div>
+                  <span id='pad-bank-label'>PAD BANK</span>
+                  <div id='pad-bank-labels'>
+                    <div>A<div id='pad-bank-a-light' className={isPoweredOn ? 'pad-bank-a-on' : 'pad-bank-a-off'}></div></div>
+                    <div>B<div id='pad-bank-b-light' className={isPoweredOn ? 'pad-bank-b-on' : 'pad-bank-b-off'}></div></div>
+                    <div>C<div id='pad-bank-c-light' className={isPoweredOn ? 'pad-bank-c-on' : 'pad-bank-c-off'}></div></div>
+                    <div>D<div id='pad-bank-d-light' className={isPoweredOn ? 'pad-bank-d-on' : 'pad-bank-d-off'}></div></div>
+                  </div>
+                </div>
+                <div id='pad-bank-buttons'>
+                  <div className='pad-bank-buttons'></div>
+                  <div className='pad-bank-buttons'></div>
+                  <div className='pad-bank-buttons'></div>
+                  <div className='pad-bank-buttons'></div>
+                  <div className='pad-bank-buttons'></div>
+                  <div className='pad-bank-buttons'></div>
                 </div>
               </div>
-              <div id='pad-bank-buttons'>
-                <div className='pad-bank-buttons'></div>
-                <div className='pad-bank-buttons'></div>
-                <div className='pad-bank-buttons'></div>
-                <div className='pad-bank-buttons'></div>
-                <div className='pad-bank-buttons'></div>
-                <div className='pad-bank-buttons'></div>
-              </div>
-            </div>
             </div>
           </div>
           <div id='drum-pad'>
@@ -381,6 +352,7 @@ const DrumMachine = () => {
 };
 
 export default DrumMachine;
+
 
 
 
