@@ -91,6 +91,20 @@ const DrumMachine = () => {
     });
   }, []);
 
+  useEffect(() => {
+    const AllButtons = document.querySelectorAll('.button');
+
+    AllButtons.forEach(button => {
+      button.addEventListener('click', handleButtonClick);
+    });
+
+    return () => {
+      AllButtons.forEach(button => {
+        button.removeEventListener('click', handleButtonClick);
+      });
+    };
+  }, [isPoweredOn]);
+
   const handlePadClick = (event) => {
     if (!isPoweredOn) return;
 
@@ -124,14 +138,89 @@ const DrumMachine = () => {
       setDataText('');
       setRecGainText('');
     } else {
-      setDisplayText('Power Off');
+      setDisplayText('POWER OFF');
     }
   };
 
+  const handleButtonClick = (event) => {
+    if (!isPoweredOn) return;
+    const button = event.currentTarget;
+    button.classList.add('pressed');
+    setTimeout(() => {
+      button.classList.remove('pressed')
+    }, 100);
+    const buttonName = button.getAttribute('name');
+    console.log(`Button Clicked: ${buttonName}`);
+  
+    const lights = {
+      name: [
+        'assign',
+        'record',
+        'over',
+        'play',
+        'full',
+        'sixteen',
+        'next',
+        'track'
+      ]
+    };
+  
+    //  F Lights START
+    if (buttonName.startsWith('f')) {
+      const fLights = document.querySelectorAll('.f-light');
+      switch (buttonName) {
+        case 'f1':
+          button.classList.add('f-pressed');
+          setTimeout(() => button.classList.remove('f-pressed'), 100);
+          fLights[0].classList.add('f-on');
+          setTimeout(() => fLights[0].classList.remove('f-on'), 100);
+          break;
+        case 'f2':
+          button.classList.add('f-pressed');
+          setTimeout(() => button.classList.remove('f-pressed'), 100);
+          fLights[1].classList.add('f-on');
+          setTimeout(() => fLights[1].classList.remove('f-on'), 100);
+          break;
+        case 'f3':
+          button.classList.add('f-pressed');
+          setTimeout(() => button.classList.remove('f-pressed'), 100);
+          fLights[2].classList.add('f-on');
+          setTimeout(() => fLights[2].classList.remove('f-on'), 100);
+          break;
+        case 'f4':
+          button.classList.add('f-pressed');
+          setTimeout(() => button.classList.remove('f-pressed'), 100);
+          fLights[3].classList.add('f-on');
+          setTimeout(() => fLights[3].classList.remove('f-on'), 100);
+          break;
+        case 'f5':
+          button.classList.add('f-pressed');
+          setTimeout(() => button.classList.remove('f-pressed'), 100);
+          fLights[4].classList.add('f-on');
+          setTimeout(() => fLights[4].classList.remove('f-on'), 100);
+          break;
+        case 'f6':
+          button.classList.add('f-pressed');
+          setTimeout(() => button.classList.remove('f-pressed'), 100);
+          fLights[5].classList.add('f-on');
+          setTimeout(() => fLights[5].classList.remove('f-on'), 100);
+          break;
+        default:
+          break;
+      }
+    } else if (lights.name.includes(buttonName)) {
+      const light = document.querySelector(`#${buttonName}`);
+      light.classList.remove('off');
+      setTimeout(() => light.classList.add('off'), 100);
+      light.classList.add('on');
+      setTimeout(() => light.classList.remove('on'), 100);
+    } 
+  };
+  
   return (
     <div id='container'>
       <div id='power-button' onClick={togglePower}>
-        <div id='power-light' className={isPoweredOn ? 'on' : 'off'}></div>
+        <div id='power-light' className={isPoweredOn ? 'power-on' : 'power-off'}></div>
       </div>
       <div id='drum-machine'>
         <div id='top-line'></div>
@@ -149,35 +238,54 @@ const DrumMachine = () => {
                   </div>
                 </div>
               </div>
+              <div id='f-lights'>
+                <div id='f1' className='f-light'>F1</div>
+                <div id='f2' className='f-light'>F2</div>
+                <div id='f3' className='f-light'>F3</div>
+                <div id='f4' className='f-light'>F4</div>
+                <div id='f5' className='f-light'>F5</div>
+                <div id='f6' className='f-light'>F6</div>
+              </div>
             </div>
           </div>
           <div id='dials'>
             <div id='dials-top'>
-              <div id='f-numbers'>
-                <div className='f-number'><p className='f-labels'>F1</p></div>
-                <div className='f-number'><p className='f-labels'>F2</p></div>
-                <div className='f-number'><p className='f-labels'>F3</p></div>
-                <div className='f-number'><p className='f-labels'>F4</p></div>
-                <div className='f-number'><p className='f-labels'>F5</p></div>
-                <div className='f-number'><p className='f-labels'>F6</p></div>
+              <div id='f-buttons'>
+                <p className='f-button-labels' >F1</p>
+                <div className='button f-button' name='f1'></div>
+                  
+                <p className='f-button-labels'>F2</p>
+                <div className='button f-button' name='f2'></div>
+                  
+                <p className='f-button-labels'>F3</p>
+                <div className='button f-button' name='f3'></div>
+                  
+                <p className='f-button-labels'>F4</p>
+                <div className='button f-button' name='f4'></div>
+                  
+                <p className='f-button-labels'>F5</p>
+                <div className='button f-button' name='f5'></div>
+                  
+                <p className='f-button-labels'>F6</p>
+                <div className='button f-button' name='f6'></div>
               </div>
               <div id='blue-buttons-container'>
-                <span className='shift no-shift'>7<div className='blue-buttons'></div><span className='blue-button-label-spans'>MIXER</span></span>
-                <span className='shift no-shift'>8<div className='blue-buttons'></div><span className='blue-button-label-spans'>OTHER</span></span>
-                <span className='shift no-shift'>9<div className='blue-buttons'></div><span className='blue-button-label-spans'>MIDI/SYNC</span></span>
-                <span className='shift no-shift'>4<div className='blue-buttons'></div><span className='blue-button-label-spans'>SAMPLE</span></span>
-                <span className='shift no-shift'>5<div className='blue-buttons'></div><span className='blue-button-label-spans'>TRIM</span></span>
-                <span className='shift no-shift'>6<div className='blue-buttons'></div><span className='blue-button-label-spans'>PROGRAM</span></span>
-                <span className='shift no-shift'>1<div className='blue-buttons'></div><span className='blue-button-label-spans'>SOUND</span></span>
-                <span className='shift no-shift'>2<div className='blue-buttons'></div><span className='blue-button-label-spans'>MISC.</span></span>
-                <span className='shift no-shift'>3<div className='blue-buttons '></div><span className='blue-button-label-spans'>LOAD</span></span>
-                <span className='shift'>SHIFT<div className='blue-buttons white-button left'></div></span>
-                <span className='shift no-shift'>0<div className='blue-buttons '></div></span>
-                <span className='shift no-shift'>ENTER<div className='blue-buttons white-button left'></div><span className='blue-button-label-spans'>SAVE</span></span>
+                <span className='shift no-shift'>7<div className='button blue-buttons' name='mixer'></div><span className='blue-button-label-spans'>MIXER</span></span>
+                <span className='shift no-shift'>8<div className='button blue-buttons' name='other'></div><span className='blue-button-label-spans'>OTHER</span></span>
+                <span className='shift no-shift'>9<div className='button blue-buttons' name='midi/sync'></div><span className='blue-button-label-spans'>MIDI/SYNC</span></span>
+                <span className='shift no-shift'>4<div className='button blue-buttons' name='sample'></div><span className='blue-button-label-spans'>SAMPLE</span></span>
+                <span className='shift no-shift'>5<div className='button blue-buttons' name='trim'></div><span className='blue-button-label-spans'>TRIM</span></span>
+                <span className='shift no-shift'>6<div className='button blue-buttons' name='program'></div><span className='blue-button-label-spans'>PROGRAM</span></span>
+                <span className='shift no-shift'>1<div className='button blue-buttons' name='sound'></div><span className='blue-button-label-spans'>SOUND</span></span>
+                <span className='shift no-shift'>2<div className='button blue-buttons' name='misc'></div><span className='blue-button-label-spans'>MISC.</span></span>
+                <span className='shift no-shift'>3<div className='button blue-buttons' name='load'></div><span className='blue-button-label-spans'>LOAD</span></span>
+                <span className='shift'>SHIFT<div className='button blue-buttons white-button left' name='shift'></div></span>
+                <span className='shift no-shift'>0<div className='button blue-buttons' name='0'></div></span>
+                <span className='shift no-shift'>ENTER<div className='button blue-buttons white-button left' name='enter'></div><span className='blue-button-label-spans'>SAVE</span></span>
               </div>
               <div id='above-data-dial'>
-                <div id='main-screen-button' className='above-dd-btns'><span id='main-screen-label'>MAIN SCREEN</span></div>
-                <div id='open-window-button' className='above-dd-btns'><span id='open-window-label'>OPEN WINDOW</span></div>
+                <div id='main-screen-button' className='button above-dd-btns' name='main screen'><span id='main-screen-label'>MAIN SCREEN</span></div>
+                <div id='open-window-button' className='button above-dd-btns' name='open window'><span id='open-window-label'>OPEN WINDOW</span></div>
                 <div id='data'>DATA</div>
               </div>
               <div id='data-knob' className="data-dial">
@@ -192,15 +300,15 @@ const DrumMachine = () => {
                 <div id='bottom-left-top'>
                   <div id='note-variation'>NOTE<br></br>VARIATION</div>
                   <div id='after'>AFTER</div>
-                  <div id='bottom-left-light'><div id='after-light' className={isPoweredOn ? 'after-on' : 'after-off'}></div></div>
-                  <div id='bottom-left-button'><span id='assign'></span></div>
+                  <div id='bottom-left-light'><div id='assign' className='off'></div></div>
+                  <div id='bottom-left-button' className='button' name='assign'><span id='assign-span'>ASSIGN</span></div>
                 </div>
-                <div id="volume-container">
+                <div id="note-variation-container">
                   <input
                     type="range"
                     min="1"
                     max="100"
-                    className="volume-slider"
+                    className="note-variation-slider"
                     disabled={!isPoweredOn}
                   />
                 </div>
@@ -215,11 +323,11 @@ const DrumMachine = () => {
                     <div className='bottom-left-right-bottom-row-1-buttons'></div>
                   </div>
                   <div id='bottom-left-right-bottom-row-2'>
-                    <div className='bottom-left-right-bottom-row-2-buttons red-button'><div id='rec-light' className={isPoweredOn ? 'rec-on' : 'rec-off'}></div><div id='bottom-left-light'></div><span id='rec'>REC</span></div>
-                    <div className='bottom-left-right-bottom-row-2-buttons red-button'><div id='over-dub-light' className={isPoweredOn ? 'over-dub-on' : 'over-dub-off'}></div><span id='over-dub'><div id='bottom-left-light'></div>OVER<br></br>DUB</span></div>
-                    <div className='bottom-left-right-bottom-row-2-buttons'><span id='stop'>STOP</span></div>
-                    <div className='bottom-left-right-bottom-row-2-buttons'><div id='play-light' className={isPoweredOn ? 'play-on' : 'play-off'}></div><span id='play'><div id='bottom-left-light'></div>PLAY</span></div>
-                    <div className='bottom-left-right-bottom-row-2-buttons'><span id='play-start'>PLAY<br></br>START</span></div>
+                    <div className='bottom-left-right-bottom-row-2-buttons red-button button' name='record'><div id='record' className='off'></div><div id='bottom-left-light'></div><span id='rec'>REC</span></div>
+                    <div className='bottom-left-right-bottom-row-2-buttons red-button button' name='over'><div id='over' className='off'></div><span id='over-dub'><div id='bottom-left-light'></div>OVER<br></br>DUB</span></div>
+                    <div className='bottom-left-right-bottom-row-2-buttons button' name='stop'><span id='stop'>STOP</span></div>
+                    <div className='bottom-left-right-bottom-row-2-buttons button' name='play'><div id='play' className='off'></div><span id='play-span'><div id='bottom-left-light'></div>PLAY</span></div>
+                    <div className='bottom-left-right-bottom-row-2-buttons button' name='play start'><span id='play-start'>PLAY<br></br>START</span></div>
                   </div>
                 </div>
             </div>
@@ -237,13 +345,13 @@ const DrumMachine = () => {
           <div id='panel'>
             <div id='panel-top'>
               <div id='panel-top-left'>
-                <div id='full-level'>
+                <div id='full-level-div'>
                   <span id='full-level-span'>FULL LEVEL</span>
-                  <div id='full-level-light' className={isPoweredOn ? 'full-level-on' : 'full-level-off'}></div>
-                  <div id='Aa'><span id='Aa-span'>A/a</span></div>
+                  <div id='full' className={isPoweredOn ? 'full-on' : 'off'}></div>
+                  <div id='Aa' className='button' name='full'><span id='Aa-span'>A/a</span></div>
                   <span>16 LEVELS</span>
-                  <div id='sixteen-levels-light' className={isPoweredOn ? 'sixteen-levels-on' : 'sixteen-levels-off'}></div>
-                  <div id='space'><span id='space-span'>SPACE</span></div>
+                  <div id='sixteen' className='off'></div>
+                  <div id='space' className='button' name='sixteen'><span id='space-span'>SPACE</span></div>
                 </div>
               </div>
               <div id='panel-top-right'>
@@ -265,11 +373,11 @@ const DrumMachine = () => {
             </div>
             <div id='panel-bottom'>
               <div id='panel-bottom-left'>
-                <div id='full-level'>
-                  <span id='next-seq-span'>NEXT SEQ</span>
-                  <div id='next-seq-light' className={isPoweredOn ? 'full-level-on' : 'full-level-off'}></div>
-                  <span>TRACK MUTE</span>
-                  <div id='sixteen-levels-light' className={isPoweredOn ? 'sixteen-levels-on' : 'sixteen-levels-off'}></div>
+                <div id='panel-bottom-left-inner'>
+                  <div id='next-seq-span'>NEXT SEQ</div>
+                  <div id='next' className='off'></div>
+                  <div>TRACK MUTE</div>
+                  <div id='track' className='off'></div>
                 </div>
               </div>
               <div id='panel-bottom-right'>
@@ -284,12 +392,12 @@ const DrumMachine = () => {
                   </div>
                 </div>
                 <div id='pad-bank-buttons'>
-                  <div className='pad-bank-buttons'></div>
-                  <div className='pad-bank-buttons'></div>
-                  <div className='pad-bank-buttons'></div>
-                  <div className='pad-bank-buttons'></div>
-                  <div className='pad-bank-buttons'></div>
-                  <div className='pad-bank-buttons'></div>
+                  <div className='pad-bank-buttons button' name='next'></div>
+                  <div className='pad-bank-buttons button' name='track'></div>
+                  <div className='pad-bank-buttons button' name='pad bank a'></div>
+                  <div className='pad-bank-buttons button' name='pad bank b'></div>
+                  <div className='pad-bank-buttons button' name='pad bank c'></div>
+                  <div className='pad-bank-buttons button' name='pad bank d'></div>
                 </div>
               </div>
             </div>
