@@ -987,11 +987,13 @@
 }
 
 #dial-png3 {
+
     position: absolute;
     transform: rotate(-22.5deg);
     margin-top: 2.5px;
-    margin-left: 3px;
+    margin-left: 2.5px;
     width: 145px;
+    border-radius: 60%;
 }
 
 
