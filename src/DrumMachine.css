@@ -6,6 +6,13 @@
     justify-content: center;
 }
 
+/* #shape {
+    position: absolute;
+    height: 20px;
+    width: 200px;
+    background-image: radial-gradient(120% 120px at 50% -30px, rgb(242, 238, 209) 75%, transparent 75%);
+  } */
+
 
 #drum-machine {
     width: 59%;
@@ -15,7 +22,6 @@
     gap: 2.5em;
     padding: 30px;
     background-color: rgb(242, 238, 209);
-
     clip-path: polygon(
         5% 0,   /* Top-left corner */
         95% 0,  /* Top-right corner */
@@ -46,7 +52,8 @@
     margin-top: 10px;
     
     
-    border-bottom: 1px solid beige;
+    
+    box-shadow: -2.5px -2.5px 5px .5px #000000;
     
     
 }
@@ -698,7 +705,7 @@
 #bottom-line {
     position: absolute;
     width: 100%;
-    border-top: 1px solid beige;
+    
     top: 877px;
     right: 20px;
     

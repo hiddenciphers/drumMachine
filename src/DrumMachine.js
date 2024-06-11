@@ -493,6 +493,7 @@ const DrumMachine = () => {
         </div>
         <div id='bottom-line'></div>
       </div>
+      {/* <div id='shape'></div> */}
     </div>
   );
 };
