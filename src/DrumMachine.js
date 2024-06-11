@@ -228,6 +228,7 @@ const DrumMachine = () => {
       <div id='power-button' onClick={togglePower}>
         <div id='power-light' className={isPoweredOn ? 'power-on' : 'power-off'}></div>
       </div>
+      <div id='top-cover'></div>
       <div id='drum-machine'>
         <div id='top-line'></div>
         {/* LEFT COLUMN START */}
@@ -347,16 +348,16 @@ const DrumMachine = () => {
                         <div id='cursor-bottom' className='button' name='cursor-bottom'><img id='chevron-down' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Down'/></div>
                       </div>
                       <div id='cursor-right' className='button' name='cursor-right'><img id='chevron-right' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Right'/></div>
-                      <span id='digit-span'><img id='chevron-left-small' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Left'/>DIGIT<img id='chevron-right-small' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Right'/></span>
+                      <span id='digit-span'><img id='chevron-left-small' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Left'/><span className='digit-span-gap'></span> DIGIT<span className='digit-span-gap'></span> <img id='chevron-right-small' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Right'/></span>
                     </div>
                   </div>
               <div id='bottom-left-right-bottom'>
                   <div id='bottom-left-right-bottom-row-1'><span id='locate'>LOCATE</span>
-                    <div className='bottom-left-right-bottom-row-1-buttons'></div>
-                    <div className='bottom-left-right-bottom-row-1-buttons'></div>
-                    <div className='bottom-left-right-bottom-row-1-buttons'></div>
-                    <div className='bottom-left-right-bottom-row-1-buttons'></div>
-                    <div className='bottom-left-right-bottom-row-1-buttons'></div>
+                    <div className='bottom-left-right-bottom-row-1-buttons button' name='step left'></div>
+                    <div className='bottom-left-right-bottom-row-1-buttons button' name='step-right'></div>
+                    <div className='bottom-left-right-bottom-row-1-buttons button' name='go to'></div>
+                    <div className='bottom-left-right-bottom-row-1-buttons button' name='bar left'></div>
+                    <div className='bottom-left-right-bottom-row-1-buttons button' name='bar right'></div>
                   </div>
                   <div id='bottom-left-right-bottom-row-2'>
                     <div className='bottom-left-right-bottom-row-2-buttons red-button button' name='record'><div id='record' className='off'></div><div id='bottom-left-light'></div><span id='rec'>REC</span></div>

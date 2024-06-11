@@ -8,13 +8,14 @@
 
 
 #drum-machine {
-    width: 58.4%;
+    width: 59%;
     height: 95%;
     display: flex;
     flex-direction: row;
     gap: 2.5em;
     padding: 30px;
     background-color: rgb(242, 238, 209);
+
     clip-path: polygon(
         5% 0,   /* Top-left corner */
         95% 0,  /* Top-right corner */
@@ -26,8 +27,31 @@
         0 5% /* Top-left corner */
     );
 }
+#top-cover {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 40px;
+    margin-left: -30px;
+    margin-top: -25px;
+    background-color: #0a0a23;
+    z-index: 1;
+}
 
-#left-col {
+#top-line {
+    position: absolute;
+    width: 100%;
+    
+    right: 20px;
+    margin-top: 10px;
+    
+    
+    border-bottom: 1px solid beige;
+    
+    
+}
+
+#left-col { 
     display: flex;
     flex-direction: column;
     gap: 2em;
@@ -42,16 +66,17 @@
     padding: 10px 20px 10px 20px;
     background-color: rgb(58, 56, 56);
     clip-path: polygon(
-        5% 0,   /* Top-left corner */
-        95% 0,  /* Top-right corner */
+        2.5% 0,   /* Top-left corner */
+        97.5% 0,  /* Top-right corner */
         100% 5%, /* Top-right corner */
         100% 95%, /* Bottom-right corner */
-        95% 100%, /* Bottom-right corner */
-        5% 100%, /* Bottom-left corner */
+        97.5% 100%, /* Bottom-right corner */
+        2.5% 100%, /* Bottom-left corner */
         0 95%, /* Bottom-left corner */
         0 5% /* Top-left corner */
     );
     margin-bottom: -30px;
+    
 }
 
 #inner-display {
@@ -184,25 +209,26 @@
 
 #power-light {
     border: 0.5px solid black;
-    width: 5px;
-    height: 5px; 
+    width: 2.5px;
+    height: 2.5px; 
     border-radius: 60px;
 }
 
 #power-button {
-    position: relative;
-    border: .5px solid black;
-    width: 25px;
-    height: 20px;
-    border-radius: 4px;
+    position: absolute;
+    border: .1px solid rgba(211, 211, 211, 0.173);
+    width: 30px;
+    height: 15px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
     background-color: rgb(30, 30, 30);
-    left: 135px;
-    bottom: 20px;
-    z-index: 0;
+    left: 472.5px;
+    bottom: 882px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    z-index: 2;
 }
 
 #power-button:hover {
@@ -386,7 +412,7 @@
     gap: 1em;
     align-content: center;
     justify-content: space-between;
-    margin-left: -12px;
+    margin-left: -11px;
     text-align: center;
     margin-top: 70px;
     
@@ -584,7 +610,7 @@
 #stop {
     position: absolute;
     margin-top: -20px;
-    margin-left: -8px;
+    margin-left: -10px;
 }
 
 #play-span {
@@ -672,20 +698,15 @@
 #bottom-line {
     position: absolute;
     width: 100%;
-    border-top: 1px solid black;
+    border-top: 1px solid beige;
     top: 877px;
     right: 20px;
     
-}
-
-#top-line {
-    position: absolute;
-    width: 100%;
-    border-top: 1px solid beige;
-    right: 20px;
-    margin-top: 10px;
+    box-shadow: 2.5px 2.5px 5px .5px #000000;
     
 }
+
+
 
 #assign {
     border: 0.5px solid black;
@@ -1298,8 +1319,15 @@
     position: absolute;
     font-size: 7px;
     background-color: darkgray;
-    left: 26.5px;
+    left: 16.5px;
     top: 85px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+
+    .digit-span-gap {
+        width: 5px;
+    }
 }
 
 #cursor-button-middle-container {
