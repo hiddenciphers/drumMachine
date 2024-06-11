@@ -156,7 +156,6 @@
 
 #drum-pad {
     padding: 40px 30px 40px 30px;
-    border: 1px solid black;
     width: 420px;
     height: 47%;
     display: flex;
@@ -169,6 +168,7 @@
     background-color: darkgrey;
     border-radius: 2px;
     margin-left: 25px;
+    
 }
 
 .drum-pad {
@@ -997,7 +997,6 @@
 
 
 #panel {
-    border: 1px solid black;
     height: 155px;
     width: 480px;
     background-color: darkgrey;
