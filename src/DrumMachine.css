@@ -1298,7 +1298,7 @@
     position: absolute;
     font-size: 7px;
     background-color: darkgray;
-    left: 25px;
+    left: 26.5px;
     top: 85px;
 }
 
@@ -1402,6 +1402,15 @@
 #chevron-right-small {
     transform: rotate(270deg);
     width: 5px;
+}
+
+#erase {
+    height: 9px; 
+}
+
+#erase-span {
+    top: 7px;
+    position: absolute; 
 }
 
 
