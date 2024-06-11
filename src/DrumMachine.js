@@ -145,12 +145,17 @@ const DrumMachine = () => {
   const handleButtonClick = (event) => {
     if (!isPoweredOn) return;
     const button = event.currentTarget;
+    const buttonName = button.getAttribute('name');
+    console.log(`Button Clicked: ${buttonName}`);
+    if (buttonName.startsWith('c')) {
+      return;
+    } else {
     button.classList.add('pressed');
     setTimeout(() => {
       button.classList.remove('pressed')
     }, 100);
-    const buttonName = button.getAttribute('name');
-    console.log(`Button Clicked: ${buttonName}`);
+    }
+    
   
     const lights = {
       name: [
@@ -161,7 +166,8 @@ const DrumMachine = () => {
         'full',
         'sixteen',
         'next',
-        'track'
+        'track',
+        'undo'
       ]
     };
   
@@ -224,6 +230,7 @@ const DrumMachine = () => {
       </div>
       <div id='drum-machine'>
         <div id='top-line'></div>
+        {/* LEFT COLUMN START */}
         <div id='left-col'>
           <div id='display-container'>
             <div id='inner-display'>
@@ -313,8 +320,37 @@ const DrumMachine = () => {
                   />
                 </div>
               </div>
+                  <div id='bottom-left-right-top-container'>
+                    <div id='tap-tempo'><span id='tap-tempo-span'>TAP TEMPO NOTE REPEAT</span></div>
+                    <div id='tap-tempo-button' className='button' name='tempo'></div>
+                  </div>
+                  <div id='bottom-left-right-mid-container'>
+                    <div id='undo-seq'><span id='undo-seq-span'>UNDO SEQ</span><div id='undo' className='off'></div></div>
+                    <div id='undo-seq-button' className='button' name='undo'></div>
+                  </div>
+                  <div id='bottom-left-right-bottom-container'>
+                    <div id='erase'><span id='erase-span'>ERASE</span></div>
+                    <div id='erase-button' className='button' name='erase'></div>
+                  </div>
+                  <div id='bottom-left-right-bottom-right-container'>
+                    <div id='cursor'><span id='cursor-span'>CURSOR</span></div>
+                    <div id='cursor-buttons'>
+                      <div id='line-top-left'></div>
+                
+                      <div id='line-top-right'></div>
+                      <div id='line-bottom-left'></div>
+                      <div id='line-bottom-right'></div>
+                      <div id='cursor-left' className='button' name='cursor-left'><img id='chevron-left' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Left'/></div>
+                      <div id='cursor-button-middle-container'>
+                        <div id='cursor-top' className='button' name='cursor-top'><img id='chevron-up' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Up'/></div>
+                        <div id='line-middle'></div>
+                        <div id='cursor-bottom' className='button' name='cursor-bottom'><img id='chevron-down' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Down'/></div>
+                      </div>
+                      <div id='cursor-right' className='button' name='cursor-right'><img id='chevron-right' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Right'/></div>
+                      <span id='digit-span'><img id='chevron-left-small' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Left'/>DIGIT<img id='chevron-right-small' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Right'/></span>
+                    </div>
+                  </div>
               <div id='bottom-left-right-bottom'>
-                  <div id='bottom-left-right-bottom-row-0'></div>
                   <div id='bottom-left-right-bottom-row-1'><span id='locate'>LOCATE</span>
                     <div className='bottom-left-right-bottom-row-1-buttons'></div>
                     <div className='bottom-left-right-bottom-row-1-buttons'></div>
@@ -333,6 +369,7 @@ const DrumMachine = () => {
             </div>
           </div>
         </div>
+        {/* RIGHT COLUMN START */}
         <div id='right-col'>
           <div id='logo'>
             <span id='H'>H</span>
