@@ -341,15 +341,55 @@ const DrumMachine = () => {
                       <div id='line-top-right'></div>
                       <div id='line-bottom-left'></div>
                       <div id='line-bottom-right'></div>
-                      <div id='cursor-left' className='button' name='cursor-left'><img id='chevron-left' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Left'/></div>
-                      <div id='cursor-button-middle-container'>
-                        <div id='cursor-top' className='button' name='cursor-top'><img id='chevron-up' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Up'/></div>
-                        <div id='line-middle'></div>
-                        <div id='cursor-bottom' className='button' name='cursor-bottom'><img id='chevron-down' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Down'/></div>
-                      </div>
-                      <div id='cursor-right' className='button' name='cursor-right'><img id='chevron-right' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Right'/></div>
-                      <span id='digit-span'><img id='chevron-left-small' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Left'/><span className='digit-span-gap'></span> DIGIT<span className='digit-span-gap'></span> <img id='chevron-right-small' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Right'/></span>
-                    </div>
+                        <div id='cursor-left' className='button' name='cursor-left'>
+                          <svg fill="rgb(6, 104, 184)" id="chevron-left" viewBox="0 0 51.388 51.388">
+                            <g>
+                        	  <g>
+                        		<path d="M9.169,51.388c-0.351,0-0.701-0.157-0.93-0.463c-0.388-0.514-0.288-1.243,0.227-1.634l31.066-23.598L8.461,2.098
+                        			C7.95,1.708,7.85,0.977,8.237,0.463c0.395-0.517,1.126-0.615,1.64-0.225l33.51,25.456L9.877,51.151
+                        			C9.664,51.31,9.415,51.388,9.169,51.388z"/>
+                        	  </g>
+                            </g>
+                          </svg>
+                        </div>
+                        <div id='cursor-button-middle-container'>
+                          <div id='cursor-top' className='button' name='cursor-top'>
+                            <svg fill="rgb(6, 104, 184)" id="chevron-up" viewBox="0 0 51.388 51.388">
+                            <g>
+                      	    <g>
+                      		  <path d="M9.169,51.388c-0.351,0-0.701-0.157-0.93-0.463c-0.388-0.514-0.288-1.243,0.227-1.634l31.066-23.598L8.461,2.098
+                      			C7.95,1.708,7.85,0.977,8.237,0.463c0.395-0.517,1.126-0.615,1.64-0.225l33.51,25.456L9.877,51.151
+                      			C9.664,51.31,9.415,51.388,9.169,51.388z"/>
+                      	    </g>
+                            </g>
+                            </svg>
+                          </div>
+                          <div id='line-middle'></div>
+                            <div id='cursor-bottom' className='button' name='cursor-bottom'>
+                              <svg fill="rgb(6, 104, 184)" id="chevron-down" viewBox="0 0 51.388 51.388">
+                              <g>
+                      	      <g>
+                      		    <path d="M9.169,51.388c-0.351,0-0.701-0.157-0.93-0.463c-0.388-0.514-0.288-1.243,0.227-1.634l31.066-23.598L8.461,2.098
+                      			  C7.95,1.708,7.85,0.977,8.237,0.463c0.395-0.517,1.126-0.615,1.64-0.225l33.51,25.456L9.877,51.151
+                      			  C9.664,51.31,9.415,51.388,9.169,51.388z"/>
+                      	      </g>
+                              </g>
+                              </svg>
+                            </div>
+                          </div>
+                          <div id='cursor-right' className='button' name='cursor-right'>
+                            <svg fill="rgb(6, 104, 184)" id="chevron-right" viewBox="0 0 51.388 51.388">
+                              <g>
+                      	      <g>
+                      		    <path d="M9.169,51.388c-0.351,0-0.701-0.157-0.93-0.463c-0.388-0.514-0.288-1.243,0.227-1.634l31.066-23.598L8.461,2.098
+                      			  C7.95,1.708,7.85,0.977,8.237,0.463c0.395-0.517,1.126-0.615,1.64-0.225l33.51,25.456L9.877,51.151
+                      			  C9.664,51.31,9.415,51.388,9.169,51.388z"/>
+                      	      </g>
+                              </g>
+                            </svg>
+                          </div>
+                          <span id='digit-span'><img id='chevron-left-small' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Left'/><span className='digit-span-gap'></span> DIGIT<span className='digit-span-gap'></span> <img id='chevron-right-small' src='https://cdn-icons-png.flaticon.com/512/120/120890.png' alt='Chevron Right'/></span>
+                        </div>
                   </div>
               <div id='bottom-left-right-bottom'>
                   <div id='bottom-left-right-bottom-row-1'><span id='locate'>LOCATE</span>
@@ -357,19 +397,43 @@ const DrumMachine = () => {
                       <span id='step-chevron-left'><img id='step-chev-left' className='chev' src='https://ipfs.io/ipfs/QmbyuMMHpBoEQgvVXHx31Y1txzofyuYe1BqxXEQ5zUpGxU?filename=chevron.png' alt='Chevron Left'/></span>
                       <span id='step-span'>STEP</span>
                       <span id='step-chevron-right'><img id='step-chev-right' className='chev' src='https://ipfs.io/ipfs/QmbyuMMHpBoEQgvVXHx31Y1txzofyuYe1BqxXEQ5zUpGxU?filename=chevron.png' alt='Chevron Right'/></span>
-                      
                       <span id='goto-span'>GO TO</span>
                       <span id='bar-chevron-left'><img id='bar-chev-left' className='bar-chev' src='https://ipfs.io/ipfs/QmPQU3m2FrjsXZBu2x9jSfqDRaMgY7adpTiSxDK64yT8hd?filename=two-left-chevrons.png' alt='Double Chevron Left'/></span>
                       <span id='bar-span'>BAR</span>
                       <span id='bar-chevron-right'><img id='bar-chev-right' className='bar-chev' src='https://ipfs.io/ipfs/QmPQU3m2FrjsXZBu2x9jSfqDRaMgY7adpTiSxDK64yT8hd?filename=two-left-chevrons.png' alt='Double Chevron Right'/></span>
                     </div>
-
                     <div className='bottom-left-right-bottom-row-1-buttons button' name='step left'></div>
                     <div className='bottom-left-right-bottom-row-1-buttons button' name='step-right'></div>
                     <div className='bottom-left-right-bottom-row-1-buttons button' name='go to'></div>
                     <div className='bottom-left-right-bottom-row-1-buttons button' name='bar left'></div>
-                    
                     <div className='bottom-left-right-bottom-row-1-buttons button' name='bar right'></div>
+                    <div id='locate-bottom-container'>
+                      <span id='event-chev-left-span' className='locate-bottom-labels'>
+                      <svg fill="#ffffff" id="event-chev-left" viewBox="0 0 54 54">
+                        <g>
+                        	<path d="M53,26H10.414l14.293-14.293c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0l-16,16
+                        		c-0.092,0.092-0.165,0.203-0.216,0.325c-0.101,0.245-0.101,0.52,0,0.764c0.051,0.122,0.124,0.233,0.216,0.325l16,16
+                        		C23.488,43.902,23.744,44,24,44s0.512-0.098,0.707-0.293c0.391-0.391,0.391-1.023,0-1.414L10.414,28H53c0.553,0,1-0.448,1-1
+                        		S53.553,26,53,26z"/>
+                        	<path d="M1,10c-0.552,0-1,0.448-1,1v32c0,0.552,0.448,1,1,1s1-0.448,1-1V11C2,10.448,1.552,10,1,10z"/>
+                        </g>
+                      </svg>
+                      </span>
+                      <span id='event-chev-right-span' className='locate-bottom-labels'>
+                      <svg fill="#ffffff" id="event-chev-right" viewBox="0 0 54 54">
+                        <g>
+                        	<path d="M53,26H10.414l14.293-14.293c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0l-16,16
+                        		c-0.092,0.092-0.165,0.203-0.216,0.325c-0.101,0.245-0.101,0.52,0,0.764c0.051,0.122,0.124,0.233,0.216,0.325l16,16
+                        		C23.488,43.902,23.744,44,24,44s0.512-0.098,0.707-0.293c0.391-0.391,0.391-1.023,0-1.414L10.414,28H53c0.553,0,1-0.448,1-1
+                        		S53.553,26,53,26z"/>
+                        	<path d="M1,10c-0.552,0-1,0.448-1,1v32c0,0.552,0.448,1,1,1s1-0.448,1-1V11C2,10.448,1.552,10,1,10z"/>
+                        </g>
+                      </svg>
+                      </span>
+                      <span id='bar-start' className='locate-bottom-labels'>START</span>
+                      <span id='bar-end' className='locate-bottom-labels'>END</span>
+                      <div id='red-line-container'><span id='red-line-left'></span><span id='red-line-divider'></span><span id='red-line-right'></span></div>
+                    </div>
                   </div>
                   <div id='bottom-left-right-bottom-row-2'>
                     <div className='bottom-left-right-bottom-row-2-buttons red-button button' name='record'><div id='record' className='off'></div><div id='bottom-left-light'></div><span id='rec'>REC</span></div>
