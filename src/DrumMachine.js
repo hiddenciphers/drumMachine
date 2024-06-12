@@ -13,6 +13,8 @@ const DrumMachine = () => {
   const [volumeText, setVolumeText] = useState('');
   const [dataText, setDataText] = useState('');
   const [recGainText, setRecGainText] = useState('');
+  const [buttonClickedText, setButtonClickedText] = useState('');
+  const [recordingInfo, setRecordingInfo] = useState('');
 
   useEffect(() => {
     const pads = document.querySelectorAll('.drum-pad');
@@ -62,15 +64,15 @@ const DrumMachine = () => {
       inertia: true,
       onDrag: function () {
         const angle = this.rotation;
-        const newVolume = (angle + 120) / 239;
+        const newVolume = (angle + 120) / 240;
         setVolume(newVolume);
-        setVolumeText(`Volume: ${Math.round(newVolume * 100)}`);
+        setVolumeText(`VOLUME: ${Math.round(newVolume * 100)}`);
       },
       onThrowUpdate: function () {
         const angle = this.rotation;
-        const newVolume = (angle + 120) / 239;
+        const newVolume = (angle + 120) / 240;
         setVolume(newVolume);
-        setVolumeText(`Volume: ${Math.round(newVolume * 100)}`);
+        setVolumeText(`VOLUME: ${Math.round(newVolume * 100)}`);
       },
     });
 
@@ -81,7 +83,7 @@ const DrumMachine = () => {
       bounds: { minRotation: -10000, maxRotation: 10000 },
       inertia: true,
       onDrag: function () {
-        const angle = this.rotation;
+        const angle = Math.floor(this.rotation);
         setDataText(`DATA: ${angle}`);
       },
       onThrowUpdate: function () {
@@ -137,8 +139,10 @@ const DrumMachine = () => {
       setVolumeText('');
       setDataText('');
       setRecGainText('');
+      setButtonClickedText('');
+      setRecordingInfo('');
     } else {
-      setDisplayText('POWER OFF');
+      setDisplayText('');
     }
   };
 
@@ -146,66 +150,80 @@ const DrumMachine = () => {
     if (!isPoweredOn) return;
     const button = event.currentTarget;
     const buttonName = button.getAttribute('name');
-    console.log(`Button Clicked: ${buttonName}`);
-    if (buttonName.startsWith('c')) {
+    const buttonClickedText = document.getElementById('button-clicked-text');
+    // console.log(`Button Clicked: ${buttonName}`);
+    setButtonClickedText(buttonName);
+    buttonClickedText.classList.add('button-clicked-display-text');
+  
+    if (buttonName.startsWith('cursor')) {
       return;
+    } else if (buttonName === 'full-level' || buttonName === 'sixteen-levels' || buttonName.startsWith('step') || buttonName.startsWith('go') || buttonName.startsWith('bar')) {
+        button.classList.add('full-sixteen-pressed');
+        setTimeout(() => {
+        button.classList.remove('full-sixteen-pressed')
+        }, 100);
     } else {
-    button.classList.add('pressed');
-    setTimeout(() => {
-      button.classList.remove('pressed')
-    }, 100);
+        button.classList.add('pressed');
+        setTimeout(() => {
+          button.classList.remove('pressed')
+        }, 100);
     }
+    
+    
+    
     
   
     const lights = {
       name: [
         'assign',
         'record',
-        'over',
+        'over-dub',
         'play',
-        'full',
-        'sixteen',
-        'next',
-        'track',
-        'undo'
+        'full-level',
+        'sixteen-levels',
+        'next-seq',
+        'track-mute',
+        'undo-seq'
       ]
     };
+
+    const fButtons = ['F1', 'F2', 'F3', 'F4', 'F5', 'F6'];
   
     //  F Lights START
-    if (buttonName.startsWith('f')) {
+    if (fButtons.includes(buttonName)) {
       const fLights = document.querySelectorAll('.f-light');
       switch (buttonName) {
-        case 'f1':
+        case 'F1':
           button.classList.add('f-pressed');
           setTimeout(() => button.classList.remove('f-pressed'), 100);
           fLights[0].classList.add('f-on');
           setTimeout(() => fLights[0].classList.remove('f-on'), 100);
           break;
-        case 'f2':
+        case 'F2':
           button.classList.add('f-pressed');
           setTimeout(() => button.classList.remove('f-pressed'), 100);
           fLights[1].classList.add('f-on');
           setTimeout(() => fLights[1].classList.remove('f-on'), 100);
           break;
-        case 'f3':
+        case 'F3':
           button.classList.add('f-pressed');
           setTimeout(() => button.classList.remove('f-pressed'), 100);
           fLights[2].classList.add('f-on');
           setTimeout(() => fLights[2].classList.remove('f-on'), 100);
           break;
-        case 'f4':
+        case 'F4':
           button.classList.add('f-pressed');
           setTimeout(() => button.classList.remove('f-pressed'), 100);
           fLights[3].classList.add('f-on');
           setTimeout(() => fLights[3].classList.remove('f-on'), 100);
           break;
-        case 'f5':
+        case 'F5':
           button.classList.add('f-pressed');
           setTimeout(() => button.classList.remove('f-pressed'), 100);
           fLights[4].classList.add('f-on');
           setTimeout(() => fLights[4].classList.remove('f-on'), 100);
           break;
-        case 'f6':
+        case 'F6':
           button.classList.add('f-pressed');
           setTimeout(() => button.classList.remove('f-pressed'), 100);
           fLights[5].classList.add('f-on');
@@ -235,24 +253,28 @@ const DrumMachine = () => {
         <div id='left-col'>
           <div id='display-container'>
             <div id='inner-display'>
+              <span id='inner-display-text'>INTEGRATED RHYTHM MACHINE 16 BIT DRUM SAMPLER / MIDI SEQUENCER</span>
               <div id='display'>
                 <div id='display-border'>
                   <div id='display-spans'>
-                    <span id='time'>{currentTime.toLocaleTimeString()}</span>
+                    <span id='time'><span>{currentTime.toDateString().slice(4)}</span><span>{currentTime.toLocaleTimeString()}</span><span id='fcc-icon'><img id='fcc' src='https://ipfs.io/ipfs/QmRf5vq8WMTJKXWR4RVTr4rcQk6cZowsZL3AY3FybSUQNz?filename=fcc-logo.png' alt='freeCodeCamp logo' width='20px'/></span></span>
                     <span id='display-text'>{displayText}</span>
-                    <span id='volume'>{volumeText}</span>
-                    <span id='data-text'>{dataText}</span>
-                    <span id='rec-gain-text'>{recGainText}</span>
+                    <span id='volume' className={isPoweredOn ? '' : 'display-info-off'}>{volumeText}</span>
+                    <span id='data-text' className={isPoweredOn ? '' : 'display-info-off'}>{dataText}</span>
+                    <span id='rec-gain-text' className={isPoweredOn ? '' : 'display-info-off'}>{recGainText}</span>
+                    <span id='button-clicked-text' className={isPoweredOn ? '' : 'display-info-off'}>{buttonClickedText}</span>
+                    <span id='recording-info' className={isPoweredOn ? '' : 'display-info-off'}>{recordingInfo}</span>
+                    <span id='data-icon' className={isPoweredOn ? '' : 'display-info-off'}><img src='https://www.svgrepo.com/show/447559/assessment.svg' alt='freeCodeCamp logo' width='30px'/></span>
                   </div>
                 </div>
               </div>
               <div id='f-lights'>
-                <div id='f1' className='f-light'>F1</div>
-                <div id='f2' className='f-light'>F2</div>
-                <div id='f3' className='f-light'>F3</div>
-                <div id='f4' className='f-light'>F4</div>
-                <div id='f5' className='f-light'>F5</div>
-                <div id='f6' className='f-light'>F6</div>
+                <div id='F1' className='f-light'>F1</div>
+                <div id='F2' className='f-light'>F2</div>
+                <div id='F3' className='f-light'>F3</div>
+                <div id='F4' className='f-light'>F4</div>
+                <div id='F5' className='f-light'>F5</div>
+                <div id='F6' className='f-light'>F6</div>
               </div>
             </div>
           </div>
@@ -260,44 +282,44 @@ const DrumMachine = () => {
             <div id='dials-top'>
               <div id='f-buttons'>
                 <p className='f-button-labels' >F1</p>
-                <div className='button f-button' name='f1'></div>
+                <div className='button f-button' name='F1'></div>
                   
                 <p className='f-button-labels'>F2</p>
-                <div className='button f-button' name='f2'></div>
+                <div className='button f-button' name='F2'></div>
                   
                 <p className='f-button-labels'>F3</p>
-                <div className='button f-button' name='f3'></div>
+                <div className='button f-button' name='F3'></div>
                   
                 <p className='f-button-labels'>F4</p>
-                <div className='button f-button' name='f4'></div>
+                <div className='button f-button' name='F4'></div>
                   
                 <p className='f-button-labels'>F5</p>
-                <div className='button f-button' name='f5'></div>
+                <div className='button f-button' name='F5'></div>
                   
                 <p className='f-button-labels'>F6</p>
-                <div className='button f-button' name='f6'></div>
+                <div className='button f-button' name='F6'></div>
               </div>
               <div id='blue-buttons-container'>
-                <span className='shift no-shift'>7<div className='button blue-buttons' name='mixer'></div><span className='blue-button-label-spans'>MIXER</span></span>
-                <span className='shift no-shift'>8<div className='button blue-buttons' name='other'></div><span className='blue-button-label-spans'>OTHER</span></span>
-                <span className='shift no-shift'>9<div className='button blue-buttons' name='midi/sync'></div><span className='blue-button-label-spans'>MIDI/SYNC</span></span>
-                <span className='shift no-shift'>4<div className='button blue-buttons' name='sample'></div><span className='blue-button-label-spans'>SAMPLE</span></span>
-                <span className='shift no-shift'>5<div className='button blue-buttons' name='trim'></div><span className='blue-button-label-spans'>TRIM</span></span>
-                <span className='shift no-shift'>6<div className='button blue-buttons' name='program'></div><span className='blue-button-label-spans'>PROGRAM</span></span>
-                <span className='shift no-shift'>1<div className='button blue-buttons' name='sound'></div><span className='blue-button-label-spans'>SOUND</span></span>
-                <span className='shift no-shift'>2<div className='button blue-buttons' name='misc'></div><span className='blue-button-label-spans'>MISC.</span></span>
-                <span className='shift no-shift'>3<div className='button blue-buttons' name='load'></div><span className='blue-button-label-spans'>LOAD</span></span>
+                <span className='shift no-shift'>7<div className='button blue-buttons' name='7 mixer'></div><span className='blue-button-label-spans'>MIXER</span></span>
+                <span className='shift no-shift'>8<div className='button blue-buttons' name='8 other'></div><span className='blue-button-label-spans'>OTHER</span></span>
+                <span className='shift no-shift'>9<div className='button blue-buttons' name='9 midi/sync'></div><span className='blue-button-label-spans'>MIDI/SYNC</span></span>
+                <span className='shift no-shift'>4<div className='button blue-buttons' name='4 sample'></div><span className='blue-button-label-spans'>SAMPLE</span></span>
+                <span className='shift no-shift'>5<div className='button blue-buttons' name='5 trim'></div><span className='blue-button-label-spans'>TRIM</span></span>
+                <span className='shift no-shift'>6<div className='button blue-buttons' name='6 program'></div><span className='blue-button-label-spans'>PROGRAM</span></span>
+                <span className='shift no-shift'>1<div className='button blue-buttons' name='1 sound'></div><span className='blue-button-label-spans'>SOUND</span></span>
+                <span className='shift no-shift'>2<div className='button blue-buttons' name='2 misc'></div><span className='blue-button-label-spans'>MISC.</span></span>
+                <span className='shift no-shift'>3<div className='button blue-buttons' name='3 load'></div><span className='blue-button-label-spans'>LOAD</span></span>
                 <span className='shift'>SHIFT<div className='button blue-buttons white-button left' name='shift'></div></span>
                 <span className='shift no-shift'>0<div className='button blue-buttons' name='0'></div></span>
-                <span className='shift no-shift'>ENTER<div className='button blue-buttons white-button left' name='enter'></div><span className='blue-button-label-spans'>SAVE</span></span>
+                <span className='shift no-shift'>ENTER<div className='button blue-buttons white-button left' name='enter/save'></div><span className='blue-button-label-spans'>SAVE</span></span>
               </div>
               <div id='above-data-dial'>
-                <div id='main-screen-button' className='button above-dd-btns' name='main screen'><span id='main-screen-label'>MAIN SCREEN</span></div>
-                <div id='open-window-button' className='button above-dd-btns' name='open window'><span id='open-window-label'>OPEN WINDOW</span></div>
+                <div id='main-screen' className='button above-dd-btns' name='main screen'><span id='main-screen-label'>MAIN SCREEN</span></div>
+                <div id='open-window' className='button above-dd-btns' name='open window'><span id='open-window-label'>OPEN WINDOW</span></div>
                 <div id='data'>DATA</div>
               </div>
               <div id='data-knob' className="data-dial">
-                <img id='dial-png3' src='https://www.svgrepo.com/show/521865/sun.svg' alt='Dial'/>
+                <img id='dial-png3' src='https://www.svgrepo.com/show/118173/sun.svg' alt='Dial'/>
                 <div id='inner-knob'>
                   <div id='knob'></div>
                 </div>
@@ -323,11 +345,11 @@ const DrumMachine = () => {
               </div>
                   <div id='bottom-left-right-top-container'>
                     <div id='tap-tempo'><span id='tap-tempo-span'>TAP TEMPO NOTE REPEAT</span></div>
-                    <div id='tap-tempo-button' className='button' name='tempo'></div>
+                    <div id='tap-tempo-button' className='button' name='tap tempo note repeat'></div>
                   </div>
                   <div id='bottom-left-right-mid-container'>
-                    <div id='undo-seq'><span id='undo-seq-span'>UNDO SEQ</span><div id='undo' className='off'></div></div>
-                    <div id='undo-seq-button' className='button' name='undo'></div>
+                    <div id='undo-seq-container'><span id='undo-seq-span'>UNDO SEQ</span><div id='undo-seq' className='off'></div></div>
+                    <div id='undo-seq-button' className='button' name='undo-seq'></div>
                   </div>
                   <div id='bottom-left-right-bottom-container'>
                     <div id='erase'><span id='erase-span'>ERASE</span></div>
@@ -393,6 +415,7 @@ const DrumMachine = () => {
                   </div>
               <div id='bottom-left-right-bottom'>
                   <div id='bottom-left-right-bottom-row-1'><span id='locate'>LOCATE</span>
+                  <div id='locate-line'></div>
                     <div id='locate-labels-container'>
                       <span id='step-chevron-left'><img id='step-chev-left' className='chev' src='https://ipfs.io/ipfs/QmbyuMMHpBoEQgvVXHx31Y1txzofyuYe1BqxXEQ5zUpGxU?filename=chevron.png' alt='Chevron Left'/></span>
                       <span id='step-span'>STEP</span>
@@ -451,7 +474,7 @@ const DrumMachine = () => {
                   </div>
                   <div id='bottom-left-right-bottom-row-2'>
                     <div className='bottom-left-right-bottom-row-2-buttons red-button button' name='record'><div id='record' className='off'></div><div id='bottom-left-light'></div><span id='rec'>REC</span></div>
-                    <div className='bottom-left-right-bottom-row-2-buttons red-button button' name='over'><div id='over' className='off'></div><span id='over-dub'><div id='bottom-left-light'></div>OVER<br></br>DUB</span></div>
+                    <div className='bottom-left-right-bottom-row-2-buttons red-button button' name='over-dub'><div id='over-dub' className='off'></div><span id='over'><div id='bottom-left-light'></div>OVER<br></br>DUB</span></div>
                     <div className='bottom-left-right-bottom-row-2-buttons button' name='stop'><span id='stop'>STOP</span></div>
                     <div className='bottom-left-right-bottom-row-2-buttons button' name='play'><div id='play' className='off'></div><span id='play-span'><div id='bottom-left-light'></div>PLAY</span></div>
                     <div className='bottom-left-right-bottom-row-2-buttons button' name='play start'><span id='play-start'>PLAY<br></br>START</span></div>
@@ -475,11 +498,11 @@ const DrumMachine = () => {
               <div id='panel-top-left'>
                 <div id='full-level-div'>
                   <span id='full-level-span'>FULL LEVEL</span>
-                  <div id='full' className={isPoweredOn ? 'full-on' : 'off'}></div>
-                  <div id='Aa' className='button' name='full'><span id='Aa-span'>A/a</span></div>
+                  <div id='full-level' className='off'></div>
+                  <div id='Aa' className='button' name='full-level'><span id='Aa-span'>A/a</span></div>
                   <span>16 LEVELS</span>
-                  <div id='sixteen' className='off'></div>
-                  <div id='space' className='button' name='sixteen'><span id='space-span'>SPACE</span></div>
+                  <div id='sixteen-levels' className='off'></div>
+                  <div id='space' className='button' name='sixteen-levels'><span id='space-span'>SPACE</span></div>
                 </div>
               </div>
               <div id='panel-top-right'>
@@ -503,9 +526,9 @@ const DrumMachine = () => {
               <div id='panel-bottom-left'>
                 <div id='panel-bottom-left-inner'>
                   <div id='next-seq-span'>NEXT SEQ</div>
-                  <div id='next' className='off'></div>
+                  <div id='next-seq' className='off'></div>
                   <div>TRACK MUTE</div>
-                  <div id='track' className='off'></div>
+                  <div id='track-mute' className='off'></div>
                 </div>
               </div>
               <div id='panel-bottom-right'>
@@ -520,12 +543,12 @@ const DrumMachine = () => {
                   </div>
                 </div>
                 <div id='pad-bank-buttons'>
-                  <div className='pad-bank-buttons button' name='next'></div>
-                  <div className='pad-bank-buttons button' name='track'></div>
-                  <div className='pad-bank-buttons button' name='pad bank a'></div>
-                  <div className='pad-bank-buttons button' name='pad bank b'></div>
-                  <div className='pad-bank-buttons button' name='pad bank c'></div>
-                  <div className='pad-bank-buttons button' name='pad bank d'></div>
+                  <div className='pad-bank-buttons button' name='next-seq'></div>
+                  <div className='pad-bank-buttons button' name='track-mute'></div>
+                  <div className='pad-bank-buttons button' name='pad bank : a'></div>
+                  <div className='pad-bank-buttons button' name='pad bank : b'></div>
+                  <div className='pad-bank-buttons button' name='pad bank : c'></div>
+                  <div className='pad-bank-buttons button' name='pad bank : d'></div>
                 </div>
               </div>
             </div>

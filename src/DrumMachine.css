@@ -199,10 +199,11 @@
 }
 
 #dials-top {
-    width: 100%;
+    width: 1%;
     height: 50%;
     display: flex;
     flex-direction: column;
+    
 }
 
 #dials-bottom {
@@ -301,63 +302,11 @@
   }
     
 
-.power-on {
-    background-color: rgb(125, 205, 7);;
-}
 
-.power-off {
-    background-color: red;
-}
 
-#display-border {
-    border: 0.1px solid black;
-    height: 87%;
-    width: 95.5%;
-    padding: 5px;
-}
 
-#display-spans {
-    display: flex;
-    flex-direction: column;
 
-}
 
-#time {
-    position: absolute;
-    font-size: 20px;
-    margin-top: -9px;
-
-}
-
-#display-text {
-    position: absolute;
-    font-size: 32px;
-    margin-left: 90px;
-    width: auto;
-    height: 50px;
-    margin-top: 15px;
-    
-}
-
-#volume {
-    position: absolute;
-    margin-top: 70px;
-    margin-left: 175px;
-    font-size: 20px;
-    height: 20px;
-}
-
-#data-text {
-    position: absolute;
-    font-size: 12px;
-    margin-top: 78px;
-}
-
-#rec-gain-text {
-    position: absolute;
-    font-size: 12px;
-    margin-top: 68px;
-}
 
 #data-knob {
     position: absolute;
@@ -495,29 +444,32 @@
     margin-top: -40px;
     font-size: 6pt;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+    position: absolute;
 }   
 
 #main-screen-label {
     position: absolute;
-    margin-top: -14px;
+    margin-top: -15px;
     margin-left: -4px;
+    width: 60px;
 }
 
-#main-screen-button {
+#main-screen {
     background-color: beige;
-    box-shadow: 1.25px 1.25px 2.5px .5px #000000;
-    
+    margin-left: -100px; 
 }
 
 #open-window-label {
     position: absolute;
-    margin-top: -14px;
+    margin-top: -15px;
     margin-left: -4px;
+    width: 60px;
 }
 
-#open-window-button {
+#open-window {
     background-color: orange;
-    box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+    margin-left: 100px;
 }
 
 #data {
@@ -614,7 +566,7 @@
     width: 40px;
 }
 
-#over-dub {
+#over {
     position: absolute;
     margin-top: -25px;
     margin-left: -7px;
@@ -648,7 +600,7 @@
     margin-left: 10px;
 }
 
-#over {
+#over-dub {
     position: absolute;
     border: 0.5px solid black;
     width: 5px;
@@ -677,7 +629,7 @@
 
 #bottom-left-right-bottom-row-1 {
     position: absolute;
-    border-top: 1px solid black;
+    
     width: 340px;
     height: 50px;
     margin-top: -75px;
@@ -704,8 +656,6 @@
 
 }
 
-
-
 #locate {
     position: absolute;
     padding: 2px;
@@ -725,8 +675,6 @@
     box-shadow: 2.5px 2.5px 5px .5px #000000;
     
 }
-
-
 
 #assign {
     border: 0.5px solid black;
@@ -776,8 +724,6 @@
     margin-left: 109px;
 }
 
-
-
 #panel-bottom-left-inner {
     position: absolute;
     display: flex;
@@ -789,15 +735,11 @@
     margin-top: -15px;
 }
 
-
-
-
-
 #next-seq-span {
     margin-left: -6px;
 }
 
-#next {
+#next-seq {
     position: absolute;
     border: 0.5px solid black;
     width: 5px;
@@ -822,7 +764,7 @@
     margin-left: -7px;
 }
 
-#full {
+#full-level {
     position: absolute;
     border: 0.5px solid black;
     width: 5px;
@@ -832,11 +774,7 @@
     margin-left: 10px;
 }
 
-.full-on {
-    background-color: orange;
-}
-
-#sixteen {
+#sixteen-levels {
     position: absolute;
     border: 0.5px solid black;
     width: 5px;
@@ -846,7 +784,7 @@
     margin-left: 85px;
 }
 
-#track {
+#track-mute {
     position: absolute;
     border: 0.5px solid black;
     width: 5px;
@@ -998,9 +936,7 @@
 
     position: absolute;
     transform: rotate(-22.5deg);
-    margin-top: 2.5px;
-    margin-left: 2.5px;
-    width: 145px;
+    width: 150px;
     border-radius: 60%;
 }
 
@@ -1166,7 +1102,11 @@
     margin-left: 5px;
 }
 
-
+.full-sixteen-pressed {
+    margin-top: 0.5px;
+    transition: background-color 0.1s ease;
+    box-shadow: 2.5px 2.5px 5px .5px darkgrey;
+}
 
 .pressed {
     transition: background-color 0.1s ease;
@@ -1220,12 +1160,12 @@
 }
 
 #bottom-left-right-bottom {
-    
     position: absolute;
     height: 35px;
     width: 340px;
     margin-left: 78px;
     margin-top: -33px;
+
 }
 
 #bottom-left-right-mid-container {
@@ -1240,7 +1180,7 @@
     flex-direction: column;
 }
 
-#undo-seq, #erase, #tap-tempo, #cursor {
+#undo-seq-container, #erase, #tap-tempo, #cursor {
     display: flex;
     flex-direction: column;
     gap: 0.5em;
@@ -1278,7 +1218,7 @@
     width: 60px;
 }
 
-#undo {
+#undo-seq {
     border: 0.5px solid black;
     width: 5px;
     height: 5px; 
@@ -1609,9 +1549,138 @@
 }
 
 
+#locate-line {
+    position: absolute;
+    border-top: 1px solid black;
+    width: 88%;
+    bottom: 50px;
+    z-index: -1;
+}
 
+#button-clicked-text {
+    position: absolute;
+    font-weight: bold;
+    
+    font-size: 16px;
+    min-width: 60px;
+    width: auto;
+    max-width: 160px;
+    left: 80px;
+    top: 55px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 2px;
+}
 
+#volume {
+    position: absolute;
+    margin-top: 75px;
+    font-size: 15px;
+    height: 20px;
+}
 
+#data-text {
+    position: absolute;
+    font-size: 16px;
+    margin-top: 50px;
+}
 
+#rec-gain-text {
+    position: absolute;
+    font-size: 13.5px;
+    margin-top: 64.5px;
+}
+
+#display-border {
+    border: 0.1px solid black;
+    height: 87%;
+    width: 95.5%;
+    padding: 5px;
+    
+}
+
+#display-spans {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#time {
+    position: absolute;
+    font-size: 18px;
+    margin-top: -8px;
+    width: 267px;
+    
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+
+}
+
+#display-text {
+    position: absolute;
+    margin-left: 85px;
+    min-width: 100px;
+    max-width: fit-content;
+    height: 20px;
+    margin-top: 25px;
+    font-size: 22px;
+    text-align: center;
+}
+
+#inner-display-text {
+    position: absolute;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 8px;
+    color: rgba(255, 255, 255, 0.35);
+    margin-top: -125px;
+}
+
+#recording-info {
+    position: absolute;
+    font-size: 14px;
+    margin-top: 56px;
+    margin-left: 85px;
+    height: 37px;
+    width: 184px;
+    display: flex;
+    padding: 0px 2px;
+    justify-content: center;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.display-info-off {
+    visibility: hidden;
+}
+
+.power-on {
+    background-color: rgb(125, 205, 7);;
+}
+
+.power-off {
+    background-color: red;
+}
+#fcc {
+    margin-right: -4px;
+}
+
+#fcc-icon {
+   margin-left: -105px;
+   margin-top: 2px;
+}
+
+#data-icon {
+    margin-left: -240px;
+    margin-top: 18px;
+}
+
+#fcc-icon-span {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+}
 
 
