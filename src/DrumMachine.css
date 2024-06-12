@@ -36,12 +36,13 @@
 #top-cover {
     position: absolute;
     background-color: white;
-    width: 100%;
+    width: 52.5%;
     height: 40px;
-    margin-left: -30px;
+    
     margin-top: -25px;
     background-color: #0a0a23;
     z-index: 1;
+    
 }
 
 #top-line {
@@ -697,7 +698,7 @@
         border-radius: 2px;
         background-color: beige;
         box-shadow: 1.25px 1.25px 2.5px .5px #000000;
-        z-index: 9;
+        
     }
 
 

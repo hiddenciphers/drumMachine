@@ -398,9 +398,23 @@ const DrumMachine = () => {
                       <span id='step-span'>STEP</span>
                       <span id='step-chevron-right'><img id='step-chev-right' className='chev' src='https://ipfs.io/ipfs/QmbyuMMHpBoEQgvVXHx31Y1txzofyuYe1BqxXEQ5zUpGxU?filename=chevron.png' alt='Chevron Right'/></span>
                       <span id='goto-span'>GO TO</span>
-                      <span id='bar-chevron-left'><img id='bar-chev-left' className='bar-chev' src='https://ipfs.io/ipfs/QmPQU3m2FrjsXZBu2x9jSfqDRaMgY7adpTiSxDK64yT8hd?filename=two-left-chevrons.png' alt='Double Chevron Left'/></span>
+                      <span id='bar-chevron-left'>
+                        <svg viewBox="0 0 72 72" id="bar-chev-left" className='bar-chev'>
+                          <g>
+                            <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="5" d="M41,55l-18.7948-9.1111l-15.817-7.6675c-1.8509-0.8972-1.8509-3.5456,0-4.4428l15.817-7.6675L41,17"/>
+                            <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="5" d="M67,55l-18.8824-9.1111l-15.8908-7.6675c-1.8595-0.8972-1.8595-3.5456,0-4.4428l15.8908-7.6675L67,17"/>
+                          </g>
+                        </svg>
+                      </span>
                       <span id='bar-span'>BAR</span>
-                      <span id='bar-chevron-right'><img id='bar-chev-right' className='bar-chev' src='https://ipfs.io/ipfs/QmPQU3m2FrjsXZBu2x9jSfqDRaMgY7adpTiSxDK64yT8hd?filename=two-left-chevrons.png' alt='Double Chevron Right'/></span>
+                      <span id='bar-chevron-right'>
+                        <svg viewBox="0 0 72 72" id="bar-chev-right" className='bar-chev'>
+                          <g>
+                            <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="5" d="M41,55l-18.7948-9.1111l-15.817-7.6675c-1.8509-0.8972-1.8509-3.5456,0-4.4428l15.817-7.6675L41,17"/>
+                            <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="5" d="M67,55l-18.8824-9.1111l-15.8908-7.6675c-1.8595-0.8972-1.8595-3.5456,0-4.4428l15.8908-7.6675L67,17"/>
+                          </g>
+                        </svg>
+                      </span>
                     </div>
                     <div className='bottom-left-right-bottom-row-1-buttons button' name='step left'></div>
                     <div className='bottom-left-right-bottom-row-1-buttons button' name='step-right'></div>
