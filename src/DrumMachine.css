@@ -1071,13 +1071,7 @@
     
 }
 
-.pad-bank-a-on, .pad-bank-b-on, .pad-bank-c-on, .pad-bank-d-on{
-    background-color: rgb(125, 205, 7);
-}
 
-.pad-bank-a-off, .pad-bank-b-off, .pad-bank-c-off, .pad-bank-d-off {
-    background-color: #000;
-}
 
 #pad-bank-top-border {
     position: absolute;

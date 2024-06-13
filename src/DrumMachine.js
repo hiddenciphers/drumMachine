@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './DrumMachine.css';
+import padBanks from './PadBanks';
+import togglePadBanks from './PadToggle';
+import setDefaultPads from './Default';
 import { Draggable } from 'gsap/Draggable';
 import { gsap } from 'gsap';
 
@@ -15,7 +18,8 @@ const DrumMachine = () => {
   const [recGainText, setRecGainText] = useState('');
   const [buttonClickedText, setButtonClickedText] = useState('');
   const [recordingInfo, setRecordingInfo] = useState('');
-
+  
+  
   useEffect(() => {
     const pads = document.querySelectorAll('.drum-pad');
     pads.forEach(pad => {
@@ -94,6 +98,8 @@ const DrumMachine = () => {
   }, []);
 
   useEffect(() => {
+    setDefaultPads(padBanks);
+
     const AllButtons = document.querySelectorAll('.button');
 
     AllButtons.forEach(button => {
@@ -122,6 +128,7 @@ const DrumMachine = () => {
     setTimeout(() => pad.classList.remove('pressed'), 100);
   };
 
+
   const handleKeyPress = (event) => {
     if (!isPoweredOn) return;
 
@@ -141,6 +148,7 @@ const DrumMachine = () => {
       setRecGainText('');
       setButtonClickedText('');
       setRecordingInfo('');
+
     } else {
       setDisplayText('');
     }
@@ -148,12 +156,14 @@ const DrumMachine = () => {
 
   const handleButtonClick = (event) => {
     if (!isPoweredOn) return;
+
     const button = event.currentTarget;
     const buttonName = button.getAttribute('name');
     const buttonClickedText = document.getElementById('button-clicked-text');
-    // console.log(`Button Clicked: ${buttonName}`);
     setButtonClickedText(buttonName);
     buttonClickedText.classList.add('button-clicked-display-text');
+    
+    togglePadBanks(padBanks, buttonName);
   
     if (buttonName.startsWith('cursor')) {
       return;
@@ -240,7 +250,7 @@ const DrumMachine = () => {
       setTimeout(() => light.classList.remove('on'), 100);
     } 
   };
-  
+
   return (
     <div id='container'>
       <div id='power-button' onClick={togglePower}>
@@ -536,10 +546,10 @@ const DrumMachine = () => {
                   <div id='pad-bank-top-border'></div>
                   <span id='pad-bank-label'>PAD BANK</span>
                   <div id='pad-bank-labels'>
-                    <div>A<div id='pad-bank-a-light' className={isPoweredOn ? 'pad-bank-a-on' : 'pad-bank-a-off'}></div></div>
-                    <div>B<div id='pad-bank-b-light' className={isPoweredOn ? 'pad-bank-b-on' : 'pad-bank-b-off'}></div></div>
-                    <div>C<div id='pad-bank-c-light' className={isPoweredOn ? 'pad-bank-c-on' : 'pad-bank-c-off'}></div></div>
-                    <div>D<div id='pad-bank-d-light' className={isPoweredOn ? 'pad-bank-d-on' : 'pad-bank-d-off'}></div></div>
+                    <div>A<div id='pad-bank-a-light' className={padBanks.bankA.isActive && isPoweredOn ? 'on' : 'off'}></div></div>
+                    <div>B<div id='pad-bank-b-light' className={padBanks.bankB.isActive && isPoweredOn ? 'on' : 'off'}></div></div>
+                    <div>C<div id='pad-bank-c-light' className={padBanks.bankC.isActive && isPoweredOn ? 'on' : 'off'}></div></div>
+                    <div>D<div id='pad-bank-d-light' className={padBanks.bankD.isActive && isPoweredOn ? 'on' : 'off'}></div></div>
                   </div>
                 </div>
                 <div id='pad-bank-buttons'>
@@ -555,52 +565,52 @@ const DrumMachine = () => {
           </div>
           <div id='drum-pad'>
             <div className='drum-pad'>Q
-              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Heater-1.mp3' name='Heater 1' type='audio/mpeg' id='Q'></audio>
+              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
             </div>
             <div className='drum-pad'>W
-              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Heater-2.mp3' name='Heater 2' type='audio/mpeg' id='W'></audio>
+              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
             </div>
             <div className='drum-pad'>E
-              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Heater-3.mp3' name='Heater 3' type='audio/mpeg' id='E'></audio>
+              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            </div>
+            <div className='drum-pad'>R
+              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
             </div>
             <div className='drum-pad'>A
-              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Heater-4_1.mp3' name='Heater 4' type='audio/mpeg' id='A'></audio>
+              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
             </div>
             <div className='drum-pad'>S
-              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Heater-6.mp3' name='Clap' type='audio/mpeg' id='S'></audio>
+              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
             </div>
             <div className='drum-pad'>D
-              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Dsc_Oh.mp3' name='Open HH' type='audio/mpeg' id='D'></audio>
+              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            </div>
+            <div className='drum-pad'>F
+              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
             </div>
             <div className='drum-pad'>Z
-              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Kick_n_Hat.mp3' name="Kick n' Hat" type='audio/mpeg' id='Z'></audio>
+              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
             </div>
             <div className='drum-pad'>X
-              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/RP4_KICK_1.mp3' name='Kick' type='audio/mpeg' id='X'></audio>
+              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
             </div>
             <div className='drum-pad'>C
-              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Cev_H2.mp3' name='Closed HH' type='audio/mpeg' id='C'></audio>
+              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>C
-              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Cev_H2.mp3' name='Closed HH' type='audio/mpeg' id='C'></audio>
+            <div className='drum-pad'>V
+              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>C
-              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Cev_H2.mp3' name='Closed HH' type='audio/mpeg' id='C'></audio>
+            <div className='drum-pad'>U
+              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>C
-              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Cev_H2.mp3' name='Closed HH' type='audio/mpeg' id='C'></audio>
+            <div className='drum-pad'>I
+              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>C
-              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Cev_H2.mp3' name='Closed HH' type='audio/mpeg' id='C'></audio>
+            <div className='drum-pad'>O
+              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>C
-              <audio src='https://cdn.freecodecamp.org/testable-projects-fcc/audio/Cev_H2.mp3' name='Closed HH' type='audio/mpeg' id='C'></audio>
-            </div>
-            <div className='drum-pad'>C
-              <audio src='https://ipfs.io/ipfs/QmbVAJe8G14Wj5kbkVC7KgUyvpy3JYgHgrPUFLLLxgJoki?filename=78_DillaClassicBeat_TL.wav' name='Classic Dilla' type='audio/mpeg' id='C'></audio>
-            </div>
-            <div className='drum-pad'>C
-              <audio src='https://ipfs.io/ipfs/QmWEzZF29qmbCTGjm9bEYWoDzuJ6h9sXvCQKXWf1oBNizT?filename=150_ReelToReelDrums_Taped_FX_20_TL.wav' name='Hip Hop Pack' type='audio/mpeg' id='C'></audio>
+            <div className='drum-pad'>P
+              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
             </div>
           </div>
         </div>
