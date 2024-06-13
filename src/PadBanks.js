@@ -3,87 +3,171 @@ const padBanks = {
         isActive: null,
         pad1: {
             id: 'Q',
-            name: 'Classic Dilla',
+            name: 'Dilla',
             src: 'https://ipfs.io/ipfs/QmbVAJe8G14Wj5kbkVC7KgUyvpy3JYgHgrPUFLLLxgJoki?filename=78_DillaClassicBeat_TL.wav'
         },
         pad2: {
             id: 'W',
-            name: 'Gm_DrumsSkippy',
-            src: 'https://ipfs.io/ipfs/QmTDVUX4BhndpjPxT7XHJLyvTrjuVNLfV4jKwtpb8vVUrJ?filename=78_Gm_DrumsSkippy_TL.wav'
+            name: 'TapeMix1',
+            src: 'https://ipfs.io/ipfs/Qmc9DkgZreVvx82NYD8fzwiG6Jxpz1aoB1C7HUh6M75Ksq?filename=85_TapeBeats_TapeMix_09_TL.wav'
         },
         pad3: {
             id: 'E',
-            name: 'ReelToReelDrums',
+            name: 'ReelToReel',
             src: 'https://ipfs.io/ipfs/QmRbvV3mUAvoqETPWwhAFH85pZABRiWSeezzjaCSnShAcg?filename=90_ReelToReelDrums_Taped_02_TL.wav'
         },
         pad4: {
             id: 'R',
-            name: 'RoomyBeat',
+            name: 'Roomy',
             src: 'https://ipfs.io/ipfs/QmY5c6G6syR95DgH3mCzk21jtERRVcEmEaZxJbDXbpSKpG?filename=80_RoomyBeat_TL.wav'
         },
         pad5: {
             id: 'A',
-            name: '',
-            src: ''
+            name: 'HipHopBeat',
+            src: 'https://ipfs.io/ipfs/Qmcvb768LaBstHoLQ35qEtv9WqgMgFEw6xWLy4q5vtZzGx?filename=85_HipHopBeat_01_Spring_TL.wav'
         },
         pad6: {
             id: 'S',
-            name: '',
-            src: ''
+            name: 'HipHopBeat1',
+            src: 'https://ipfs.io/ipfs/QmaZkP1483cpyeFfzqLMu6pncc5CJZ1ow6Z6BmJMvpXAK3?filename=85_HipHopBeat_07_Spring_TL.wav'
         },
         pad7: {
             id: 'D',
-            name: 'HipHopBeat_01',
-            src: 'https://ipfs.io/ipfs/Qmcvb768LaBstHoLQ35qEtv9WqgMgFEw6xWLy4q5vtZzGx?filename=85_HipHopBeat_01_Spring_TL.wav'
+            name: 'SinglesBeat',
+            src: 'https://ipfs.io/ipfs/QmRhPBJ9GWEq5NggjGT6wR8bpPp6YiQ6iddgfh4Lajihwb?filename=85_SinglesBeat_03_Spring_TL.wav'
         },
         pad8: {
             id: 'F',
-            name: 'HipHopBeat_07',
-            src: 'https://ipfs.io/ipfs/QmaZkP1483cpyeFfzqLMu6pncc5CJZ1ow6Z6BmJMvpXAK3?filename=85_HipHopBeat_07_Spring_TL.wav'
+            name: 'SprungBreaks',
+            src: 'https://ipfs.io/ipfs/QmVi8x4AtcXVGqcpVpDyupBzTyDSymbePDGfGKM7qenNV1?filename=85_SprungBreaks_3_TL.wav'
         },
         pad9: {
             id: 'Z',
-            name: 'SinglesBeat_03',
-            src: 'https://ipfs.io/ipfs/QmRhPBJ9GWEq5NggjGT6wR8bpPp6YiQ6iddgfh4Lajihwb?filename=85_SinglesBeat_03_Spring_TL.wav'
+            name: 'VintageDrums1',
+            src: 'https://ipfs.io/ipfs/QmRZoj3QtZWhYDCkBzjso1insRprTjV4LrEJ53JjeqV8zy?filename=85_VintageDrums_05.wav'
         },
         pad10: {
             id: 'X',
-            name: 'SprungBreaks_3',
-            src: 'https://ipfs.io/ipfs/QmVi8x4AtcXVGqcpVpDyupBzTyDSymbePDGfGKM7qenNV1?filename=85_SprungBreaks_3_TL.wav'
+            name: 'VintageDrums2',
+            src: 'https://ipfs.io/ipfs/QmX5AYYcwg15RZ79ESnoSRvJqgC968sT9XjRBg2QM5qNgV?filename=85_VintageDrums_08.wav'
         },
         pad11: {
             id: 'C',
-            name: '',
-            src: ''
+            name: 'VintageDrums3',
+            src: 'https://ipfs.io/ipfs/QmcD1qqVNq93vkDrPngubnAjjEzffvFMj2W1WjmrBzXNjH?filename=85_VintageDrums_10.wav'
         },
         pad12: {
             id: 'V',
-            name: 'VintageDrums_05',
-            src: 'https://ipfs.io/ipfs/QmRZoj3QtZWhYDCkBzjso1insRprTjV4LrEJ53JjeqV8zy?filename=85_VintageDrums_05.wav'
-        },
-        pad13: {
-            id: 'U',
-            name: 'VintageDrums_08',
-            src: 'https://ipfs.io/ipfs/QmX5AYYcwg15RZ79ESnoSRvJqgC968sT9XjRBg2QM5qNgV?filename=85_VintageDrums_08.wav'
-        },
-        pad14: {
-            id: 'I',
-            name: 'VintageDrums_10',
-            src: 'https://ipfs.io/ipfs/QmcD1qqVNq93vkDrPngubnAjjEzffvFMj2W1WjmrBzXNjH?filename=85_VintageDrums_10.wav'
-        },
-        pad15: {
-            id: 'O',
             name: 'DirtBeat',
             src: 'https://ipfs.io/ipfs/QmVrAitqmKWK8JLRpAMNEs3xEZafs3nAvGgnD7yR8uhGKo?filename=90_DirtBeat_TL.wav'
         },
+        pad13: {
+            id: 'U',
+            name: 'ReelToReel2',
+            src: 'https://ipfs.io/ipfs/QmWEzZF29qmbCTGjm9bEYWoDzuJ6h9sXvCQKXWf1oBNizT?filename=150_ReelToReelDrums_Taped_FX_20_TL.wav'
+        },
+        pad14: {
+            id: 'I',
+            name: 'DustBreaks',
+            src: 'https://ipfs.io/ipfs/QmaZ7FmUBDGVunznnwK3ghsxko6NzEQsU8ZxEPVS2KkBBX?filename=120_DustBreaks_01_TL.wav'
+        },
+        pad15: {
+            id: 'O',
+            name: 'ReelToReel3',
+            src: 'https://ipfs.io/ipfs/QmVYEUffpug6fAvXs6H8r3Z1RaiqDs19k6CAKHHcyN5R9R?filename=90_ReelToReelDrums_Taped_07_TL.wav'
+        },
         pad16: {
             id: 'P',
-            name: '',
-            src: ''
+            name: 'TapeMix',
+            src: 'https://ipfs.io/ipfs/QmfRFdBjWfaufS1JfX2iSyte4Bs8ZwL9XWh3YNfXBJpvmC?filename=85_TapeBeats_TapeMix_18_TL.wav'
         }
         
     },
     bankB: {
+        isActive: null,
+        pad1: {
+            id: 'Q',
+            name: 'Melody 1',
+            src: 'https://ipfs.io/ipfs/QmYYq3JHy9SJdXQixBKXT2ugriEy7nAREpZsRN89YGbbFc?filename=Piano%20Melody%2002_B_98.wav'
+        },
+        pad2: {
+            id: 'W',
+            name: 'Melody 2',
+            src: 'https://ipfs.io/ipfs/QmeN9mtP3fLzKuaKTHhNnoDFNiyuGR2knY4ETGnBAg5FsN?filename=Piano%20Melody%2006_E_95.wav'
+        },
+        pad3: {
+            id: 'E',
+            name: 'Melody 3',
+            src: 'https://ipfs.io/ipfs/QmS1Lh8zgrLqZN9kkV2c99sgiTzBWc619ZXP1BvZhmr8S1?filename=Piano%20Melody%2007_E_95.wav'
+        },
+        pad4: {
+            id: 'R',
+            name: 'Melody 4',
+            src: 'https://ipfs.io/ipfs/Qme5dLYnG24Z3bzWHPZXQweHPPwvA8ThX9YsQoRPaRD15r?filename=Piano%20Melody%2008_C%23m_140.wav'
+        },
+        pad5: {
+            id: 'A',
+            name: 'Melody 5',
+            src: 'https://ipfs.io/ipfs/QmZskr2s8sPwqwRbTw4WZsbtfPas7mArybeh9kVUbJNnD4?filename=Piano%20Melody%2013_G%23m_85.wav'
+        },
+        pad6: {
+            id: 'S',
+            name: 'One Shot',
+            src: 'https://ipfs.io/ipfs/QmT1C8yZciSPwafhgUiAxhT6WSgZQcK9Ag7wN7Wy1wKxxm?filename=Cmaj11%20Piano%20One%20Shot.wav'
+        },
+        pad7: {
+            id: 'D',
+            name: 'Drone',
+            src: 'https://ipfs.io/ipfs/QmdDzWueCyciJUEvNrGQLWtZ4BbKDtJHDz94L1kKMK7maJ?filename=Drone%2001_A%23m_95.wav'
+        },
+        pad8: {
+            id: 'F',
+            name: 'Drone 2',
+            src: 'https://ipfs.io/ipfs/QmbkFpyQ81HheHNo8FvHnrWaCMcNTrwwe4DPMGQAdHY7uL?filename=Lost%20in%20Translation_Drone%2006_Am_72.wav'
+        },
+        pad9: {
+            id: 'Z',
+            name: 'Drone 3',
+            src: 'https://ipfs.io/ipfs/QmW7i39Kj6w5HZ8unDmhqwUm9uJJDJbHLyG8srjxGrA3ua?filename=My%20Fav_Drone%2009_Bm_90.wav'
+        },
+        pad10: {
+            id: 'X',
+            name: 'Particles',
+            src: 'https://ipfs.io/ipfs/QmQdogPxyxETVuZ4HsEpHqvKwv49DanmWKTw9waJCKhE1t?filename=Particles_Texture_A%23m_190.wav'
+        },
+        pad11: {
+            id: 'C',
+            name: 'Reverse',
+            src: 'https://ipfs.io/ipfs/QmYniQPL2Z5J88qRY78SWJAKjioV4NfXe7Tz8Gh6e2Mm5M?filename=Reverse%2003_Bm_75.wav'
+        },
+        pad12: {
+            id: 'V',
+            name: 'Scratch',
+            src: 'https://ipfs.io/ipfs/QmUPsr5zR13BgRgfcSuLBCBhZmgExWVv5ny2qzU7Pj4ttH?filename=30250__feveran__feveran-style-scratch.mp3'
+        },
+        pad13: {
+            id: 'U',
+            name: 'Scratch2',
+            src: 'https://ipfs.io/ipfs/QmQPEf52b9iEQQRuFWzPHrAhCCXCt55FEr1XC3YtGfJGuH?filename=30420__feveran__feveran-style-scratch-4.mp3'
+        },
+        pad14: {
+            id: 'I',
+            name: 'Scratch3',
+            src: 'https://ipfs.io/ipfs/QmeFzjbKMYVck1KNXUPeEuAJnZFZm29bnE8BRcdJYfPy3C?filename=31146__feveran__feveran-style-scratch-7.mp3'
+        },
+        pad15: {
+            id: 'O',
+            name: 'Scratch4',
+            src: 'https://ipfs.io/ipfs/QmaMcGjVPGNvbVXmUJS37PuBqDxmvX259WnNCTyBKkYsGX?filename=31226__feveran__feveran-style-scratch-8.mp3'
+        },
+        pad16: {
+            id: 'P',
+            name: 'Scratch5',
+            src: 'https://ipfs.io/ipfs/QmTBLBcxGkNTwxR2Mid6GiG2KUY3yvRe47mHpkZxtsAuT8?filename=31145__feveran__feveran-style-scratch-6.mp3'
+        }
+        
+    },
+    bankC: {
         isActive: null,
         pad1: {
             id: 'Q',
@@ -167,90 +251,6 @@ const padBanks = {
         }
         
     },
-    bankC: {
-        isActive: null,
-        pad1: {
-            id: 'Q',
-            name: '',
-            src: ''
-        },
-        pad2: {
-            id: 'W',
-            name: '',
-            src: ''
-        },
-        pad3: {
-            id: 'E',
-            name: '',
-            src: ''
-        },
-        pad4: {
-            id: 'R',
-            name: '',
-            src: ''
-        },
-        pad5: {
-            id: 'A',
-            name: '',
-            src: ''
-        },
-        pad6: {
-            id: 'S',
-            name: '',
-            src: ''
-        },
-        pad7: {
-            id: 'D',
-            name: '',
-            src: ''
-        },
-        pad8: {
-            id: 'F',
-            name: '',
-            src: ''
-        },
-        pad9: {
-            id: 'Z',
-            name: '',
-            src: ''
-        },
-        pad10: {
-            id: 'X',
-            name: '',
-            src: ''
-        },
-        pad11: {
-            id: 'C',
-            name: 'Synth 11',
-            src: ''
-        },
-        pad12: {
-            id: 'V',
-            name: '',
-            src: ''
-        },
-        pad13: {
-            id: 'U',
-            name: '',
-            src: ''
-        },
-        pad14: {
-            id: 'I',
-            name: '',
-            src: ''
-        },
-        pad15: {
-            id: 'O',
-            name: '',
-            src: ''
-        },
-        pad16: {
-            id: 'P',
-            name: '',
-            src: ''
-        }
-        
-    },
     bankD: {
         isActive: null,
         pad1: {
@@ -305,7 +305,7 @@ const padBanks = {
         },
         pad11: {
             id: 'C',
-            name: 'Synth 11',
+            name: '',
             src: ''
         },
         pad12: {

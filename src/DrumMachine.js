@@ -19,7 +19,6 @@ const DrumMachine = () => {
   const [buttonClickedText, setButtonClickedText] = useState('');
   const [recordingInfo, setRecordingInfo] = useState('');
   
-  
   useEffect(() => {
     const pads = document.querySelectorAll('.drum-pad');
     pads.forEach(pad => {
@@ -51,12 +50,12 @@ const DrumMachine = () => {
       onDrag: function () {
         const angle = this.rotation;
         const newRecGain = (angle + 120) / 239;
-        setRecGainText(`REC GAIN: ${Math.round(newRecGain * 100)}`);
+        setRecGainText(` ${Math.round(newRecGain * 100)}`);
       },
       onThrowUpdate: function () {
         const angle = this.rotation;
         const newRecGain = (angle + 120) / 239;
-        setRecGainText(`REC GAIN: ${Math.round(newRecGain * 100)}`);
+        setRecGainText(` ${Math.round(newRecGain * 100)}`);
       },
     });
 
@@ -70,13 +69,13 @@ const DrumMachine = () => {
         const angle = this.rotation;
         const newVolume = (angle + 120) / 240;
         setVolume(newVolume);
-        setVolumeText(`VOLUME: ${Math.round(newVolume * 100)}`);
+        setVolumeText(` ${Math.round(newVolume * 100)}`);
       },
       onThrowUpdate: function () {
         const angle = this.rotation;
         const newVolume = (angle + 120) / 240;
         setVolume(newVolume);
-        setVolumeText(`VOLUME: ${Math.round(newVolume * 100)}`);
+        setVolumeText(` ${Math.round(newVolume * 100)}`);
       },
     });
 
@@ -88,11 +87,11 @@ const DrumMachine = () => {
       inertia: true,
       onDrag: function () {
         const angle = Math.floor(this.rotation);
-        setDataText(`DATA: ${angle}`);
+        setDataText(` ${angle}`);
       },
       onThrowUpdate: function () {
         const angle = this.rotation;
-        setDataText(`DATA: ${angle}`);
+        setDataText(` ${angle}`);
       },
     });
   }, []);
@@ -269,9 +268,9 @@ const DrumMachine = () => {
                   <div id='display-spans'>
                     <span id='time'><span>{currentTime.toDateString().slice(4)}</span><span>{currentTime.toLocaleTimeString()}</span><span id='fcc-icon'><img id='fcc' src='https://ipfs.io/ipfs/QmRf5vq8WMTJKXWR4RVTr4rcQk6cZowsZL3AY3FybSUQNz?filename=fcc-logo.png' alt='freeCodeCamp logo' width='20px'/></span></span>
                     <span id='display-text'>{displayText}</span>
-                    <span id='volume' className={isPoweredOn ? '' : 'display-info-off'}>{volumeText}</span>
-                    <span id='data-text' className={isPoweredOn ? '' : 'display-info-off'}>{dataText}</span>
-                    <span id='rec-gain-text' className={isPoweredOn ? '' : 'display-info-off'}>{recGainText}</span>
+                    <span id='volume' className={isPoweredOn ? '' : 'display-info-off'}>VOLUME:{volumeText}</span>
+                    <span id='data-text' className={isPoweredOn ? '' : 'display-info-off'}>DATA:{dataText}</span>
+                    <span id='rec-gain-text' className={isPoweredOn ? '' : 'display-info-off'}>REC-GAIN:{recGainText}</span>
                     <span id='button-clicked-text' className={isPoweredOn ? '' : 'display-info-off'}>{buttonClickedText}</span>
                     <span id='recording-info' className={isPoweredOn ? '' : 'display-info-off'}>{recordingInfo}</span>
                     <span id='data-icon' className={isPoweredOn ? '' : 'display-info-off'}><img src='https://www.svgrepo.com/show/447559/assessment.svg' alt='freeCodeCamp logo' width='30px'/></span>
