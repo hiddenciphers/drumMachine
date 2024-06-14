@@ -125,10 +125,10 @@
 
 #logo-div {
     position: absolute;
-    margin-top: -186px;
+    margin-top: -185px;
     margin-left: 270px;
     font-family: "Genos", sans-serif;
-    font-size: 36pt;
+    font-size: 35pt;
     width: auto;
 }
 
@@ -256,7 +256,7 @@
 .note-variation-slider {
     -webkit-appearance: none; /* Override default CSS styles */
     appearance: none;
-    width: 120px; /* Full-width */
+    width: 119px; /* Full-width */
     height: 5px; /* Height of the slider */
     background: black; /* Track color */
     outline: none; /* Remove outline */
@@ -347,7 +347,7 @@
 
 #H {
     position: relative;
-    font-size: 55px;
+    font-size: 55.1px;
     top: -115px;
     left: 22px;
     margin-left: -40px;
@@ -1553,14 +1553,14 @@
 
 #button-clicked-text {
     position: absolute;
-    font-weight: bold;
     
-    font-size: 16px;
+    
+    font-size: 11px;
     min-width: 60px;
     width: auto;
     max-width: 160px;
-    left: 80px;
-    top: 55px;
+    left: 78px;
+    top: 51px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -1570,21 +1570,21 @@
 
 #volume {
     position: absolute;
-    margin-top: 75px;
-    font-size: 15px;
+    margin-top: 52.5px;
+    font-size: 13.5px;
     height: 20px;
 }
 
 #data-text {
     position: absolute;
-    font-size: 16px;
-    margin-top: 50px;
+    font-size: 13.5px;
+    margin-top: 40px;
 }
 
 #rec-gain-text {
     position: absolute;
     font-size: 13.5px;
-    margin-top: 64.5px;
+    margin-top: 65px;
 }
 
 #display-border {
@@ -1632,13 +1632,40 @@
     margin-top: -125px;
 }
 
+#note-text {
+    position: absolute;
+    font-size: 13.5px;
+    margin-top: 77.5px;
+}
+
+#pad-bank-text {
+    position: absolute;
+    font-size: 11px;
+    margin-top: 56px;
+    margin-left: 84px;
+    border-bottom: 0.5px solid black;
+    border-right: 0.5px solid black;
+    width: 42px;
+}
+
+#pad-text {
+    position: absolute;
+    font-size: 11px;
+    margin-top: 56px;
+    margin-left: 237.5px;
+    border-bottom: 0.5px solid black;
+    border-left: 0.5px solid black;
+    width: 35px;
+
+}
+
 #recording-info {
     position: absolute;
     font-size: 14px;
     margin-top: 56px;
-    margin-left: 85px;
+    margin-left: 84px;
     height: 37px;
-    width: 184px;
+    width: 185px;
     display: flex;
     padding: 0px 2px;
     justify-content: center;
@@ -1661,14 +1688,11 @@
     margin-right: -4px;
 }
 
-#fcc-icon {
-   margin-left: -105px;
-   margin-top: 2px;
-}
+
 
 #data-icon {
-    margin-left: -240px;
-    margin-top: 18px;
+    margin-left: -243px;
+    margin-top: 7px;
 }
 
 #fcc-icon-span {

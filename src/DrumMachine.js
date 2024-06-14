@@ -18,6 +18,10 @@ const DrumMachine = () => {
   const [recGainText, setRecGainText] = useState('');
   const [buttonClickedText, setButtonClickedText] = useState('');
   const [recordingInfo, setRecordingInfo] = useState('');
+  const [noteVariation, setNoteVariation] = useState(0.5);
+  const [noteVariationText, setNoteVariationText] = useState('');
+  const [padBankText, setPadBankText] = useState('A');
+  const [padText, setPadText] = useState('');
   
   useEffect(() => {
     const pads = document.querySelectorAll('.drum-pad');
@@ -116,6 +120,7 @@ const DrumMachine = () => {
     if (!isPoweredOn) return;
 
     const pad = event.currentTarget;
+    setPadText(pad.getAttribute('name'));
     const audio = pad.querySelector('audio');
     const soundName = audio.getAttribute('name');
     setDisplayText(soundName);
@@ -138,7 +143,7 @@ const DrumMachine = () => {
     }
   };
 
-  const togglePower = () => {
+  const togglePower = (recGainDial) => {
     setIsPoweredOn(prevState => !prevState);
     if (!isPoweredOn) {
       setDisplayText('');
@@ -147,10 +152,17 @@ const DrumMachine = () => {
       setRecGainText('');
       setButtonClickedText('');
       setRecordingInfo('');
+      setPadText('');
 
     } else {
       setDisplayText('');
     }
+  };
+
+  const handleNoteVariationChange = (event) => {
+    const newNoteVariation = event.target.value / 100;
+    setNoteVariation(newNoteVariation);
+    setNoteVariationText(` ${Math.round(newNoteVariation * 100)}`);
   };
 
   const handleButtonClick = (event) => {
@@ -163,7 +175,26 @@ const DrumMachine = () => {
     buttonClickedText.classList.add('button-clicked-display-text');
     
     togglePadBanks(padBanks, buttonName);
-  
+
+    if (buttonName.startsWith('pad')) {
+      switch (buttonName) {
+        case 'pad bank : a':
+          setPadBankText('A');
+          break
+        case 'pad bank : b':
+          setPadBankText('B');
+          break;
+        case 'pad bank : c':
+          setPadBankText('C');
+          break;
+        case 'pad bank : d':
+          setPadBankText('D');
+          break;
+        default:
+          setPadBankText(padBankText);
+      }
+    }
+    
     if (buttonName.startsWith('cursor')) {
       return;
     } else if (buttonName === 'full-level' || buttonName === 'sixteen-levels' || buttonName.startsWith('step') || buttonName.startsWith('go') || buttonName.startsWith('bar')) {
@@ -178,10 +209,6 @@ const DrumMachine = () => {
         }, 100);
     }
     
-    
-    
-    
-  
     const lights = {
       name: [
         'assign',
@@ -266,14 +293,17 @@ const DrumMachine = () => {
               <div id='display'>
                 <div id='display-border'>
                   <div id='display-spans'>
-                    <span id='time'><span>{currentTime.toDateString().slice(4)}</span><span>{currentTime.toLocaleTimeString()}</span><span id='fcc-icon'><img id='fcc' src='https://ipfs.io/ipfs/QmRf5vq8WMTJKXWR4RVTr4rcQk6cZowsZL3AY3FybSUQNz?filename=fcc-logo.png' alt='freeCodeCamp logo' width='20px'/></span></span>
+                    <span id='time'><span>{currentTime.toDateString().slice(4)}</span><span>{currentTime.toLocaleTimeString()}</span></span>
                     <span id='display-text'>{displayText}</span>
+                    <span id='pad-bank-text' className={isPoweredOn ? '' : 'display-info-off'}>BANK: {padBankText}</span>
+                    <span id='pad-text' className={isPoweredOn ? '' : 'display-info-off'}>PAD: {padText}</span>
+                    <span id='note-text' className={isPoweredOn ? '' : 'display-info-off'}>NOTE-VAR:{noteVariationText}</span>
                     <span id='volume' className={isPoweredOn ? '' : 'display-info-off'}>VOLUME:{volumeText}</span>
                     <span id='data-text' className={isPoweredOn ? '' : 'display-info-off'}>DATA:{dataText}</span>
                     <span id='rec-gain-text' className={isPoweredOn ? '' : 'display-info-off'}>REC-GAIN:{recGainText}</span>
                     <span id='button-clicked-text' className={isPoweredOn ? '' : 'display-info-off'}>{buttonClickedText}</span>
                     <span id='recording-info' className={isPoweredOn ? '' : 'display-info-off'}>{recordingInfo}</span>
-                    <span id='data-icon' className={isPoweredOn ? '' : 'display-info-off'}><img src='https://www.svgrepo.com/show/447559/assessment.svg' alt='freeCodeCamp logo' width='30px'/></span>
+                    <span id='data-icon' className={isPoweredOn ? '' : 'display-info-off'}><img src='https://www.svgrepo.com/show/447559/assessment.svg' alt='freeCodeCamp logo' width='26px'/></span>
                   </div>
                 </div>
               </div>
@@ -347,7 +377,10 @@ const DrumMachine = () => {
                     type="range"
                     min="1"
                     max="100"
+                    value={noteVariation * 100}
                     className="note-variation-slider"
+                    id="note-range"
+                    onChange={handleNoteVariationChange}
                     disabled={!isPoweredOn}
                   />
                 </div>
@@ -497,7 +530,7 @@ const DrumMachine = () => {
           <div id='logo'>
             <span id='H'>H</span>
             <img id='akai-logo' src='https://musiccitycanada.com/cdn/shop/collections/akai_1200x630.png?v=1554830919' alt='Akai Logo' />
-            <div id='logo-div'>FCC<strong>2000</strong>XL
+            <div id='logo-div'>MPC<strong>2000</strong>XL
               <div id='line'></div>
               <div id='midi'>MIDI PRODUCTION CENTER</div>
             </div>
@@ -563,53 +596,53 @@ const DrumMachine = () => {
             </div>
           </div>
           <div id='drum-pad'>
-            <div className='drum-pad'>Q
-              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            <div className='drum-pad' name='Q'>Q
+              <audio src='' name='' type='' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>W
-              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            <div className='drum-pad'  name='W'>W
+              <audio src='' name='' type='' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>E
-              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            <div className='drum-pad' name='E'>E
+              <audio src='' name='' type='' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>R
-              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            <div className='drum-pad' name='R'>R
+              <audio src='' name='' type='' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>A
-              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            <div className='drum-pad' name='A'>A
+              <audio src='' name='' type='' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>S
-              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            <div className='drum-pad' name='S'>S
+              <audio src='' name='' type='' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>D
-              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            <div className='drum-pad' name='D'>D
+              <audio src='' name='' type='' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>F
-              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            <div className='drum-pad' name='F'>F
+              <audio src='' name='' type='' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>Z
-              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            <div className='drum-pad' name='Z'>Z
+              <audio src='' name='' type='' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>X
-              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            <div className='drum-pad' name='X'>X
+              <audio src='' name='' type='' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>C
-              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            <div className='drum-pad' name='C'>C
+              <audio src='' name='' type='' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>V
-              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            <div className='drum-pad' name='V'>V
+              <audio src='' name='' type='' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>U
-              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            <div className='drum-pad' name='U'>U
+              <audio src='' name='' type='' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>I
-              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            <div className='drum-pad' name='I'>I
+              <audio src='' name='' type='' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>O
-              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            <div className='drum-pad' name='O'>O
+              <audio src='' name='' type='' id='' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad'>P
-              <audio src='' name='' type='audio/wav' id='' className='audio-objects'></audio>
+            <div className='drum-pad' name='P'>P
+              <audio src='' name='' type='' id='' className='audio-objects'></audio>
             </div>
           </div>
         </div>
