@@ -6,6 +6,7 @@
     justify-content: center;
 }
 
+
 /* #shape {
     position: absolute;
     height: 20px;
@@ -179,7 +180,7 @@
     text-align: center;
     align-content: center;
     background-color: rgb(134, 133, 133);
-    border-radius: 4px;
+    border-radius: 2px;
     font-family: "Genos", sans-serif;
     font-size: 0pt;
     color: transparent;

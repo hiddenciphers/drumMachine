@@ -25,7 +25,7 @@ const DrumMachine = () => {
   const [noteVariationText, setNoteVariationText] = useState('');
   const [padBankText, setPadBankText] = useState('A');
   const [padText, setPadText] = useState('');
-  const [isRecording, setIsRecording] = useState(false);
+  // const [isRecording, setIsRecording] = useState('');
   // const audioContext = useRef(new (window.AudioContext || window.AudioContext)());
   // const [sequence, setSequence] = useState([]);
   // const mediaRecorder = useRef(null);
@@ -205,16 +205,16 @@ const DrumMachine = () => {
       }
     }
   
-    if (buttonName === 'record') {
-      if (isRecording) {
-        stopRecording();
-      } else {
-        startRecording();
-      }
-    } else if (buttonName === 'play') {
-      // playSequence();
-        return;
-    }
+    // if (buttonName === 'record') {
+    //   if (isRecording) {
+    //     stopRecording();
+    //   } else {
+    //     startRecording();
+    //   }
+    // } else if (buttonName === 'play') {
+    //   playSequence();
+    //     return;
+    // }
   
     if (buttonName.startsWith('cursor')) {
       return;
@@ -298,8 +298,8 @@ const DrumMachine = () => {
     }
   };
   
-  const startRecording = async () => {
-    setIsRecording(true);
+  // const startRecording = async () => {
+  //   setIsRecording(true);
     // setSequence([]);
     // recordingStartTime.current = audioContext.current.currentTime;
   
@@ -329,15 +329,15 @@ const DrumMachine = () => {
     //   });
     // };
   
-    setRecordingInfo('Recording...');
+    // setRecordingInfo('Recording...');
     // mediaRecorder.current.start();
-  };
+  // };
   
-  const stopRecording = () => {
-    setIsRecording(false);
+  // const stopRecording = () => {
+  //   setIsRecording(false);
     // mediaRecorder.current.stop();
-    setRecordingInfo('Processing...');
-  };
+  //   setRecordingInfo('Processing...');
+  // };
   
 
   // const encodeMp3 = (buffer) => {
