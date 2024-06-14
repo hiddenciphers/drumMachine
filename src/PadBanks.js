@@ -321,80 +321,80 @@ const padBanks = {
         },
         pad4: {
             id: 'R',
-            name: 'TakeFlight',
+            name: 'Sirius',
             src: 'https://ipfs.io/ipfs/QmfZUReWD7pzPDdA5oqELEifsMnJ9JnbftcLoW29RaGAbi?filename=TakeFlight.mp3',
             type: 'audio/mpeg'
         },
         pad5: {
             id: 'A',
-            name: 'GivinItUp',
-            src: 'https://ipfs.io/ipfs/QmWkjL42Xu9dsttP6n8gXM1SJyiu76UGQRhPBx547hPbcE?filename=Patrice.m4a',
+            name: 'Discipline',
+            src: 'https://ipfs.io/ipfs/QmZgFypKxJDdvV6JSoBpz5qJHZycYHSiHeYbC7ZjWr7Rde?filename=Discipline.mp3',
             type: 'audio/mpeg'
         },
         pad6: {
             id: 'S',
-            name: 'NeverGonnaComeBack',
+            name: 'GraveDiggaz',
             src: 'https://ipfs.io/ipfs/QmXGLKjAHZ3jRQdcLKUGCMsHq6hM2aKBqQ1MHdr2V9kATQ?filename=NeverGonnaComeBack.mp3',
             type: 'audio/mpeg'
         },
         pad7: {
             id: 'D',
             name: 'ScrewBall',
-            src: 'https://ipfs.io/ipfs/QmQVucEgEHBPzWquC7cA5EcxBVVEJyqxxceasxXzrnDjXn?filename=ScrewBall.wav',
-            type: 'audio/wav'
+            src: 'https://ipfs.io/ipfs/QmUvVVMXYMsz8fXg3eJW76Qotrw5BqAGKTNz2hktPpp92e?filename=BeatEmOnTheHead.mp3',
+            type: 'audio/mpeg'
         },
         pad8: {
             id: 'F',
-            name: '',
-            src: '',
+            name: 'DeadlyNeedles',
+            src: 'https://ipfs.io/ipfs/QmakK62aFfuNYnewVW9uywRmVWiRi6mkbUyY1EMi9AMYvw?filename=DeadlyNeedles.mp3',
             type: 'audio/mpeg'
         },
         pad9: {
             id: 'Z',
-            name: '',
-            src: '',
+            name: 'Classic',
+            src: 'https://ipfs.io/ipfs/QmbTHu5MDsQz8m9q3MGWkQbqK3Cc4GL7613dthKQR4j7L5?filename=Classic.mp3',
             type: 'audio/mpeg'
         },
         pad10: {
             id: 'X',
-            name: '',
-            src: '',
+            name: 'TheNumberSong',
+            src: 'https://ipfs.io/ipfs/QmVSt5E9hgv47JKFqWdnNZVmUARTRknfvYkb9qwCSfPZc6?filename=TheNumberSong.mp3',
             type: 'audio/mpeg'
         },
         pad11: {
             id: 'C',
-            name: '',
-            src: '',
+            name: '41stSide',
+            src: 'https://ipfs.io/ipfs/QmXu2uqcwwzvbBuH99bzWW6i3WZXpTapFAJgqnDhpwR94E?filename=41stSide.mp3',
             type: 'audio/mpeg'
         },
         pad12: {
             id: 'V',
-            name: '',
-            src: '',
+            name: 'Battle',
+            src: 'https://ipfs.io/ipfs/QmTRuj1GGLyaEqMJ7P732HuG5pjhr6ZVLjA6GBJ8AyfCXS?filename=Battle.mp3',
             type: 'audio/mpeg'
         },
         pad13: {
             id: 'U',
-            name: '',
-            src: '',
+            name: 'OffTheBooks',
+            src: 'https://ipfs.io/ipfs/QmXCi2dwD9EzAWzkn3UQt5dpjkSHNUF63EKCqmNG1F22PV?filename=OffTheBooks.mp3',
             type: 'audio/mpeg'
         },
         pad14: {
             id: 'I',
-            name: '',
-            src: '',
+            name: 'TerrorWrist',
+            src: 'https://ipfs.io/ipfs/QmXuo9isG7tA1G26NgLLRE41WrQptMXpkM19ip7FLgZ4XZ?filename=TerrorWrist.mp3',
             type: 'audio/mpeg'
         },
         pad15: {
             id: 'O',
-            name: '',
-            src: '',
+            name: 'GhettoChild',
+            src: 'https://ipfs.io/ipfs/QmSUXooR43UK8DeV8sJvMWQyayYSoPXvo6XVRhKSB4pqUa?filename=GhettoChild.mp3',
             type: 'audio/mpeg'
         },
         pad16: {
             id: 'P',
-            name: '',
-            src: '',
+            name: 'OutOfBusiness',
+            src: 'https://ipfs.io/ipfs/QmV9HVihJbefNDybUxyEDbRxGKUeJHtgKxfqY8wENKFkLC?filename=EPMD.mp3',
             type: 'audio/mpeg'
         }
         
