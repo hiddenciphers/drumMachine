@@ -328,7 +328,7 @@ const padBanks = {
         pad5: {
             id: 'A',
             name: 'GivinItUp',
-            src: 'https://ipfs.io/ipfs/QmQTmfcKeQNHLgwa3ZvNUfYEZ1yYfmKo3V1JNgJ7qg9Arh?filename=GivinItUp.mp3',
+            src: 'https://ipfs.io/ipfs/QmWkjL42Xu9dsttP6n8gXM1SJyiu76UGQRhPBx547hPbcE?filename=Patrice.m4a',
             type: 'audio/mpeg'
         },
         pad6: {
@@ -339,9 +339,9 @@ const padBanks = {
         },
         pad7: {
             id: 'D',
-            name: 'BeatEmOnTheHead',
-            src: 'https://ipfs.io/ipfs/QmUvVVMXYMsz8fXg3eJW76Qotrw5BqAGKTNz2hktPpp92e?filename=BeatEmOnTheHead.mp3',
-            type: 'audio/mpeg'
+            name: 'ScrewBall',
+            src: 'https://ipfs.io/ipfs/QmQVucEgEHBPzWquC7cA5EcxBVVEJyqxxceasxXzrnDjXn?filename=ScrewBall.wav',
+            type: 'audio/wav'
         },
         pad8: {
             id: 'F',

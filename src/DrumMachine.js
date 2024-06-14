@@ -1,3 +1,4 @@
+// useRef
 import React, { useEffect, useState } from 'react';
 import './DrumMachine.css';
 import padBanks from './PadBanks';
@@ -5,6 +6,8 @@ import togglePadBanks from './PadToggle';
 import setDefaultPads from './Default';
 import { Draggable } from 'gsap/Draggable';
 import { gsap } from 'gsap';
+// import audioBufferToWav from 'audiobuffer-to-wav';
+// import lamejs from 'lamejs';
 
 gsap.registerPlugin(Draggable);
 
@@ -22,7 +25,13 @@ const DrumMachine = () => {
   const [noteVariationText, setNoteVariationText] = useState('');
   const [padBankText, setPadBankText] = useState('A');
   const [padText, setPadText] = useState('');
-  
+  const [isRecording, setIsRecording] = useState(false);
+  // const audioContext = useRef(new (window.AudioContext || window.AudioContext)());
+  // const [sequence, setSequence] = useState([]);
+  // const mediaRecorder = useRef(null);
+  // const audioChunks = useRef([]);
+  // const recordingStartTime = useRef(null);
+
   useEffect(() => {
     const pads = document.querySelectorAll('.drum-pad');
     pads.forEach(pad => {
@@ -130,8 +139,12 @@ const DrumMachine = () => {
     audio.play();
     pad.classList.add('pressed');
     setTimeout(() => pad.classList.remove('pressed'), 100);
-  };
 
+    // if (isRecording) {
+    //   const timeStamp = audioContext.current.currentTime - recordingStartTime.current;
+    //   setSequence(prevSequence => [...prevSequence, { soundName, timeStamp }]);
+    // }
+  };
 
   const handleKeyPress = (event) => {
     if (!isPoweredOn) return;
@@ -143,7 +156,7 @@ const DrumMachine = () => {
     }
   };
 
-  const togglePower = (recGainDial) => {
+  const togglePower = () => {
     setIsPoweredOn(prevState => !prevState);
     if (!isPoweredOn) {
       setDisplayText('');
@@ -153,7 +166,6 @@ const DrumMachine = () => {
       setButtonClickedText('');
       setRecordingInfo('');
       setPadText('');
-
     } else {
       setDisplayText('');
     }
@@ -167,20 +179,18 @@ const DrumMachine = () => {
 
   const handleButtonClick = (event) => {
     if (!isPoweredOn) return;
-
+  
     const button = event.currentTarget;
     const buttonName = button.getAttribute('name');
-    const buttonClickedText = document.getElementById('button-clicked-text');
     setButtonClickedText(buttonName);
-    buttonClickedText.classList.add('button-clicked-display-text');
-    
+  
     togglePadBanks(padBanks, buttonName);
-
+  
     if (buttonName.startsWith('pad')) {
       switch (buttonName) {
         case 'pad bank : a':
           setPadBankText('A');
-          break
+          break;
         case 'pad bank : b':
           setPadBankText('B');
           break;
@@ -194,21 +204,32 @@ const DrumMachine = () => {
           setPadBankText(padBankText);
       }
     }
-    
+  
+    if (buttonName === 'record') {
+      if (isRecording) {
+        stopRecording();
+      } else {
+        startRecording();
+      }
+    } else if (buttonName === 'play') {
+      // playSequence();
+        return;
+    }
+  
     if (buttonName.startsWith('cursor')) {
       return;
     } else if (buttonName === 'full-level' || buttonName === 'sixteen-levels' || buttonName.startsWith('step') || buttonName.startsWith('go') || buttonName.startsWith('bar')) {
-        button.classList.add('full-sixteen-pressed');
-        setTimeout(() => {
+      button.classList.add('full-sixteen-pressed');
+      setTimeout(() => {
         button.classList.remove('full-sixteen-pressed')
-        }, 100);
+      }, 100);
     } else {
-        button.classList.add('pressed');
-        setTimeout(() => {
-          button.classList.remove('pressed')
-        }, 100);
+      button.classList.add('pressed');
+      setTimeout(() => {
+        button.classList.remove('pressed')
+      }, 100);
     }
-    
+  
     const lights = {
       name: [
         'assign',
@@ -222,7 +243,7 @@ const DrumMachine = () => {
         'undo-seq'
       ]
     };
-
+  
     const fButtons = ['F1', 'F2', 'F3', 'F4', 'F5', 'F6'];
   
     //  F Lights START
@@ -274,8 +295,78 @@ const DrumMachine = () => {
       setTimeout(() => light.classList.add('off'), 100);
       light.classList.add('on');
       setTimeout(() => light.classList.remove('on'), 100);
-    } 
+    }
   };
+  
+  const startRecording = async () => {
+    setIsRecording(true);
+    // setSequence([]);
+    // recordingStartTime.current = audioContext.current.currentTime;
+  
+    // const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    // mediaRecorder.current = new MediaRecorder(stream);
+  
+    // mediaRecorder.current.ondataavailable = event => {
+    //   audioChunks.current.push(event.data);
+    // };
+  
+    // mediaRecorder.current.onstop = async () => {
+    //   const audioBlob = new Blob(audioChunks.current, { type: 'audio/webm' });
+    //   const arrayBuffer = await audioBlob.arrayBuffer();
+    //   audioContext.current.decodeAudioData(arrayBuffer, buffer => {
+    //     const mp3Buffer = encodeMp3(buffer);
+    //     const mp3Blob = new Blob(mp3Buffer, { type: 'audio/mp3' });
+    //     const url = URL.createObjectURL(mp3Blob);
+    //     const a = document.createElement('a');
+    //     a.style.display = 'none';
+    //     a.href = url;
+    //     a.download = 'recording.mp3';
+    //     document.body.appendChild(a);
+    //     a.click();
+    //     URL.revokeObjectURL(url);
+    //     setRecordingInfo('Recording saved as recording.mp3');
+    //     audioChunks.current = [];  // Clear audio chunks after saving
+    //   });
+    // };
+  
+    setRecordingInfo('Recording...');
+    // mediaRecorder.current.start();
+  };
+  
+  const stopRecording = () => {
+    setIsRecording(false);
+    // mediaRecorder.current.stop();
+    setRecordingInfo('Processing...');
+  };
+  
+
+  // const encodeMp3 = (buffer) => {
+  //   const mp3encoder = new lamejs.Mp3Encoder(buffer.numberOfChannels, buffer.sampleRate, 128);
+  //   let mp3Data = [];
+  //   for (let i = 0; i < buffer.numberOfChannels; i++) {
+  //     const channelData = buffer.getChannelData(i);
+  //     const mp3buf = mp3encoder.encodeBuffer(channelData);
+  //     if (mp3buf.length > 0) {
+  //       mp3Data.push(mp3buf);
+  //     }
+  //   }
+  //   const mp3buf = mp3encoder.flush();
+  //   if (mp3buf.length > 0) {
+  //     mp3Data.push(mp3buf);
+  //   }
+  //   return mp3Data;
+  // };
+
+  // const playSequence = () => {
+  //   if (sequence.length === 0) return;
+
+  //   sequence.forEach(note => {
+  //     setTimeout(() => {
+  //       const pad = document.querySelector(`.drum-pad[name="${note.soundName}"]`);
+  //       if (pad) pad.click();
+  //     }, note.timeStamp * 1000);
+  //   });
+  // };
 
   return (
     <div id='container'>
@@ -648,13 +739,11 @@ const DrumMachine = () => {
         </div>
         <div id='bottom-line'></div>
       </div>
-      {/* <div id='shape'></div> */}
     </div>
   );
 };
 
 export default DrumMachine;
-
 
 
 
