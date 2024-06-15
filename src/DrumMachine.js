@@ -1,4 +1,3 @@
-// useRef
 import React, { useEffect, useState } from 'react';
 import './DrumMachine.css';
 import padBanks from './PadBanks';
@@ -7,8 +6,6 @@ import setDefaultPads from './Default';
 import { Draggable } from 'gsap/Draggable';
 import { gsap } from 'gsap';
 import AudioMotionAnalyzer from 'audiomotion-analyzer';
-// import audioBufferToWav from 'audiobuffer-to-wav';
-// import lamejs from 'lamejs';
 
 gsap.registerPlugin(Draggable);
 
@@ -28,12 +25,6 @@ const DrumMachine = () => {
   const [padText, setPadText] = useState('');
   const [displayLogo, setDisplayLogo] = useState('');
   const [visualizer, setVisualizer] = useState('');
-  // const [isRecording, setIsRecording] = useState('');
-  // const audioContext = useRef(new (window.AudioContext || window.AudioContext)());
-  // const [sequence, setSequence] = useState([]);
-  // const mediaRecorder = useRef(null);
-  // const audioChunks = useRef([]);
-  // const recordingStartTime = useRef(null);
 
   useEffect(() => {
     const pads = document.querySelectorAll('.drum-pad');
@@ -184,10 +175,6 @@ const DrumMachine = () => {
     pad.classList.add('pressed');
     setTimeout(() => pad.classList.remove('pressed'), 100);
 
-    // if (isRecording) {
-    //   const timeStamp = audioContext.current.currentTime - recordingStartTime.current;
-    //   setSequence(prevSequence => [...prevSequence, { soundName, timeStamp }]);
-    // }
   };
 
   const handleKeyPress = (event) => {
@@ -250,17 +237,6 @@ const DrumMachine = () => {
           setPadBankText(padBankText);
       }
     }
-  
-    // if (buttonName === 'record') {
-    //   if (isRecording) {
-    //     stopRecording();
-    //   } else {
-    //     startRecording();
-    //   }
-    // } else if (buttonName === 'play') {
-    //   playSequence();
-    //     return;
-    // }
   
     if (buttonName.startsWith('cursor')) {
       return;
@@ -344,76 +320,6 @@ const DrumMachine = () => {
     }
   };
   
-  // const startRecording = async () => {
-  //   setIsRecording(true);
-    // setSequence([]);
-    // recordingStartTime.current = audioContext.current.currentTime;
-  
-    // const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    // mediaRecorder.current = new MediaRecorder(stream);
-  
-    // mediaRecorder.current.ondataavailable = event => {
-    //   audioChunks.current.push(event.data);
-    // };
-  
-    // mediaRecorder.current.onstop = async () => {
-    //   const audioBlob = new Blob(audioChunks.current, { type: 'audio/webm' });
-    //   const arrayBuffer = await audioBlob.arrayBuffer();
-    //   audioContext.current.decodeAudioData(arrayBuffer, buffer => {
-    //     const mp3Buffer = encodeMp3(buffer);
-    //     const mp3Blob = new Blob(mp3Buffer, { type: 'audio/mp3' });
-    //     const url = URL.createObjectURL(mp3Blob);
-    //     const a = document.createElement('a');
-    //     a.style.display = 'none';
-    //     a.href = url;
-    //     a.download = 'recording.mp3';
-    //     document.body.appendChild(a);
-    //     a.click();
-    //     URL.revokeObjectURL(url);
-    //     setRecordingInfo('Recording saved as recording.mp3');
-    //     audioChunks.current = [];  // Clear audio chunks after saving
-    //   });
-    // };
-  
-    // setRecordingInfo('Recording...');
-    // mediaRecorder.current.start();
-  // };
-  
-  // const stopRecording = () => {
-  //   setIsRecording(false);
-    // mediaRecorder.current.stop();
-  //   setRecordingInfo('Processing...');
-  // };
-  
-
-  // const encodeMp3 = (buffer) => {
-  //   const mp3encoder = new lamejs.Mp3Encoder(buffer.numberOfChannels, buffer.sampleRate, 128);
-  //   let mp3Data = [];
-  //   for (let i = 0; i < buffer.numberOfChannels; i++) {
-  //     const channelData = buffer.getChannelData(i);
-  //     const mp3buf = mp3encoder.encodeBuffer(channelData);
-  //     if (mp3buf.length > 0) {
-  //       mp3Data.push(mp3buf);
-  //     }
-  //   }
-  //   const mp3buf = mp3encoder.flush();
-  //   if (mp3buf.length > 0) {
-  //     mp3Data.push(mp3buf);
-  //   }
-  //   return mp3Data;
-  // };
-
-  // const playSequence = () => {
-  //   if (sequence.length === 0) return;
-
-  //   sequence.forEach(note => {
-  //     setTimeout(() => {
-  //       const pad = document.querySelector(`.drum-pad[name="${note.soundName}"]`);
-  //       if (pad) pad.click();
-  //     }, note.timeStamp * 1000);
-  //   });
-  // };
-
   return (
     <div id='container'>
       <div id='power-button' onClick={togglePower}>
