@@ -50,60 +50,67 @@ const DrumMachine = () => {
   }, [volume, isPoweredOn]);
 
   useEffect(() => {
+    // Function to create Draggable instance
+    const createDraggableDial = (selector, onDrag, onThrowUpdate) => {
+      const dial = document.querySelector(selector);
+      return Draggable.create(dial, {
+        type: 'rotation',
+        bounds: { minRotation: -120, maxRotation: 120 },
+        inertia: true,
+        onDrag,
+        onThrowUpdate,
+      })[0]; // Return the Draggable instance
+    };
+  
     // REC-GAIN DIAL
-    const recGainDial = document.querySelector('.rec-gain-dial');
-    Draggable.create(recGainDial, {
-      type: 'rotation',
-      bounds: { minRotation: -120, maxRotation: 120 },
-      inertia: true,
-      onDrag: function () {
-        const angle = this.rotation;
-        const newRecGain = (angle + 120) / 239;
-        setRecGainText(` ${Math.round(newRecGain * 100)}`);
-      },
-      onThrowUpdate: function () {
-        const angle = this.rotation;
-        const newRecGain = (angle + 120) / 239;
-        setRecGainText(` ${Math.round(newRecGain * 100)}`);
-      },
+    const recGainDraggable = createDraggableDial('.rec-gain-dial', function () {
+      const angle = this.rotation;
+      const newRecGain = (angle + 120) / 239;
+      setRecGainText(` ${Math.round(newRecGain * 100)}`);
+    }, function () {
+      const angle = this.rotation;
+      const newRecGain = (angle + 120) / 239;
+      setRecGainText(` ${Math.round(newRecGain * 100)}`);
     });
-
+  
     // VOLUME DIAL
-    const volumeDial = document.querySelector('.volume-dial');
-    Draggable.create(volumeDial, {
-      type: 'rotation',
-      bounds: { minRotation: -120, maxRotation: 120 },
-      inertia: true,
-      onDrag: function () {
-        const angle = this.rotation;
-        const newVolume = (angle + 120) / 240;
-        setVolume(newVolume);
-        setVolumeText(` ${Math.round(newVolume * 100)}`);
-      },
-      onThrowUpdate: function () {
-        const angle = this.rotation;
-        const newVolume = (angle + 120) / 240;
-        setVolume(newVolume);
-        setVolumeText(` ${Math.round(newVolume * 100)}`);
-      },
+    const volumeDraggable = createDraggableDial('.volume-dial', function () {
+      const angle = this.rotation;
+      const newVolume = (angle + 120) / 240;
+      setVolume(newVolume);
+      setVolumeText(` ${Math.round(newVolume * 100)}`);
+    }, function () {
+      const angle = this.rotation;
+      const newVolume = (angle + 120) / 240;
+      setVolume(newVolume);
+      setVolumeText(` ${Math.round(newVolume * 100)}`);
     });
-
+  
     // DATA DIAL
-    const dataDial = document.querySelector('.data-dial');
-    Draggable.create(dataDial, {
-      type: 'rotation',
-      bounds: { minRotation: -10000, maxRotation: 10000 },
-      inertia: true,
-      onDrag: function () {
-        const angle = Math.floor(this.rotation);
-        setDataText(` ${angle}`);
-      },
-      onThrowUpdate: function () {
-        const angle = this.rotation;
-        setDataText(` ${angle}`);
-      },
+    const dataDraggable = createDraggableDial('.data-dial', function () {
+      const angle = Math.floor(this.rotation);
+      setDataText(` ${angle}`);
+    }, function () {
+      const angle = this.rotation;
+      setDataText(` ${angle}`);
     });
-  }, []);
+  
+    // Enable or disable dials based on isPoweredOn state
+    const toggleDials = (enabled) => {
+      recGainDraggable[enabled ? 'enable' : 'disable']();
+      volumeDraggable[enabled ? 'enable' : 'disable']();
+      dataDraggable[enabled ? 'enable' : 'disable']();
+    };
+  
+    toggleDials(isPoweredOn);
+  
+    return () => {
+      recGainDraggable.kill();
+      volumeDraggable.kill();
+      dataDraggable.kill();
+    };
+  }, [isPoweredOn]);
+    
 
   useEffect(() => {
     setDefaultPads(padBanks);
@@ -156,22 +163,29 @@ const DrumMachine = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const audios = document.querySelectorAll('audio');
+    audios.forEach(audio => {
+      audio.volume = volume;
+    });
+  }, [volume]);
+
   const handlePadClick = (e) => {
     if (!isPoweredOn) return;
-  
+
     const pad = e.currentTarget;
     setPadText(pad.getAttribute('name'));
     const audio = pad.querySelector('audio');
     const soundName = audio.getAttribute('name');
     setDisplayText(soundName);
-    
+
     // Connect each audio element to the analyzer if not already connected
     if (!audio.analyzerConnected) {
       audioMotionRef.current.connectInput(audio);
       audio.analyzerConnected = true;
     }
-  
-    audio.volume = volume;
+
+    audio.volume = volume; // Ensure the volume is set when the pad is clicked
     audio.currentTime = 0;
     audio.play()
       .catch(error => {
@@ -180,18 +194,17 @@ const DrumMachine = () => {
     pad.classList.add('pressed');
     setTimeout(() => pad.classList.remove('pressed'), 100);
   };
-  
 
   const handleKeyPress = (e) => {
     if (!isPoweredOn) return;
-  
+
     const key = e.key.toUpperCase();
     const pad = document.getElementById(key)?.parentElement;
     if (pad) {
       pad.click();
     }
   };
-    
+
   const togglePower = () => {
     setIsPoweredOn(prevState => !prevState);
     if (!isPoweredOn) {

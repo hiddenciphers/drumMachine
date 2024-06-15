@@ -315,13 +315,13 @@ const padBanks = {
         },
         pad3: {
             id: 'E',
-            name: 'FocusedDaily',
-            src: 'https://ipfs.io/ipfs/QmQ9Q2icsB89UZrvy6EN8GZyCZprRJeC7duCBHEPQdfvvv?filename=FocusedDaily.mp3',
+            name: 'MrDibbs',
+            src: 'https://ipfs.io/ipfs/QmNT6JJULjLwWKyQ7b1PcdbsP6PBRD6taHshX8RUb5ht3d?filename=MrDibbs.mp3',
             type: 'audio/mpeg'
         },
         pad4: {
             id: 'R',
-            name: 'Sirius',
+            name: 'TakeFlight',
             src: 'https://ipfs.io/ipfs/QmfZUReWD7pzPDdA5oqELEifsMnJ9JnbftcLoW29RaGAbi?filename=TakeFlight.mp3',
             type: 'audio/mpeg'
         },
@@ -381,8 +381,8 @@ const padBanks = {
         },
         pad14: {
             id: 'I',
-            name: 'TerrorWrist',
-            src: 'https://ipfs.io/ipfs/QmXuo9isG7tA1G26NgLLRE41WrQptMXpkM19ip7FLgZ4XZ?filename=TerrorWrist.mp3',
+            name: 'HeyDJ',
+            src: 'https://ipfs.io/ipfs/QmTqsez92ECWnsx4fGQhJFGKxxxTBcQXvNvan2JQiBjHKB?filename=HeyAz.mp3',
             type: 'audio/mpeg'
         },
         pad15: {
