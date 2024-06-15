@@ -50,41 +50,6 @@ const DrumMachine = () => {
   }, [volume, isPoweredOn]);
 
   useEffect(() => {
-    // Initialize AudioMotionAnalyzer once
-    audioMotionRef.current = new AudioMotionAnalyzer(
-      document.getElementById('viz-container'),
-      {
-        height: 70,
-        ansiBands: false,
-        showScaleX: false,
-        bgAlpha: 0,
-        overlay: true,
-        mode: 6,
-        frequencyScale: 'log',
-        showPeaks: false,
-        smoothing: 0.7,
-        ledBars: false,
-      }
-    );
-
-    // Register a custom gradient with black color
-    audioMotionRef.current.registerGradient('black', {
-      bgColor: 'black',
-      colorStops: [
-        { pos: 0, color: 'black' },
-        { pos: 1, color: 'black' },
-      ],
-    });
-
-    // Set the custom gradient
-    audioMotionRef.current.setOptions({ gradient: 'black' });
-
-    return () => {
-      audioMotionRef.current.disconnectInput();
-    };
-  }, []);
-
-  useEffect(() => {
     // REC-GAIN DIAL
     const recGainDial = document.querySelector('.rec-gain-dial');
     Draggable.create(recGainDial, {
@@ -156,20 +121,56 @@ const DrumMachine = () => {
     };
   }, [isPoweredOn]);
 
+  useEffect(() => {
+    // Initialize AudioMotionAnalyzer once
+    audioMotionRef.current = new AudioMotionAnalyzer(
+      document.getElementById('viz-container'),
+      {
+        height: 70,
+        ansiBands: false,
+        showScaleX: false,
+        bgAlpha: 0,
+        overlay: true,
+        mode: 6,
+        frequencyScale: 'log',
+        showPeaks: false,
+        smoothing: 0.7,
+        ledBars: false,
+      }
+    );
 
+    // Register a custom gradient with black color
+    audioMotionRef.current.registerGradient('black', {
+      bgColor: 'black',
+      colorStops: [
+        { pos: 0, color: 'black' },
+        { pos: 1, color: 'black' },
+      ],
+    });
+
+    // Set the custom gradient
+    audioMotionRef.current.setOptions({ gradient: 'black' });
+
+    return () => {
+      audioMotionRef.current.disconnectInput();
+    };
+  }, []);
 
   const handlePadClick = (e) => {
     if (!isPoweredOn) return;
-
+  
     const pad = e.currentTarget;
     setPadText(pad.getAttribute('name'));
     const audio = pad.querySelector('audio');
     const soundName = audio.getAttribute('name');
     setDisplayText(soundName);
-
-    // Connect each audio element to the analyzer
-    audioMotionRef.current.connectInput(audio);
-
+    
+    // Connect each audio element to the analyzer if not already connected
+    if (!audio.analyzerConnected) {
+      audioMotionRef.current.connectInput(audio);
+      audio.analyzerConnected = true;
+    }
+  
     audio.volume = volume;
     audio.currentTime = 0;
     audio.play()
@@ -178,12 +179,8 @@ const DrumMachine = () => {
       });
     pad.classList.add('pressed');
     setTimeout(() => pad.classList.remove('pressed'), 100);
-
-    if (audio.currentTime > 0) {
-      audio.stop();
-    }
-  
   };
+  
 
   const handleKeyPress = (e) => {
     if (!isPoweredOn) return;
@@ -226,26 +223,6 @@ const DrumMachine = () => {
     setButtonClickedText(buttonName);
 
     togglePadBanks(padBanks, buttonName);
-
-
-    if (buttonName.startsWith('pad')) {
-      switch (buttonName) {
-        case 'pad bank : a':
-          setPadBankText('A');
-          break;
-        case 'pad bank : b':
-          setPadBankText('B');
-          break;
-        case 'pad bank : c':
-          setPadBankText('C');
-          break;
-        case 'pad bank : d':
-          setPadBankText('D');
-          break;
-        default:
-          setPadBankText(padBankText);
-      }
-    }
 
     handleMultipleButtons(button, buttonName);
     handleLights(button, buttonName);
