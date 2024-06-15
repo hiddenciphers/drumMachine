@@ -26,7 +26,17 @@ const DrumMachine = () => {
   const [padText, setPadText] = useState('');
   const [displayLogo, setDisplayLogo] = useState('');
   const [visualizer, setVisualizer] = useState('');
+  const [currentRecordingIndex, setCurrentRecordingIndex] = useState('');
+  const [recordings, setRecordings] = useState([]);
+  const [isRecording, setIsRecording] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isLooping, setIsLooping] = useState(false);
+  const [currentRecording, setCurrentRecording] = useState(null);
+  const [recorder, setRecorder] = useState(null);
+  const [audioChunks, setAudioChunks] = useState([]);
   const audioMotionRef = useRef(null);
+  const audioContextRef = useRef(null);
+  const mediaRecorderRef = useRef(null);
 
   useEffect(() => {
     const pads = document.querySelectorAll('.drum-pad');
@@ -51,11 +61,11 @@ const DrumMachine = () => {
 
   useEffect(() => {
     // Function to create Draggable instance
-    const createDraggableDial = (selector, onDrag, onThrowUpdate) => {
+    const createDraggableDial = (selector, onDrag, onThrowUpdate, bounds = null) => {
       const dial = document.querySelector(selector);
       return Draggable.create(dial, {
         type: 'rotation',
-        bounds: { minRotation: -120, maxRotation: 120 },
+        bounds,
         inertia: true,
         onDrag,
         onThrowUpdate,
@@ -65,13 +75,13 @@ const DrumMachine = () => {
     // REC-GAIN DIAL
     const recGainDraggable = createDraggableDial('.rec-gain-dial', function () {
       const angle = this.rotation;
-      const newRecGain = (angle + 120) / 239;
+      const newRecGain = (angle + 120) / 240;
       setRecGainText(` ${Math.round(newRecGain * 100)}`);
     }, function () {
       const angle = this.rotation;
-      const newRecGain = (angle + 120) / 239;
+      const newRecGain = (angle + 120) / 240;
       setRecGainText(` ${Math.round(newRecGain * 100)}`);
-    });
+    }, { minRotation: -120, maxRotation: 120 });
   
     // VOLUME DIAL
     const volumeDraggable = createDraggableDial('.volume-dial', function () {
@@ -84,16 +94,16 @@ const DrumMachine = () => {
       const newVolume = (angle + 120) / 240;
       setVolume(newVolume);
       setVolumeText(` ${Math.round(newVolume * 100)}`);
-    });
+    }, { minRotation: -120, maxRotation: 120 });
   
-    // DATA DIAL
+    // DATA DIAL - Spin Freely
     const dataDraggable = createDraggableDial('.data-dial', function () {
       const angle = Math.floor(this.rotation);
       setDataText(` ${angle}`);
     }, function () {
       const angle = this.rotation;
       setDataText(` ${angle}`);
-    });
+    }, null); // No bounds for free spinning
   
     // Enable or disable dials based on isPoweredOn state
     const toggleDials = (enabled) => {
@@ -110,7 +120,7 @@ const DrumMachine = () => {
       dataDraggable.kill();
     };
   }, [isPoweredOn]);
-    
+  
 
   useEffect(() => {
     setDefaultPads(padBanks);
@@ -145,7 +155,7 @@ const DrumMachine = () => {
         ledBars: false,
       }
     );
-
+  
     // Register a custom gradient with black color
     audioMotionRef.current.registerGradient('black', {
       bgColor: 'black',
@@ -154,14 +164,20 @@ const DrumMachine = () => {
         { pos: 1, color: 'black' },
       ],
     });
-
+  
     // Set the custom gradient
     audioMotionRef.current.setOptions({ gradient: 'black' });
-
+  
+    audioContextRef.current = new (window.AudioContext || window.AudioContext)();
+  
     return () => {
       audioMotionRef.current.disconnectInput();
+      if (audioContextRef.current) {
+        audioContextRef.current.close();
+      }
     };
   }, []);
+  
 
   useEffect(() => {
     const audios = document.querySelectorAll('audio');
@@ -172,20 +188,20 @@ const DrumMachine = () => {
 
   const handlePadClick = (e) => {
     if (!isPoweredOn) return;
-
+  
     const pad = e.currentTarget;
     setPadText(pad.getAttribute('name'));
     const audio = pad.querySelector('audio');
     const soundName = audio.getAttribute('name');
     setDisplayText(soundName);
-
+  
     // Connect each audio element to the analyzer if not already connected
     if (!audio.analyzerConnected) {
       audioMotionRef.current.connectInput(audio);
       audio.analyzerConnected = true;
     }
-
-    audio.volume = volume; // Ensure the volume is set when the pad is clicked
+  
+    audio.volume = volume;
     audio.currentTime = 0;
     audio.play()
       .catch(error => {
@@ -193,7 +209,91 @@ const DrumMachine = () => {
       });
     pad.classList.add('pressed');
     setTimeout(() => pad.classList.remove('pressed'), 100);
+  
+    if (isRecording) {
+      // Connect the audio element to the recording destination
+      const source = audioContextRef.current.createMediaElementSource(audio);
+      source.connect(audioContextRef.current.destination);
+    }
   };
+  
+
+  const startRecording = () => {
+    if (!isPoweredOn || isRecording) return;
+  
+    setIsRecording(true);
+    setDisplayText('Recording...');
+  
+    const streamDestination = audioContextRef.current.createMediaStreamDestination();
+    const options = { mimeType: 'audio/webm' };
+    const recorder = new MediaRecorder(streamDestination.stream, options);
+  
+    setRecorder(recorder);
+    recorder.start();
+  
+    recorder.ondataavailable = (event) => {
+      if (event.data.size > 0) {
+        setAudioChunks(prev => [...prev, event.data]);
+      }
+    };
+  
+    recorder.onstop = () => {
+      const blob = new Blob(audioChunks, { type: 'audio/webm' });
+      const url = URL.createObjectURL(blob);
+      setRecordings(prev => [...prev, { url, blob }]);
+      setAudioChunks([]);
+    };
+  
+    // Instead of connecting the entire AudioMotionAnalyzer, connect only the media stream to the destination
+    const mediaStreamSource = audioContextRef.current.createMediaStreamSource(streamDestination.stream);
+    mediaStreamSource.connect(audioContextRef.current.destination);
+  
+    mediaRecorderRef.current = recorder;
+  };
+  
+  const stopRecording = () => {
+    if (!isRecording) return;
+  
+    setIsRecording(false);
+    setDisplayText('Recording Stopped');
+    if (recorder) {
+      recorder.stop();
+    }
+    mediaRecorderRef.current = null;
+  };
+  
+  
+  const playRecording = () => {
+    if (!currentRecording) return;
+  
+    const audio = new Audio(currentRecording.url);
+    audio.loop = isLooping;
+    audio.play();
+    setIsPlaying(true);
+    audio.onended = () => setIsPlaying(false);
+  };
+  
+  const stopPlayback = () => {
+    setIsPlaying(false);
+  };
+  
+  const toggleLooping = () => {
+    setIsLooping(!isLooping);
+    if (isPlaying) {
+      playRecording();
+    }
+  };
+  
+  const overdubRecording = () => {
+    if (!currentRecording) return;
+  
+    const overlayStream = audioContextRef.current.createMediaStreamDestination();
+    const currentAudio = new Audio(currentRecording.url);
+    currentAudio.connect(overlayStream);
+    startRecording(overlayStream);
+    currentAudio.play();
+  };
+  
 
   const handleKeyPress = (e) => {
     if (!isPoweredOn) return;
@@ -230,16 +330,82 @@ const DrumMachine = () => {
 
   const handleButtonClick = (e) => {
     if (!isPoweredOn) return;
-
+  
     const button = e.currentTarget;
     const buttonName = button.getAttribute('name');
     setButtonClickedText(buttonName);
+  
+    switch (buttonName) {
+      case 'record':
+        if (isRecording) {
+          stopRecording();
+        } else {
+          startRecording();
+        }
+        break;
+      case 'over-dub':
+        overdubRecording();
+        break;
+      case 'stop':
+        stopPlayback();
+        break;
+      case 'play':
+        playRecording();
+        break;
+      case 'play start':
+        toggleLooping();
+        break;
+      default:
+        togglePadBanks(padBanks, buttonName);
+        handleMultipleButtons(button, buttonName);
+        handleLights(button, buttonName);
+        break;
+    }
+  
+    // Update display with recording info
+  const programSpan = document.getElementById('program-span');
+  programSpan.innerHTML = recordings.map((_, idx) => `
+    <div class="recording" data-index="${idx}">
+      Recording ${idx + 1}
+    </div>
+  `).join('');
 
-    togglePadBanks(padBanks, buttonName);
-
-    handleMultipleButtons(button, buttonName);
-    handleLights(button, buttonName);
   };
+
+  useEffect(() => {
+    const cursorButtons = document.querySelectorAll('.cursor-buttons .button');
+    cursorButtons.forEach(button => {
+      button.addEventListener('click', handleCursorClick);
+    });
+  
+    return () => {
+      cursorButtons.forEach(button => {
+        button.removeEventListener('click', handleCursorClick);
+      });
+    };
+  }, [recordings]);
+  
+  const handleCursorClick = (e) => {
+    const button = e.currentTarget;
+    const buttonName = button.getAttribute('name');
+    let newIndex = currentRecordingIndex;
+  
+    switch (buttonName) {
+      case 'cursor-left':
+        newIndex = Math.max(0, currentRecordingIndex - 1);
+        break;
+      case 'cursor-right':
+        newIndex = Math.min(recordings.length - 1, currentRecordingIndex + 1);
+        break;
+      default:
+        break;
+    }
+  
+    setCurrentRecordingIndex(newIndex);
+    setCurrentRecording(recordings[newIndex]);
+  };
+  
+  
   
   return (
     <div id='container'>
@@ -260,6 +426,8 @@ const DrumMachine = () => {
                     <span id='time'><span>{currentTime.toDateString().slice(4)}</span><span>{currentTime.toLocaleTimeString()}</span></span>
                     <span id='display-logo' className={isPoweredOn ? 'hidden' : 'visible'}>{displayLogo}</span>
                     <span id='viz-span'><span id='viz-container' className={isPoweredOn ? '' : 'hidden'}>{visualizer}</span></span>
+                    <span id='file-top'><span id='sq'>Sq:<span id='sq-id'>{displayText}</span><span id='dots'></span></span></span>
+                    <span id='program-span' className={isPoweredOn ? '' : 'hidden'}></span>
                     <span id='display-text'>{displayText}</span>
                     <span id='pad-bank-text' className={isPoweredOn ? '' : 'hidden'}>BANK: {padBankText}</span>
                     <span id='pad-text' className={isPoweredOn ? '' : 'hidden'}>PAD: {padText}</span>
@@ -269,7 +437,7 @@ const DrumMachine = () => {
                     <span id='rec-gain-text' className={isPoweredOn ? '' : 'hidden'}>REC-GAIN:{recGainText}</span>
                     <span id='button-clicked-text' className={isPoweredOn ? '' : 'hidden'}>{buttonClickedText}</span>
                     <span id='recording-info' className={isPoweredOn ? '' : 'hidden'}>{recordingInfo}</span>
-                    <span id='data-icon' className={isPoweredOn ? '' : 'hidden'}><img src='https://www.svgrepo.com/show/447559/assessment.svg' alt='freeCodeCamp logo' width='26px'/></span>
+                    <span id='data-icon' className={isPoweredOn ? '' : 'hidden'}><img src='https://www.svgrepo.com/show/447559/assessment.svg' alt='Data Icon' width='30px'/></span>
                   </div>
                 </div>
               </div>
@@ -562,6 +730,7 @@ const DrumMachine = () => {
             </div>
           </div>
           <div id='drum-pad'>
+            <span id='drums-line'><span id='drums'>DRUMS</span></span>
             <div className='drum-pad' name='13'><span className='pads'>PAD 13<span className='pad-numbers'>YZ</span></span>
               <audio src='' name='' type='' id='' crossOrigin='anonymous' className='audio-objects'></audio>
             </div>
@@ -595,7 +764,7 @@ const DrumMachine = () => {
             <div className='drum-pad' name='7'><span className='pads'>PAD 7<span className='pad-numbers'>MN</span></span>
               <audio src='' name='' type='' id='' crossOrigin='anonymous' className='audio-objects'></audio>
             </div>
-            <div className='drum-pad' name='8'><span className='pads'>8<span className='pad-numbers'>OP</span></span>
+            <div className='drum-pad' name='8'><span className='pads'>PAD 8<span className='pad-numbers'>OP</span></span>
               <audio src='' name='' type='' id='' crossOrigin='anonymous' className='audio-objects'></audio>
             </div>
             <div className='drum-pad' name='1'><span className='pads'>PAD 1<span className='pad-numbers'>AB</span></span>
