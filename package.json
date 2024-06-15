@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "audio-recorder-polyfill": "^0.4.1",
     "audiobuffer-to-wav": "^1.0.0",
+    "audiomotion-analyzer": "^4.5.0",
     "gsap": "^3.12.5",
     "lamejs": "^1.2.1",
     "react": "^18.3.1",

@@ -3,7 +3,7 @@ const padBanks = {
         isActive: null,
         pad1: {
             id: 'Q',
-            name: 'Dilla',
+            name: 'ClassicDilla',
             src: 'https://ipfs.io/ipfs/QmbVAJe8G14Wj5kbkVC7KgUyvpy3JYgHgrPUFLLLxgJoki?filename=78_DillaClassicBeat_TL.wav',
             type: 'audio/wav'
         },
