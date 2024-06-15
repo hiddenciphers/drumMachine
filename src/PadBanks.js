@@ -9,8 +9,8 @@ const padBanks = {
         },
         pad2: {
             id: 'W',
-            name: 'TapeMix1',
-            src: 'https://ipfs.io/ipfs/Qmc9DkgZreVvx82NYD8fzwiG6Jxpz1aoB1C7HUh6M75Ksq?filename=85_TapeBeats_TapeMix_09_TL.wav',
+            name: 'Scratch4',
+            src: 'https://ipfs.io/ipfs/QmaMcGjVPGNvbVXmUJS37PuBqDxmvX259WnNCTyBKkYsGX?filename=31226__feveran__feveran-style-scratch-8.mp3',
             type: 'audio/wav'
         },
         pad3: {
@@ -21,8 +21,8 @@ const padBanks = {
         },
         pad4: {
             id: 'R',
-            name: 'Roomy',
-            src: 'https://ipfs.io/ipfs/QmY5c6G6syR95DgH3mCzk21jtERRVcEmEaZxJbDXbpSKpG?filename=80_RoomyBeat_TL.wav',
+            name: 'Scratch2',
+            src: 'https://ipfs.io/ipfs/QmQPEf52b9iEQQRuFWzPHrAhCCXCt55FEr1XC3YtGfJGuH?filename=30420__feveran__feveran-style-scratch-4.mp3',
             type: 'audio/wav'
         },
         pad5: {
@@ -33,8 +33,8 @@ const padBanks = {
         },
         pad6: {
             id: 'S',
-            name: 'HipHopBeat1',
-            src: 'https://ipfs.io/ipfs/QmaZkP1483cpyeFfzqLMu6pncc5CJZ1ow6Z6BmJMvpXAK3?filename=85_HipHopBeat_07_Spring_TL.wav',
+            name: 'Reverse',
+            src: 'https://ipfs.io/ipfs/QmYniQPL2Z5J88qRY78SWJAKjioV4NfXe7Tz8Gh6e2Mm5M?filename=Reverse%2003_Bm_75.wav',
             type: 'audio/wav'
         },
         pad7: {
@@ -45,8 +45,8 @@ const padBanks = {
         },
         pad8: {
             id: 'F',
-            name: 'SprungBreaks',
-            src: 'https://ipfs.io/ipfs/QmVi8x4AtcXVGqcpVpDyupBzTyDSymbePDGfGKM7qenNV1?filename=85_SprungBreaks_3_TL.wav',
+            name: 'Drone 3',
+            src: 'https://ipfs.io/ipfs/QmW7i39Kj6w5HZ8unDmhqwUm9uJJDJbHLyG8srjxGrA3ua?filename=My%20Fav_Drone%2009_Bm_90.wav',
             type: 'audio/wav'
         },
         pad9: {
@@ -57,8 +57,8 @@ const padBanks = {
         },
         pad10: {
             id: 'X',
-            name: 'VintageDrums2',
-            src: 'https://ipfs.io/ipfs/QmX5AYYcwg15RZ79ESnoSRvJqgC968sT9XjRBg2QM5qNgV?filename=85_VintageDrums_08.wav',
+            name: 'Drone',
+            src: 'https://ipfs.io/ipfs/QmdDzWueCyciJUEvNrGQLWtZ4BbKDtJHDz94L1kKMK7maJ?filename=Drone%2001_A%23m_95.wav',
             type: 'audio/wav'
         },
         pad11: {
@@ -69,8 +69,8 @@ const padBanks = {
         },
         pad12: {
             id: 'V',
-            name: 'DirtBeat',
-            src: 'https://ipfs.io/ipfs/QmVrAitqmKWK8JLRpAMNEs3xEZafs3nAvGgnD7yR8uhGKo?filename=90_DirtBeat_TL.wav',
+            name: 'Melody 5',
+            src: 'https://ipfs.io/ipfs/QmZskr2s8sPwqwRbTw4WZsbtfPas7mArybeh9kVUbJNnD4?filename=Piano%20Melody%2013_G%23m_85.wav',
             type: 'audio/wav'
         },
         pad13: {
@@ -81,8 +81,8 @@ const padBanks = {
         },
         pad14: {
             id: 'I',
-            name: 'DustBreaks',
-            src: 'https://ipfs.io/ipfs/QmaZ7FmUBDGVunznnwK3ghsxko6NzEQsU8ZxEPVS2KkBBX?filename=120_DustBreaks_01_TL.wav',
+            name: 'Melody 3',
+            src: 'https://ipfs.io/ipfs/QmS1Lh8zgrLqZN9kkV2c99sgiTzBWc619ZXP1BvZhmr8S1?filename=Piano%20Melody%2007_E_95.wav',
             type: 'audio/wav'
         },
         pad15: {
@@ -93,8 +93,8 @@ const padBanks = {
         },
         pad16: {
             id: 'P',
-            name: 'TapeMix',
-            src: 'https://ipfs.io/ipfs/QmfRFdBjWfaufS1JfX2iSyte4Bs8ZwL9XWh3YNfXBJpvmC?filename=85_TapeBeats_TapeMix_18_TL.wav',
+            name: 'Melody 1',
+            src: 'https://ipfs.io/ipfs/QmYYq3JHy9SJdXQixBKXT2ugriEy7nAREpZsRN89YGbbFc?filename=Piano%20Melody%2002_B_98.wav',
             type: 'audio/wav'
         }
         
@@ -103,8 +103,8 @@ const padBanks = {
         isActive: null,
         pad1: {
             id: 'Q',
-            name: 'Melody 1',
-            src: 'https://ipfs.io/ipfs/QmYYq3JHy9SJdXQixBKXT2ugriEy7nAREpZsRN89YGbbFc?filename=Piano%20Melody%2002_B_98.wav',
+            name: 'TapeMix',
+            src: 'https://ipfs.io/ipfs/QmfRFdBjWfaufS1JfX2iSyte4Bs8ZwL9XWh3YNfXBJpvmC?filename=85_TapeBeats_TapeMix_18_TL.wav',
             type: 'audio/wav'
         },
         pad2: {
@@ -115,8 +115,8 @@ const padBanks = {
         },
         pad3: {
             id: 'E',
-            name: 'Melody 3',
-            src: 'https://ipfs.io/ipfs/QmS1Lh8zgrLqZN9kkV2c99sgiTzBWc619ZXP1BvZhmr8S1?filename=Piano%20Melody%2007_E_95.wav',
+            name: 'DustBreaks',
+            src: 'https://ipfs.io/ipfs/QmaZ7FmUBDGVunznnwK3ghsxko6NzEQsU8ZxEPVS2KkBBX?filename=120_DustBreaks_01_TL.wav',
             type: 'audio/wav'
         },
         pad4: {
@@ -127,8 +127,8 @@ const padBanks = {
         },
         pad5: {
             id: 'A',
-            name: 'Melody 5',
-            src: 'https://ipfs.io/ipfs/QmZskr2s8sPwqwRbTw4WZsbtfPas7mArybeh9kVUbJNnD4?filename=Piano%20Melody%2013_G%23m_85.wav',
+            name: 'DirtBeat',
+            src: 'https://ipfs.io/ipfs/QmVrAitqmKWK8JLRpAMNEs3xEZafs3nAvGgnD7yR8uhGKo?filename=90_DirtBeat_TL.wav',
             type: 'audio/wav'
         },
         pad6: {
@@ -139,8 +139,8 @@ const padBanks = {
         },
         pad7: {
             id: 'D',
-            name: 'Drone',
-            src: 'https://ipfs.io/ipfs/QmdDzWueCyciJUEvNrGQLWtZ4BbKDtJHDz94L1kKMK7maJ?filename=Drone%2001_A%23m_95.wav',
+            name: 'VintageDrums2',
+            src: 'https://ipfs.io/ipfs/QmX5AYYcwg15RZ79ESnoSRvJqgC968sT9XjRBg2QM5qNgV?filename=85_VintageDrums_08.wav',
             type: 'audio/wav'
         },
         pad8: {
@@ -151,8 +151,8 @@ const padBanks = {
         },
         pad9: {
             id: 'Z',
-            name: 'Drone 3',
-            src: 'https://ipfs.io/ipfs/QmW7i39Kj6w5HZ8unDmhqwUm9uJJDJbHLyG8srjxGrA3ua?filename=My%20Fav_Drone%2009_Bm_90.wav',
+            name: 'SprungBreaks',
+            src: 'https://ipfs.io/ipfs/QmVi8x4AtcXVGqcpVpDyupBzTyDSymbePDGfGKM7qenNV1?filename=85_SprungBreaks_3_TL.wav',
             type: 'audio/wav'
         },
         pad10: {
@@ -163,8 +163,8 @@ const padBanks = {
         },
         pad11: {
             id: 'C',
-            name: 'Reverse',
-            src: 'https://ipfs.io/ipfs/QmYniQPL2Z5J88qRY78SWJAKjioV4NfXe7Tz8Gh6e2Mm5M?filename=Reverse%2003_Bm_75.wav',
+            name: 'HipHopBeat1',
+            src: 'https://ipfs.io/ipfs/QmaZkP1483cpyeFfzqLMu6pncc5CJZ1ow6Z6BmJMvpXAK3?filename=85_HipHopBeat_07_Spring_TL.wav',
             type: 'audio/wav'
         },
         pad12: {
@@ -175,8 +175,8 @@ const padBanks = {
         },
         pad13: {
             id: 'U',
-            name: 'Scratch2',
-            src: 'https://ipfs.io/ipfs/QmQPEf52b9iEQQRuFWzPHrAhCCXCt55FEr1XC3YtGfJGuH?filename=30420__feveran__feveran-style-scratch-4.mp3',
+            name: 'Roomy',
+            src: 'https://ipfs.io/ipfs/QmY5c6G6syR95DgH3mCzk21jtERRVcEmEaZxJbDXbpSKpG?filename=80_RoomyBeat_TL.wav',
             type: 'audio/wav'
         },
         pad14: {
@@ -187,8 +187,8 @@ const padBanks = {
         },
         pad15: {
             id: 'O',
-            name: 'Scratch4',
-            src: 'https://ipfs.io/ipfs/QmaMcGjVPGNvbVXmUJS37PuBqDxmvX259WnNCTyBKkYsGX?filename=31226__feveran__feveran-style-scratch-8.mp3',
+            name: 'TapeMix1',
+            src: 'https://ipfs.io/ipfs/Qmc9DkgZreVvx82NYD8fzwiG6Jxpz1aoB1C7HUh6M75Ksq?filename=85_TapeBeats_TapeMix_09_TL.wav',
             type: 'audio/wav'
         },
         pad16: {

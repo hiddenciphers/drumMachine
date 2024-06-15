@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './DrumMachine.css';
 import padBanks from './PadBanks';
 import togglePadBanks from './PadToggle';
 import setDefaultPads from './Default';
+import { handleMultipleButtons, handleLights } from './utils';
 import { Draggable } from 'gsap/Draggable';
 import { gsap } from 'gsap';
 import AudioMotionAnalyzer from 'audiomotion-analyzer';
@@ -25,6 +26,7 @@ const DrumMachine = () => {
   const [padText, setPadText] = useState('');
   const [displayLogo, setDisplayLogo] = useState('');
   const [visualizer, setVisualizer] = useState('');
+  const audioMotionRef = useRef(null);
 
   useEffect(() => {
     const pads = document.querySelectorAll('.drum-pad');
@@ -46,6 +48,41 @@ const DrumMachine = () => {
       clearInterval(interval);
     };
   }, [volume, isPoweredOn]);
+
+  useEffect(() => {
+    // Initialize AudioMotionAnalyzer once
+    audioMotionRef.current = new AudioMotionAnalyzer(
+      document.getElementById('viz-container'),
+      {
+        height: 70,
+        ansiBands: false,
+        showScaleX: false,
+        bgAlpha: 0,
+        overlay: true,
+        mode: 6,
+        frequencyScale: 'log',
+        showPeaks: false,
+        smoothing: 0.7,
+        ledBars: false,
+      }
+    );
+
+    // Register a custom gradient with black color
+    audioMotionRef.current.registerGradient('black', {
+      bgColor: 'black',
+      colorStops: [
+        { pos: 0, color: 'black' },
+        { pos: 1, color: 'black' },
+      ],
+    });
+
+    // Set the custom gradient
+    audioMotionRef.current.setOptions({ gradient: 'black' });
+
+    return () => {
+      audioMotionRef.current.disconnectInput();
+    };
+  }, []);
 
   useEffect(() => {
     // REC-GAIN DIAL
@@ -119,74 +156,45 @@ const DrumMachine = () => {
     };
   }, [isPoweredOn]);
 
-  const handlePadClick = (event) => {
+
+
+  const handlePadClick = (e) => {
     if (!isPoweredOn) return;
 
-    const pad = event.currentTarget;
+    const pad = e.currentTarget;
     setPadText(pad.getAttribute('name'));
     const audio = pad.querySelector('audio');
     const soundName = audio.getAttribute('name');
     setDisplayText(soundName);
 
-    // Get all audio elements
-    const audioElements = document.getElementsByClassName('audio-objects');
-    const audioElementArray = Array.from(audioElements);
-
-    // Create the AudioMotionAnalyzer instance
-    const audioMotion = new AudioMotionAnalyzer(
-      document.getElementById('viz-container'),
-      {
-        height: 70,
-        ansiBands: false,
-        showScaleX: false,
-        bgAlpha: 0,
-        overlay: true,
-        mode: 6,
-        frequencyScale: "log",
-        showPeaks: false,
-        smoothing: 0.7,
-        ledBars: false
-      }
-    );
-
-    // Register a custom gradient with black color
-    audioMotion.registerGradient('black', {
-      bgColor: 'black',
-      colorStops: [
-        { pos: 0, color: 'black' },
-        { pos: 1, color: 'black' }
-      ]
-    });
-
-    // Set the custom gradient
-    audioMotion.setOptions({ gradient: 'black' });
-
     // Connect each audio element to the analyzer
-    audioElementArray.forEach(audioElement => {
-      audioMotion.connectInput(audioElement);
-    });
-
-
-    
+    audioMotionRef.current.connectInput(audio);
 
     audio.volume = volume;
     audio.currentTime = 0;
-    audio.play();
+    audio.play()
+      .catch(error => {
+        console.error('Failed to play audio:', error);
+      });
     pad.classList.add('pressed');
     setTimeout(() => pad.classList.remove('pressed'), 100);
 
+    if (audio.currentTime > 0) {
+      audio.stop();
+    }
+  
   };
 
-  const handleKeyPress = (event) => {
+  const handleKeyPress = (e) => {
     if (!isPoweredOn) return;
-
-    const key = event.key.toUpperCase();
+  
+    const key = e.key.toUpperCase();
     const pad = document.getElementById(key)?.parentElement;
     if (pad) {
       pad.click();
     }
   };
-
+    
   const togglePower = () => {
     setIsPoweredOn(prevState => !prevState);
     if (!isPoweredOn) {
@@ -204,21 +212,22 @@ const DrumMachine = () => {
     }
   };
 
-  const handleNoteVariationChange = (event) => {
-    const newNoteVariation = event.target.value / 100;
+  const handleNoteVariationChange = (e) => {
+    const newNoteVariation = e.target.value / 100;
     setNoteVariation(newNoteVariation);
     setNoteVariationText(` ${Math.round(newNoteVariation * 100)}`);
   };
 
-  const handleButtonClick = (event) => {
+  const handleButtonClick = (e) => {
     if (!isPoweredOn) return;
-  
-    const button = event.currentTarget;
+
+    const button = e.currentTarget;
     const buttonName = button.getAttribute('name');
     setButtonClickedText(buttonName);
-  
+
     togglePadBanks(padBanks, buttonName);
-  
+
+
     if (buttonName.startsWith('pad')) {
       switch (buttonName) {
         case 'pad bank : a':
@@ -237,87 +246,9 @@ const DrumMachine = () => {
           setPadBankText(padBankText);
       }
     }
-  
-    if (buttonName.startsWith('cursor')) {
-      return;
-    } else if (buttonName === 'full-level' || buttonName === 'sixteen-levels' || buttonName.startsWith('step') || buttonName.startsWith('go') || buttonName.startsWith('bar')) {
-      button.classList.add('full-sixteen-pressed');
-      setTimeout(() => {
-        button.classList.remove('full-sixteen-pressed')
-      }, 100);
-    } else {
-      button.classList.add('pressed');
-      setTimeout(() => {
-        button.classList.remove('pressed')
-      }, 100);
-    }
-  
-    const lights = {
-      name: [
-        'assign',
-        'record',
-        'over-dub',
-        'play',
-        'full-level',
-        'sixteen-levels',
-        'next-seq',
-        'track-mute',
-        'undo-seq'
-      ]
-    };
-  
-    const fButtons = ['F1', 'F2', 'F3', 'F4', 'F5', 'F6'];
-  
-    //  F Lights START
-    if (fButtons.includes(buttonName)) {
-      const fLights = document.querySelectorAll('.f-light');
-      switch (buttonName) {
-        case 'F1':
-          button.classList.add('f-pressed');
-          setTimeout(() => button.classList.remove('f-pressed'), 100);
-          fLights[0].classList.add('f-on');
-          setTimeout(() => fLights[0].classList.remove('f-on'), 100);
-          break;
-        case 'F2':
-          button.classList.add('f-pressed');
-          setTimeout(() => button.classList.remove('f-pressed'), 100);
-          fLights[1].classList.add('f-on');
-          setTimeout(() => fLights[1].classList.remove('f-on'), 100);
-          break;
-        case 'F3':
-          button.classList.add('f-pressed');
-          setTimeout(() => button.classList.remove('f-pressed'), 100);
-          fLights[2].classList.add('f-on');
-          setTimeout(() => fLights[2].classList.remove('f-on'), 100);
-          break;
-        case 'F4':
-          button.classList.add('f-pressed');
-          setTimeout(() => button.classList.remove('f-pressed'), 100);
-          fLights[3].classList.add('f-on');
-          setTimeout(() => fLights[3].classList.remove('f-on'), 100);
-          break;
-        case 'F5':
-          button.classList.add('f-pressed');
-          setTimeout(() => button.classList.remove('f-pressed'), 100);
-          fLights[4].classList.add('f-on');
-          setTimeout(() => fLights[4].classList.remove('f-on'), 100);
-          break;
-        case 'F6':
-          button.classList.add('f-pressed');
-          setTimeout(() => button.classList.remove('f-pressed'), 100);
-          fLights[5].classList.add('f-on');
-          setTimeout(() => fLights[5].classList.remove('f-on'), 100);
-          break;
-        default:
-          break;
-      }
-    } else if (lights.name.includes(buttonName)) {
-      const light = document.querySelector(`#${buttonName}`);
-      light.classList.remove('off');
-      setTimeout(() => light.classList.add('off'), 100);
-      light.classList.add('on');
-      setTimeout(() => light.classList.remove('on'), 100);
-    }
+
+    handleMultipleButtons(button, buttonName);
+    handleLights(button, buttonName);
   };
   
   return (
@@ -511,8 +442,8 @@ const DrumMachine = () => {
                       <span id='bar-chevron-left'>
                         <svg viewBox="0 0 72 72" id="bar-chev-left" className='bar-chev'>
                           <g>
-                            <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="5" d="M41,55l-18.7948-9.1111l-15.817-7.6675c-1.8509-0.8972-1.8509-3.5456,0-4.4428l15.817-7.6675L41,17"/>
-                            <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="5" d="M67,55l-18.8824-9.1111l-15.8908-7.6675c-1.8595-0.8972-1.8595-3.5456,0-4.4428l15.8908-7.6675L67,17"/>
+                            <path fill="none" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="5" d="M41,55l-18.7948-9.1111l-15.817-7.6675c-1.8509-0.8972-1.8509-3.5456,0-4.4428l15.817-7.6675L41,17"/>
+                            <path fill="none" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="5" d="M67,55l-18.8824-9.1111l-15.8908-7.6675c-1.8595-0.8972-1.8595-3.5456,0-4.4428l15.8908-7.6675L67,17"/>
                           </g>
                         </svg>
                       </span>
@@ -520,8 +451,8 @@ const DrumMachine = () => {
                       <span id='bar-chevron-right'>
                         <svg viewBox="0 0 72 72" id="bar-chev-right" className='bar-chev'>
                           <g>
-                            <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="5" d="M41,55l-18.7948-9.1111l-15.817-7.6675c-1.8509-0.8972-1.8509-3.5456,0-4.4428l15.817-7.6675L41,17"/>
-                            <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="5" d="M67,55l-18.8824-9.1111l-15.8908-7.6675c-1.8595-0.8972-1.8595-3.5456,0-4.4428l15.8908-7.6675L67,17"/>
+                            <path fill="none" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="5" d="M41,55l-18.7948-9.1111l-15.817-7.6675c-1.8509-0.8972-1.8509-3.5456,0-4.4428l15.817-7.6675L41,17"/>
+                            <path fill="none" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="5" d="M67,55l-18.8824-9.1111l-15.8908-7.6675c-1.8595-0.8972-1.8595-3.5456,0-4.4428l15.8908-7.6675L67,17"/>
                           </g>
                         </svg>
                       </span>
@@ -698,6 +629,7 @@ const DrumMachine = () => {
 };
 
 export default DrumMachine;
+
 
 
 
