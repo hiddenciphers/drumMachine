@@ -315,8 +315,8 @@ const padBanks = {
         },
         pad3: {
             id: 'E',
-            name: 'MrDibbs',
-            src: 'https://ipfs.io/ipfs/QmNT6JJULjLwWKyQ7b1PcdbsP6PBRD6taHshX8RUb5ht3d?filename=MrDibbs.mp3',
+            name: 'ShaolinSatellite',
+            src: 'https://ipfs.io/ipfs/QmXy9ajayG5UWRUAF6LQEE5wMnzmjfU2S5vZRU9jAdjybF?filename=ShaolinSatellite.mp3',
             type: 'audio/mpeg'
         },
         pad4: {
