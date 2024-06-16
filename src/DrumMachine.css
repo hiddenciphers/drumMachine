@@ -524,9 +524,9 @@
     z-index: -1;
 
     #inner-disk {
-        border: 1px solid rgba(169, 169, 169, 0.597);
+        border: 2px solid rgba(92, 89, 89, 0.597);
         width: 60%;
-        height: 70%;
+        height: 67.5%;
         background-color: grey;
         border-radius: 2px;
         display: flex;
@@ -555,9 +555,8 @@
 }
 
 #akai-logo {
-    margin-top: px;
     width: 250px;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 #logo-div {
