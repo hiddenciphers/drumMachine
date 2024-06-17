@@ -30,6 +30,40 @@ const DrumMachine = () => {
   const audioContextRef = useRef(null);
 
   useEffect(() => {
+    const handlePadClick = (e) => {
+      if (!isPoweredOn) return;
+  
+      const pad = e.currentTarget;
+      setPadText(pad.getAttribute('name'));
+      const audio = pad.querySelector('audio');
+      const soundName = audio.getAttribute('name');
+      setDisplayText(soundName);
+  
+      if (!audio.analyzerConnected) {
+        audioMotionRef.current.connectInput(audio);
+        audio.analyzerConnected = true;
+      }
+  
+      audio.volume = volume;
+      audio.currentTime = 0;
+      audio.play().catch(error => {
+        console.error('Failed to play audio:', error);
+      });
+  
+      pad.classList.add('pressed');
+      setTimeout(() => pad.classList.remove('pressed'), 100);
+    };
+
+    const handleKeyPress = (e) => {
+      if (!isPoweredOn) return;
+  
+      const key = e.key.toUpperCase();
+      const pad = document.getElementById(key)?.parentElement;
+      if (pad) {
+        pad.click();
+      }
+    };
+
     const pads = document.querySelectorAll('.drum-pad');
     pads.forEach(pad => {
       pad.addEventListener('click', handlePadClick);
@@ -108,6 +142,18 @@ const DrumMachine = () => {
   }, [isPoweredOn]);
 
   useEffect(() => {
+    const handleButtonClick = (e) => {
+      if (!isPoweredOn) return;
+  
+      const button = e.currentTarget;
+      const buttonName = button.getAttribute('name');
+      setButtonClickedText(buttonName);
+  
+      togglePadBanks(padBanks, buttonName, setPadBankText);
+      handleMultipleButtons(button, buttonName);
+      handleLights(button, buttonName);
+  
+    };
     setDefaultPads(padBanks);
 
     const AllButtons = document.querySelectorAll('.button');
@@ -165,40 +211,6 @@ const DrumMachine = () => {
     });
   }, [volume]);
 
-  const handlePadClick = (e) => {
-    if (!isPoweredOn) return;
-
-    const pad = e.currentTarget;
-    setPadText(pad.getAttribute('name'));
-    const audio = pad.querySelector('audio');
-    const soundName = audio.getAttribute('name');
-    setDisplayText(soundName);
-
-    if (!audio.analyzerConnected) {
-      audioMotionRef.current.connectInput(audio);
-      audio.analyzerConnected = true;
-    }
-
-    audio.volume = volume;
-    audio.currentTime = 0;
-    audio.play().catch(error => {
-      console.error('Failed to play audio:', error);
-    });
-
-    pad.classList.add('pressed');
-    setTimeout(() => pad.classList.remove('pressed'), 100);
-  };
-
-  const handleKeyPress = (e) => {
-    if (!isPoweredOn) return;
-
-    const key = e.key.toUpperCase();
-    const pad = document.getElementById(key)?.parentElement;
-    if (pad) {
-      pad.click();
-    }
-  };
-
   const togglePower = () => {
     setIsPoweredOn(prevState => !prevState);
     if (!isPoweredOn) {
@@ -220,19 +232,6 @@ const DrumMachine = () => {
     const newNoteVariation = e.target.value / 100;
     setNoteVariation(newNoteVariation);
     setNoteVariationText(` ${Math.round(newNoteVariation * 100)}`);
-  };
-
-  const handleButtonClick = (e) => {
-    if (!isPoweredOn) return;
-
-    const button = e.currentTarget;
-    const buttonName = button.getAttribute('name');
-    setButtonClickedText(buttonName);
-
-    togglePadBanks(padBanks, buttonName, setPadBankText);
-    handleMultipleButtons(button, buttonName);
-    handleLights(button, buttonName);
-
   };
 
   return (
