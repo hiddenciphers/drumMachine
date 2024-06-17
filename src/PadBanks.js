@@ -9,8 +9,8 @@ const padBanks = {
         },
         pad2: {
             id: 'W',
-            name: 'Scratch4',
-            src: 'https://ipfs.io/ipfs/QmaMcGjVPGNvbVXmUJS37PuBqDxmvX259WnNCTyBKkYsGX?filename=31226__feveran__feveran-style-scratch-8.mp3',
+            name: 'Fantasy',
+            src: 'https://ipfs.io/ipfs/QmW7qXQzdoJbgB9DT5YNNvmBkDdFWadFxQ77SwsAY5foeY?filename=Fantasy.mp3',
             type: 'audio/wav'
         },
         pad3: {
@@ -45,8 +45,8 @@ const padBanks = {
         },
         pad8: {
             id: 'F',
-            name: 'Drone 3',
-            src: 'https://ipfs.io/ipfs/QmW7i39Kj6w5HZ8unDmhqwUm9uJJDJbHLyG8srjxGrA3ua?filename=My%20Fav_Drone%2009_Bm_90.wav',
+            name: 'AFriend',
+            src: 'https://ipfs.io/ipfs/QmWH6SPnzRd2SZy3QZPMrS1wSRFwc76fsEzfJ6TRjhemcq?filename=AFriend.mp3',
             type: 'audio/wav'
         },
         pad9: {
@@ -303,8 +303,8 @@ const padBanks = {
         isActive: null,
         pad1: {
             id: 'Q',
-            name: 'TheBoxcar',
-            src: 'https://ipfs.io/ipfs/QmaJeFke9Nv8K6fv1PffNiWCWb8rMnW41sCSDuX5gVPdwP?filename=TheBoxcar.mp3',
+            name: 'Penalty',
+            src: 'https://ipfs.io/ipfs/QmUnApuSBSk8rasctqxs5cDp7dKRZcAdn7RQUGNkWojZbS?filename=DeathBeThePenalty.mp3',
             type: 'audio/mpeg'
         },
         pad2: {
@@ -315,8 +315,8 @@ const padBanks = {
         },
         pad3: {
             id: 'E',
-            name: 'ShaolinSatellite',
-            src: 'https://ipfs.io/ipfs/QmXy9ajayG5UWRUAF6LQEE5wMnzmjfU2S5vZRU9jAdjybF?filename=ShaolinSatellite.mp3',
+            name: 'InTheHouse',
+            src: 'https://ipfs.io/ipfs/QmebeBSTzSZhMrHc3bSyWefMdcGSnCa7iKNGAwt5f4YiPH?filename=InTheHouse.mp3',
             type: 'audio/mpeg'
         },
         pad4: {
@@ -333,8 +333,8 @@ const padBanks = {
         },
         pad6: {
             id: 'S',
-            name: 'GraveDiggaz',
-            src: 'https://ipfs.io/ipfs/QmXGLKjAHZ3jRQdcLKUGCMsHq6hM2aKBqQ1MHdr2V9kATQ?filename=NeverGonnaComeBack.mp3',
+            name: 'TheBizness',
+            src: 'https://ipfs.io/ipfs/QmdBgzG2xUiT6BUTfpcyEkXxem7dAc71NS8YrihghcEypA?filename=TheBizness.mp3',
             type: 'audio/mpeg'
         },
         pad7: {
