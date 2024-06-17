@@ -1908,12 +1908,10 @@
                     display: flex;
                     justify-content: space-between;
                 
-                    
-            
                     a {
                         text-decoration: none;
                         cursor: pointer;
-                        color: #0a0a23;
+                        color: black;
                     }
     
                     #github-avatar {
@@ -2032,4 +2030,3 @@
 .recording:hover {
     background-color: #f0f0f0;
 }
-    

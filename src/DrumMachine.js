@@ -1002,7 +1002,7 @@ const DrumMachine = () => {
             <div id='label-line'></div>
             <div id='label-line2'></div>
             <div id='disk-label-inner-container'>
-              <a href='https://www.github.com/hiddenciphers'><img id='github-avatar' src='https://ipfs.io/ipfs/QmRnTNKZzVuJfL3peNmDuebAHEmujrLMDmycPKqEWjhbgP?filename=github_avatar.png' alt='My Github Avatar'/><span id='hiddenciphers'>@hiddenciphers</span></a>
+              <a href='https://www.github.com/hiddenciphers' rel='noreferrer' target='_blank'><img id='github-avatar' src='https://ipfs.io/ipfs/QmRnTNKZzVuJfL3peNmDuebAHEmujrLMDmycPKqEWjhbgP?filename=github_avatar.png' alt='My Github Avatar'/><span id='hiddenciphers'>@hiddenciphers</span></a>
               <span id='year'>2024<span id='iomega'>iomega</span></span>
             </div>
           </div>
