@@ -397,7 +397,7 @@ const DrumMachine = () => {
   return (
     <div id='container'>
       <div id='power-button' onClick={togglePower}>
-        <div id='power-light' className={isPoweredOn ? 'power-on' : 'power-off'}></div>
+        <div id='power-light' className={isPoweredOn ? 'on' : 'power-off'}></div>
       </div>
       <div id='top-cover'></div>
       <div id='drum-machine'>
@@ -582,7 +582,7 @@ const DrumMachine = () => {
                     VARIATION
                   </div>
                   <div id='after'>AFTER</div>
-                  <div id='bottom-left-light'>
+                  <div id='bottom-left-after'>
                     <div id='assign' className='off'></div>
                   </div>
                   <div id='bottom-left-button' className='button' name='assign'>
@@ -728,7 +728,7 @@ const DrumMachine = () => {
                   ></div>
                   <div
                     className='bottom-left-right-bottom-row-1-buttons button'
-                    name='step-right'
+                    name='step right'
                   ></div>
                   <div
                     className='bottom-left-right-bottom-row-1-buttons button'
@@ -793,7 +793,7 @@ const DrumMachine = () => {
                   <div className='bottom-left-right-bottom-row-2-buttons button' name='play'>
                     <div id='play' className='off'></div>
                     <span id='play-span'>
-                      <div id='bottom-left-light'></div>PLAY
+                      PLAY
                     </span>
                   </div>
                   <div
