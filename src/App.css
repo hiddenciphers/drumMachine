@@ -1,5 +1,5 @@
 .App {
-    border: 1px solid #0a0a23;
+    border: 1px solid transparent;
     display: flex;
     justify-content: center;
     padding: 50px;

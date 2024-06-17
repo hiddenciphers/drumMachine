@@ -26,17 +26,8 @@ const DrumMachine = () => {
   const [padText, setPadText] = useState('');
   const [displayLogo, setDisplayLogo] = useState('');
   const [visualizer, setVisualizer] = useState('');
-  const [currentRecordingIndex, setCurrentRecordingIndex] = useState(0);
-  const [recordings, setRecordings] = useState([]);
-  const [isRecording, setIsRecording] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isLooping, setIsLooping] = useState(false);
-  const [currentRecording, setCurrentRecording] = useState(null);
-  const [recorder, setRecorder] = useState(null);
-  const [audioChunks, setAudioChunks] = useState([]);
   const audioMotionRef = useRef(null);
   const audioContextRef = useRef(null);
-  const mediaRecorderRef = useRef(null);
 
   useEffect(() => {
     const pads = document.querySelectorAll('.drum-pad');
@@ -196,86 +187,6 @@ const DrumMachine = () => {
 
     pad.classList.add('pressed');
     setTimeout(() => pad.classList.remove('pressed'), 100);
-
-    if (isRecording) {
-      const source = audioContextRef.current.createMediaElementSource(audio);
-      source.connect(audioContextRef.current.destination);
-    }
-  };
-
-  const startRecording = () => {
-    if (!isPoweredOn || isRecording) return;
-
-    setIsRecording(true);
-    setDisplayText('Recording...');
-
-    const streamDestination = audioContextRef.current.createMediaStreamDestination();
-    const options = { mimeType: 'audio/webm' };
-    const recorder = new MediaRecorder(streamDestination.stream, options);
-
-    setRecorder(recorder);
-    recorder.start();
-
-    recorder.ondataavailable = (event) => {
-      if (event.data.size > 0) {
-        setAudioChunks(prev => [...prev, event.data]);
-      }
-    };
-
-    recorder.onstop = () => {
-      const blob = new Blob(audioChunks, { type: 'audio/webm' });
-      const url = URL.createObjectURL(blob);
-      setRecordings(prev => [...prev, { url, blob }]);
-      setAudioChunks([]);
-      updateProgramSpan();
-    };
-
-    const mediaStreamSource = audioContextRef.current.createMediaStreamSource(streamDestination.stream);
-    mediaStreamSource.connect(audioContextRef.current.destination);
-
-    mediaRecorderRef.current = recorder;
-  };
-
-  const stopRecording = () => {
-    if (!isRecording) return;
-
-    setIsRecording(false);
-    setDisplayText('Recording Stopped');
-    if (recorder) {
-      recorder.stop();
-    }
-    mediaRecorderRef.current = null;
-  };
-
-  const playRecording = () => {
-    if (!currentRecording) return;
-
-    const audio = new Audio(currentRecording.url);
-    audio.loop = isLooping;
-    audio.play();
-    setIsPlaying(true);
-    audio.onended = () => setIsPlaying(false);
-  };
-
-  const stopPlayback = () => {
-    setIsPlaying(false);
-  };
-
-  const toggleLooping = () => {
-    setIsLooping(!isLooping);
-    if (isPlaying) {
-      playRecording();
-    }
-  };
-
-  const overdubRecording = () => {
-    if (!currentRecording) return;
-
-    const overlayStream = audioContextRef.current.createMediaStreamDestination();
-    const currentAudio = new Audio(currentRecording.url);
-    currentAudio.connect(overlayStream);
-    startRecording(overlayStream);
-    currentAudio.play();
   };
 
   const handleKeyPress = (e) => {
@@ -318,82 +229,12 @@ const DrumMachine = () => {
     const buttonName = button.getAttribute('name');
     setButtonClickedText(buttonName);
 
-    togglePadBanks(padBanks, buttonName);
+    togglePadBanks(padBanks, buttonName, setPadBankText);
     handleMultipleButtons(button, buttonName);
     handleLights(button, buttonName);
 
-    switch (buttonName) {
-      case 'record':
-        if (isRecording) {
-          stopRecording();
-        } else {
-          startRecording();
-        }
-        break;
-      case 'over-dub':
-        overdubRecording();
-        break;
-      case 'stop':
-        stopPlayback();
-        break;
-      case 'play':
-        playRecording();
-        break;
-      case 'play start':
-        toggleLooping();
-        break;
-      default:
-        togglePadBanks(padBanks, buttonName);
-        handleMultipleButtons(button, buttonName);
-        handleLights(button, buttonName);
-        break;
-    }
-
-    updateProgramSpan();
   };
 
-  const updateProgramSpan = () => {
-    const programSpan = document.getElementById('program-span');
-    programSpan.innerHTML = recordings.map((_, idx) => `
-      <div class="recording" data-index="${idx}">
-        Recording ${idx + 1}
-      </div>
-    `).join('');
-  };
-
-  useEffect(() => {
-    const cursorButtons = document.querySelectorAll('.cursor-buttons .button');
-    cursorButtons.forEach(button => {
-      button.addEventListener('click', handleCursorClick);
-    });
-
-    return () => {
-      cursorButtons.forEach(button => {
-        button.removeEventListener('click', handleCursorClick);
-      });
-    };
-  }, [recordings]);
-
-  const handleCursorClick = (e) => {
-    const button = e.currentTarget;
-    const buttonName = button.getAttribute('name');
-    let newIndex = currentRecordingIndex;
-
-    switch (buttonName) {
-      case 'cursor-left':
-        newIndex = Math.max(0, currentRecordingIndex - 1);
-        break;
-      case 'cursor-right':
-        newIndex = Math.min(recordings.length - 1, currentRecordingIndex + 1);
-        break;
-      default:
-        break;
-    }
-
-    setCurrentRecordingIndex(newIndex);
-    setCurrentRecording(recordings[newIndex]);
-  };  
-  
   return (
     <div id='container'>
       <div id='power-button' onClick={togglePower}>
@@ -1150,9 +991,27 @@ const DrumMachine = () => {
         <div id='bottom-line'></div>
       </div>
       <div id='bottom-line2'></div>
+      <div id='bottom-line3'></div>
+      <svg id='small-shape' viewBox="0 0 500 80" preserveAspectRatio="none">
+        <path d="M0,0 L0,40 Q250,80 500,40 L500,0 Z" />
+      </svg>
       <div id='bottom-left-corner'></div>
-      <div id='zip-disk'><div id='inner-disk'><div id='disk-label'></div></div></div>
+      <div id='zip-disk'>
+        <div id='inner-disk'>
+          <div id='disk-label'>
+            <div id='label-line'></div>
+            <div id='label-line2'></div>
+            <div id='disk-label-inner-container'>
+              <a href='https://www.github.com/hiddenciphers'><img id='github-avatar' src='https://ipfs.io/ipfs/QmRnTNKZzVuJfL3peNmDuebAHEmujrLMDmycPKqEWjhbgP?filename=github_avatar.png' alt='My Github Avatar'/><span id='hiddenciphers'>@hiddenciphers</span></a>
+              <span id='year'>2024<span id='iomega'>iomega</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
       <svg id='shape' viewBox="0 0 500 80" preserveAspectRatio="none">
+        <path d="M0,0 L0,40 Q250,80 500,40 L500,0 Z" />
+      </svg>
+      <svg id='curved-border-shape' viewBox="0 0 500 80" preserveAspectRatio="none">
         <path d="M0,0 L0,40 Q250,80 500,40 L500,0 Z" />
       </svg>
       <div id='bottom-right-corner'></div>
