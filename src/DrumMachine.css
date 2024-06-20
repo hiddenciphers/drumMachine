@@ -74,6 +74,7 @@
             display: flex;
             flex-direction: column;
             gap: 2em;
+            width: 425px;
 
             #display-container {
                 position: relative;
@@ -148,8 +149,8 @@
                                     background-size: 100px;
                                     width: 100px;
                                     height: 40px;
-                                    left: 162.5px;
-                                    top: 60px;
+                                    margin-left: 83px;
+                                    margin-top: 15px;
                                 }
                         
                                 #viz-span {
@@ -1286,6 +1287,7 @@
             flex-direction: column;
             gap: 1em;
             align-items: center;
+            width: 520px;
 
             #logo {
                 position: relative;
@@ -1860,7 +1862,7 @@
             padding: 0 5px 20px 5px;
     
             #disk-label {
-                width: 100%;
+                width: 125px;
                 background-color: rgb(223, 223, 223);
                 background-image: url('https://static.vecteezy.com/system/resources/thumbnails/011/896/216/small_2x/abstract-light-gray-background-painting-monochrome-backdrop-black-and-white-minimalistic-art-brush-strokes-on-paper-photo.jpg');
                 background-position: center;
@@ -1879,7 +1881,7 @@
                 #label-line {
                     position: absolute;
                     border-top: 1px solid black;
-                    width: 45%;
+                    width: 99px;
                     margin-left: 22px;
                     margin-bottom: 22px;
                 }
@@ -1887,7 +1889,7 @@
                 #label-line2 {
                     position: absolute;
                     border-top: 1px solid black;
-                    width: 43.1%;
+                    width: 95px;
                     margin-left: 26px;
                     margin-bottom: 15px;
                 }
