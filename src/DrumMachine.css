@@ -1,7 +1,7 @@
 /* DrumMachine.css */
 #container {
     height: 80vh;
-    width: 100%;
+    width: 1700px;
     padding: 50px;
     display: flex;
     justify-content: center;
@@ -18,8 +18,8 @@
         border-top-left-radius: 2px;
         border-top-right-radius: 2px;
         background-color: rgb(30, 30, 30);
-        left: 472.5px;
-        bottom: 882px;
+        margin-left: -860px;
+        margin-top: -1px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -36,7 +36,7 @@
 
     #top-cover {
         position: absolute;
-        width: 52.5%;
+        width: 960px;
         height: 40px;
         margin-top: -25px;
         background-color: #0a0a23;
@@ -44,8 +44,8 @@
     }
 
     #drum-machine {
-        width: 59%;
-        height: 95%;
+        width: 965px;
+        height: 760px;
         display: flex;
         flex-direction: row;
         gap: 2.5em;
@@ -57,15 +57,15 @@
             100% 5%, /* Top-right corner */
             100% 96%, /* Bottom-right corner */
             0 96%, /* Bottom-right corner */
-            100% 100%, /* Bottom-left corner */
+            0 100%, /* Bottom-left corner */
             0 96%, /* Bottom-left corner */
             0 5% /* Top-left corner */
         );
 
         #top-line {
             position: absolute;
-            width: 100%;
-            right: 20px;
+            width: 1020px;
+            margin-left: -25px;
             margin-top: 10px;
             box-shadow: -2.5px -2.5px 5px .5px #000000;
         }
@@ -1783,17 +1783,18 @@
 
         #bottom-line {
             position: absolute;
-            width: 100%;
-            top: 883px;
-            right: 20px;
-            border-top: 1px solid #000000;
+            width: 1412px;
+            margin-top: 752.5px;
+            margin-left: -30px;
+            border-top: 1px solid black;
+            
         }
     }
 
     #bottom-line2 {
         position: absolute;
-        width: 53.5%;
-        top: 905px;
+        width: 985px;
+        margin-top: 804.5px;
         z-index: -2;
         background-color: rgb(217, 217, 191);
         height: 25px;
@@ -1811,9 +1812,9 @@
 
     #bottom-line3 {
         position: absolute;
-        width: 21%;
-        top: 930px;
-        margin-left: 500px;
+        width: 385px;
+        margin-top: 829px;
+        margin-left: 503px;
         z-index: -2;
         background-color: rgb(217, 217, 191);
         height: 15px;
@@ -1843,8 +1844,8 @@
         background-color: #0a0a23;
         width: 50px;
         height: 50px;
-        top: 890px;
-        right: 1410px;
+        margin-right: 1032.5px;
+        margin-top: 790px;
         transform: rotate(225deg);
     }
 
@@ -1855,8 +1856,8 @@
         background-color: grey;
         border-bottom-right-radius: 4px;
         border-bottom-left-radius: 4px;
-        top: 900px;
-        left: 460px;
+        margin-top: 802px;
+        margin-right: 700px;
         display: flex;
         justify-content: center;
         z-index: -2;
@@ -1899,7 +1900,7 @@
                 #label-line2 {
                     position: absolute;
                     border-top: 1px solid black;
-                    width: 46%;
+                    width: 43.1%;
                     margin-left: 26px;
                     margin-bottom: 15px;
                 }
@@ -1968,8 +1969,8 @@
         background-color: #0a0a23;
         width: 50px;
         height: 50px;
-        top: 890px;
-        left: 1410px;
+        margin-left: 1032.5px;
+        margin-top: 790px;
         transform: rotate(225deg);
     }
 }
@@ -2030,3 +2031,10 @@
 .recording:hover {
     background-color: #f0f0f0;
 }
+
+
+
+
+
+
+
