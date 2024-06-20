@@ -78,7 +78,7 @@
             #display-container {
                 position: relative;
                 border: 1px solid black;
-                min-width: 390px;
+                min-width: 389px;
                 height: 160px;
                 display: flex;
                 padding: 10px 20px 10px 20px;
@@ -98,8 +98,8 @@
                 #inner-display {
                     background-color: black;
                     margin: auto;
-                    height: 80%;
-                    width: 90%;
+                    height: 127px;
+                    width: 351px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -114,8 +114,8 @@
                     }
             
                     #display {
-                        height: 80%;
-                        width: 80%;
+                        height: 102px;
+                        width: 281px;
                         background-color: rgba(67, 252, 150, 0.58);
                         padding: 5px;
                         text-align: center;
@@ -125,8 +125,8 @@
             
                         #display-border {
                             border: 0.1px solid black;
-                            height: 87%;
-                            width: 95.5%;
+                            height: 89px;
+                            width: 268px;
                             padding: 5px;
                             
                             #display-spans {
@@ -154,13 +154,9 @@
                         
                                 #viz-span {
                                     position: absolute;
-                                    width: 196.5px;
-                                    margin-left: 83.5px;
+                                    width: 196px;
+                                    margin-left: 84px;
                                     margin-top: 5px;
-                                
-                                    #viz-container {
-                                        width: 80%;
-                                    }
                                 }
                         
                                 #file-top {
@@ -347,16 +343,15 @@
             }            
 
             #dials {
-                min-width: 45%;
-                height: 69%;
+                width: 389px;
+                height: 530px;
                 padding: 20px;
                 display: flex;
                 flex-direction: column;
                 gap: 1em;
             
                 #dials-top {
-                    width: 1%;
-                    height: 50%;
+                    height: 220px;
                     display: flex;
                     flex-direction: column;
 
@@ -564,8 +559,6 @@
                 }
             
                 #dials-bottom {
-                    width: 110%;
-                    height: 50%;
                     margin-top: 60px;
                     margin-left: -40px;
 
@@ -753,8 +746,6 @@
                             align-items: center;
                             align-content: center;
                     
-                            /* undo seq span */
-                    
                             #undo-seq {
                                 border: 0.5px solid black;
                                 width: 5px;
@@ -853,25 +844,25 @@
                             #line-top-left {
                                 position: absolute;
                                 border-right: 0.5px solid black;
-                                width: 22.5%;
-                                height: 40%;
+                                width: 18.5px;
+                                height: 32.5px;
                                 transform: skew(17deg);
                             }
                             
                             #line-top-right {
                                 position: absolute;
                                 border-right: 0.5px solid black;
-                                width: 22.5%;
-                                height: 40%;
+                                width: 18.5px;
+                                height: 32.5px;
                                 transform: skew(-17deg);
-                                margin-left: 42.5px;  
+                                margin-left: 42px;  
                             }
                             
                             #line-bottom-left {
                                 position: absolute;
                                 border-right: 0.5px solid black;
-                                width: 22.5%;
-                                height: 42%;
+                                width: 18.5px;
+                                height: 32.5px;
                                 transform: skew(-17deg);
                                 margin-top: 32px;
                             }
@@ -879,16 +870,15 @@
                             #line-bottom-right {
                                 position: absolute;
                                 border-right: 0.5px solid black;
-                                width: 22.5%;
-                                height: 42%;
+                                width: 18.5px;
+                                height: 32.5px;
                                 transform: skew(17deg);
-                                margin-left: 42.5px;
+                                margin-left: 42px;
                                 margin-top: 32px;
                             }
                     
                             #cursor-left {
-                                width: 33.3%;
-                                height: 100%;
+                                width: 27px;
                                 z-index: 1;
                             
                                 #chevron-left {
@@ -903,11 +893,11 @@
                             #cursor-button-middle-container {
                                 display: flex;
                                 flex-direction: column;
-                                width: 33.3%;
+                                width: 27px;
                             
                                 #cursor-top {
-                                    width: 100%;
-                                    height: 50%;
+                                    width: 27px;
+                                    height: 32.5px;
                                     z-index: 1;
                                 
                                     #chevron-up {
@@ -920,13 +910,12 @@
                             
                                 #line-middle {
                                     border-top: 1px solid black;
-                                    width: 120%;
+                                    width: 32px;
                                     margin-left: -2.5px;
                                 }
                             
                                 #cursor-bottom {
-                                    width: 100%;
-                                    height: 50%;
+                                    width: 27px;
                                     z-index: 1;
                                 
                                     #chevron-down {
@@ -942,8 +931,7 @@
                             }
                     
                             #cursor-right {
-                                width: 33.3%;
-                                height: 100%;
+                                width: 27px;
                                 z-index: 1;
                             
                                 #chevron-right {
@@ -1016,7 +1004,7 @@
                             #locate-line {
                                 position: absolute;
                                 border-top: 1px solid black;
-                                width: 88%;
+                                width: 310px;
                                 bottom: 50px;
                                 z-index: -1;
                             }
@@ -1169,7 +1157,7 @@
                             
                                 #red-line-container {
                                     margin-left: 10px;
-                                    width: 80%;
+                                    width: 266px;
                                     display: flex;
                                     z-index: -1;
                                 
@@ -1296,14 +1284,13 @@
         #right-col {
             display: flex;
             flex-direction: column;
-            height: 100%;
             gap: 1em;
             align-items: center;
 
             #logo {
                 position: relative;
                 height: 150px;
-                width: 100%;
+                width: 495px;
                 padding: 10px;
                 margin-top: -85px;
                 top: 10px;
@@ -1316,14 +1303,14 @@
                 #logo-div {
                     position: absolute;
                     margin-top: -175px;
-                    margin-left: 270px;
+                    margin-left: 266px;
                     font-family: "Genos", sans-serif;
                     font-size: 35pt;
                     width: auto;
             
                     #line {
                         height: 3px;
-                        width: 100%;
+                        width: 232.5px;
                         background: linear-gradient(to right, black 50%, #D8102B 50%);
                     }
             
@@ -1344,8 +1331,8 @@
             margin-top: 15px;
         
             #panel-top {
-                width: 91.6%;
-                height: 35%;
+                width: 405px;
+                height: 54px;
                 display: flex;
                 flex-direction: row;
                 flex-wrap: nowrap;
@@ -1588,8 +1575,8 @@
             }
 
             #panel-bottom {
-                width: 95.6%;
-                height: 29%;
+                width: 456px;
+                height: 45px;
                 padding: 10px;
                 display: flex;
                 margin-top: -10px;
@@ -1697,8 +1684,8 @@
                     }
                 
                     #pad-bank-buttons {
-                        width: 160%;
-                        height: 100%;
+                        width: 458px;
+                        margin-top: 7px;
                         margin-left: -180px;
                         display: flex;
                         flex-direction: row;
@@ -1726,7 +1713,7 @@
         #drum-pad {
             padding: 40px 30px 40px 30px;
             width: 420px;
-            height: 47%;
+            height: 365px;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
