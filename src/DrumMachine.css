@@ -72,7 +72,6 @@
 
         #left-col { 
             display: flex;
-            flex-direction: column;
             gap: 2em;
             width: 425px;
 
@@ -344,6 +343,8 @@
             }            
 
             #dials {
+                margin-left: -460px;
+                margin-top: 180px;
                 width: 389px;
                 height: 530px;
                 padding: 20px;
