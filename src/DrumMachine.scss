@@ -2050,44 +2050,11 @@ $drum-machine: rgb(242, 238, 209);
 
 
 
-// @media (min-width: 1477px) {
-//     body {
-//         background-color: ;
-//     }
-// }
 
+@media (max-width: 1102px) {
 
-// @media (max-width: 1102px) {
-//     body {
-//         background-color: yellow;
-//     }
-
-//     #undo-seq-container {
-//         display: flex;
-//         flex-direction: column;
-//         gap: 1em;
-//         width: 42px;
-//         height: 60px;
-//         text-align: center;
-//         align-items: center;
-//         align-content: center;
-//         margin-top: -10px;
-
-//         #undo-seq {
-//             border: 0.5px solid black;
-//             width: 5px;
-//             height: 5px; 
-//             border-radius: 60px;
-//         }
-
-//         #undo-seq-button {
-//             border: 0.5px solid black;
-//             width: 35px;
-//             height: 14px;
-//             border-radius: 2px;
-//             margin: auto;
-//             background-color: beige;
-//             box-shadow: 1.25px 1.25px 2.5px .5px #000000;
-//         }
-//     }
-// }
+    #undo-seq-container {
+        position: absolute;
+        top: -10px;
+    }
+}
