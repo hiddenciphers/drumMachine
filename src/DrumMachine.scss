@@ -158,28 +158,20 @@ $drum-machine: rgb(242, 238, 209);
                         
                                 #viz-span {
                                     position: absolute;
-                                    width: 190px;
-                                    height: 160px;
-                                    margin-left: -11px;
-                                    margin-top: -59px;
-
-                                    #viz-container {
-                                        position: absolute;
-                                        height: 170px;
-                                        width: 196px;
-                                    }
-                    
+                                    width: 196px;
+                                    margin-left: 84px;
+                                    margin-top: 4px;
                                 }
                         
                                 #file-top {
-                                    border: 0.5px solid rgb(0, 0, 0);
+                                    border: 0.5px solid black;
                                     position: absolute;
                                     width: 100px;
                                     height: 8px;
                                     margin-left: 82px;
                                     margin-top: 4.5px;
                                     background: 
-                                      linear-gradient(to right, rgba(41, 153, 91, 0.58) 15%, rgba(67, 252, 150, 0.58) 10%, black 10%, #000000 50%);
+                                      linear-gradient(to right, rgba(41, 153, 91, 0.58) 15%, rgba(67, 252, 150, 0.58) 10%, black 10%, black 50%);
                                     border-top-right-radius: 2px;
                                     font-size: 10px;
                                     display: flex;
@@ -2057,3 +2049,4 @@ $drum-machine: rgb(242, 238, 209);
     }
 }
 /* ----------------------------------------------------- END ------------------------------------------------------ */
+
