@@ -483,7 +483,10 @@ $drum-machine: rgb(242, 238, 209);
                                 position: absolute;
                                 margin-top: -15px;
                                 margin-left: -4px;
-                                width: 60px;
+                                width: 65px;
+                                display: flex;
+                                flex-direction: row;
+                                flex-wrap: nowrap;
                             }
                         }
 
@@ -495,7 +498,10 @@ $drum-machine: rgb(242, 238, 209);
                                 position: absolute;
                                 margin-top: -15px;
                                 margin-left: -4px;
-                                width: 60px;
+                                width: 65px;
+                                display: flex;
+                                flex-direction: row;
+                                flex-wrap: nowrap;
                             }
                         }
 
@@ -761,7 +767,6 @@ $drum-machine: rgb(242, 238, 209);
                         }
                     
                         #undo-seq-button {
-                            margin-top: 5px;
                             border: 0.5px solid black;
                             width: 35px;
                             height: 14px;
@@ -1127,7 +1132,7 @@ $drum-machine: rgb(242, 238, 209);
                                 #event-span {
                                     position: absolute;
                                     color: #870c27ea;
-                                    margin-top: 6.5px;
+                                    margin-top: 5px;
                                     margin-left: -195px;
                                     font-size: 6px;
                                     font-weight: bold;
@@ -1338,7 +1343,7 @@ $drum-machine: rgb(242, 238, 209);
             margin-top: 15px;
         
             #panel-top {
-                width: 405px;
+                width: 410px;
                 height: 54px;
                 display: flex;
                 flex-direction: row;
@@ -1347,7 +1352,7 @@ $drum-machine: rgb(242, 238, 209);
                 gap: 5em;
         
                 #panel-top-left {
-                    width: 140px;
+                    width: 150px;
                     height: 45px;
                     font-size: 6pt;
                     display: flex;
@@ -1589,7 +1594,7 @@ $drum-machine: rgb(242, 238, 209);
                 margin-top: -10px;
             
                 #panel-bottom-left {
-                    width: 145px;
+                    width: 150px;
                     height: 45px;
                     font-size: 6pt;
                     display: flex;
