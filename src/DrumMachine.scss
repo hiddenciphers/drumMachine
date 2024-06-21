@@ -757,7 +757,11 @@ $drum-machine: rgb(242, 238, 209);
                             text-align: center;
                             align-items: center;
                             align-content: center;
-                            margin-top: -3px;
+                            
+                            
+                            #undo-seq-span {
+                                margin-top: -3px;
+                            }
                     
                             #undo-seq {
                                 border: 0.5px solid black;
@@ -2045,16 +2049,3 @@ $drum-machine: rgb(242, 238, 209);
     }
 }
 /* ----------------------------------------------------- END ------------------------------------------------------ */
-
-
-
-
-
-
-@media (max-width: 1102px) {
-
-    #undo-seq-container {
-        position: absolute;
-        top: -10px;
-    }
-}
