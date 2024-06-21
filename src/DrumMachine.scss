@@ -1,10 +1,15 @@
 /* DrumMachine.css */
+
+// Custom Sass variable
+$drum-machine: rgb(242, 238, 209);
+
 #container {
-    height: 80vh;
-    width: 1700px;
-    padding: 50px;
+    height: 850px;
+    width: 1050px;
     display: flex;
     justify-content: center;
+    margin-top: -30px;
+    
 
     #power-button:hover {
         background-color: rgba(171, 170, 170, 0.237);
@@ -50,7 +55,7 @@
         flex-direction: row;
         gap: 2.5em;
         padding: 30px;
-        background-color: rgb(242, 238, 209);
+        background-color: $drum-machine;
         clip-path: polygon(
             5% 0,   /* Top-left corner */
             95% 0,  /* Top-right corner */
@@ -77,7 +82,6 @@
 
             #display-container {
                 position: relative;
-                border: 1px solid black;
                 width: 389px;
                 height: 160px;
                 display: flex;
@@ -114,7 +118,7 @@
                     }
             
                     #display {
-                        height: 102px;
+                        height: 101px;
                         width: 281px;
                         background-color: rgba(67, 252, 150, 0.58);
                         padding: 5px;
@@ -156,7 +160,7 @@
                                     position: absolute;
                                     width: 196px;
                                     margin-left: 84px;
-                                    margin-top: 5px;
+                                    margin-top: 4px;
                                 }
                         
                                 #file-top {
@@ -164,8 +168,8 @@
                                     position: absolute;
                                     width: 100px;
                                     height: 8px;
-                                    left: 161.8px;
-                                    top: 50px;
+                                    margin-left: 82px;
+                                    margin-top: 4.5px;
                                     background: 
                                       linear-gradient(to right, rgba(41, 153, 91, 0.58) 15%, rgba(67, 252, 150, 0.58) 10%, black 10%, black 50%);
                                     border-top-right-radius: 2px;
@@ -215,7 +219,7 @@
                                     border-left: 0.5px solid black;
                                     position: absolute;
                                     width: 191px;
-                                    height: 80px;
+                                    height: 81px;
                                     margin-left: 82px;
                                     margin-top: 13px;
                                 }
@@ -296,13 +300,13 @@
                                     font-size: 14px;
                                     margin-top: 56px;
                                     margin-left: 84px;
-                                    height: 37px;
+                                    height: 37.5px;
                                     width: 185px;
                                     display: flex;
                                     padding: 0px 2px;
                                     justify-content: center;
-                                    border-top: 1px solid black;
-                                    border-left: 1px solid black;
+                                    border-top: 0.5px solid black;
+                                    border-left: 0.5px solid black;
                                     z-index: 3;
                                 }
                         
@@ -1784,7 +1788,7 @@
     #bottom-line2 {
         position: absolute;
         width: 985px;
-        margin-top: 804.5px;
+        margin-top: 806px;
         z-index: -2;
         background-color: rgb(217, 217, 191);
         height: 25px;
@@ -1803,7 +1807,7 @@
     #bottom-line3 {
         position: absolute;
         width: 385px;
-        margin-top: 829px;
+        margin-top: 830.5px;
         margin-left: 503px;
         z-index: -2;
         background-color: rgb(217, 217, 191);
@@ -1824,7 +1828,7 @@
         position: absolute;
         width: 900px;
         fill: rgb(217, 217, 191);
-        top: 890px;
+        margin-top: 790px;
         height: 60px;
         z-index: -2;
       }
@@ -1939,8 +1943,8 @@
     #shape {
         position: absolute;
         width: 1025px;
-        fill: rgb(242, 238, 209);
-        top: 875px;
+        fill: $drum-machine;
+        margin-top: 776px;
         height: 60px;
         z-index: -1;
     }
@@ -1949,7 +1953,7 @@
         position: absolute;
         width: 1025px;
         fill: black;
-        top: 875.5px;
+        margin-top: 776.5px;
         height: 60px;
         z-index: -2;
     }

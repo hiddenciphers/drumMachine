@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import './DrumMachine.css';
+import './DrumMachine.scss';
 import padBanks from './PadBanks';
 import togglePadBanks from './PadToggle';
 import setDefaultPads from './Default';
