@@ -674,7 +674,7 @@ const DrumMachine = () => {
                   <div id='Aa' className='button' name='full-level'>
                     <span id='Aa-span'>A/a</span>
                   </div>
-                  <span>16 LEVELS</span>
+                  <span id='sixteen-levels-span'>16 LEVELS</span>
                   <div id='sixteen-levels' className='off'></div>
                   <div id='space' className='button' name='sixteen-levels'>
                     <span id='space-span'>SPACE</span>
@@ -723,7 +723,7 @@ const DrumMachine = () => {
                 <div id='panel-bottom-left-inner'>
                   <div id='next-seq-span'>NEXT SEQ</div>
                   <div id='next-seq' className='off'></div>
-                  <div>TRACK MUTE</div>
+                  <div id='track-mute-span'>TRACK MUTE</div>
                   <div id='track-mute' className='off'></div>
                 </div>
               </div>

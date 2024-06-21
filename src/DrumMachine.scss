@@ -497,7 +497,7 @@ $drum-machine: rgb(242, 238, 209);
                             #open-window-label {
                                 position: absolute;
                                 margin-top: -15px;
-                                margin-left: -4px;
+                                margin-left: -6px;
                                 width: 65px;
                                 display: flex;
                                 flex-direction: row;
@@ -1406,6 +1406,10 @@ $drum-machine: rgb(242, 238, 209);
                                 color: rgb(242, 238, 209);
                             }
                         }
+
+                        #sixteen-levels-span {
+                            margin-left: -1px;
+                        }
                     
                         #sixteen-levels {
                             position: absolute;
@@ -1629,6 +1633,10 @@ $drum-machine: rgb(242, 238, 209);
                             border-radius: 60px;
                             margin-top: 14px;
                             margin-left: 12px;
+                        }
+
+                        #track-mute-span {
+                            margin-left: -2px;
                         }
                         
                         #track-mute {
