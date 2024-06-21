@@ -665,9 +665,8 @@ const DrumMachine = () => {
                 <div id='full-level-div'>
                   <span id='full-level-span'>FULL LEVEL</span>
                   <div id='full-level' className='off'></div>
-                  <div id='Aa' className='button' name='full-level'>
-                    <span id='Aa-span'>A/a</span>
-                  </div>
+                  <div id='Aa' className='button' name='full-level'></div>
+                  <span id='Aa-span'>A/a</span>
                   <span id='sixteen-levels-span'>16 LEVELS</span>
                   <div id='sixteen-levels' className='off'></div>
                   <div id='space' className='button' name='sixteen-levels'>

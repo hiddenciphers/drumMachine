@@ -1404,13 +1404,13 @@ $drum-machine: rgb(242, 238, 209);
                             left: -5px;
                             border-radius: 2px;
                             box-shadow: 1.25px 1.25px 2.5px .5px #000000;
-                    
-                            #Aa-span {
-                                position: absolute;
-                                right: 10px;
-                                top: 17px;
-                                color: rgb(242, 238, 209);
-                            }
+                        }
+
+                        #Aa-span {
+                            position: absolute;
+                            margin-left: 5px;
+                            margin-top: 45px;
+                            color: rgb(242, 238, 209);
                         }
 
                         #sixteen-levels-span {
@@ -2050,3 +2050,2012 @@ $drum-machine: rgb(242, 238, 209);
 }
 /* ----------------------------------------------------- END ------------------------------------------------------ */
 
+@media (max-width: 500px) {
+   /* DrumMachine.css */
+
+    // Custom Sass variable
+    $drum-machine: rgb(242, 238, 209);
+    
+    #container {
+        height: 850px;
+        width: 1050px;
+        display: flex;
+        justify-content: center;
+        margin-top: -10px;
+        
+    
+        #power-button:hover {
+            background-color: rgba(171, 170, 170, 0.237);
+        }
+    
+        #power-button {
+            position: absolute;
+            border: .1px solid rgba(211, 211, 211, 0.173);
+            width: 10px;
+            height: 5px;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            background-color: rgb(30, 30, 30);
+            margin-left: -428px;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+            
+            #power-light {
+                border: 0.5px solid black;
+                width: 1px;
+                height: 1px; 
+                border-radius: 60px;
+            }
+        }
+    
+        #top-cover {
+            position: absolute;
+            width: 457px;
+            height: 40px;
+            margin-top: -18px;
+            background-color: #0a0a23;
+            z-index: 1;
+        }
+    
+        #drum-machine {
+            width: 420px;
+            height: 280px;
+            display: flex;
+            flex-direction: row;
+            gap: 2.5em;
+            padding: 30px;
+            background-color: $drum-machine;
+            clip-path: polygon(
+                9% 0,   /* Top-left corner */
+                91% 0,  /* Top-right corner */
+                100% 9%, /* Top-right corner */
+                100% 96%, /* Bottom-right corner */
+                0 96%, /* Bottom-right corner */
+                0 100%, /* Bottom-left corner */
+                0 96%, /* Bottom-left corner */
+                0 9% /* Top-left corner */
+            );
+        
+            #top-line {
+                position: absolute;
+                width: 1020px;
+                margin-left: -25px;
+                margin-top: 5px;
+                box-shadow: -1.25px -1.25px 2.5px .25px #000000;
+            }
+        
+            #left-col { 
+                display: flex;
+                gap: 2em;
+                width: 200px;
+            
+                #display-container {
+                    position: relative;
+                    width: 180px;
+                    margin-left: -20px;
+                    height: 80px;
+                    display: flex;
+                    padding: 5px 10px 5px 10px;
+                    background-color: rgb(58, 56, 56);
+                    margin-bottom: -30px;
+                    clip-path: polygon(
+                        2.5% 0,   /* Top-left corner */
+                        97.5% 0,  /* Top-right corner */
+                        100% 5%, /* Top-right corner */
+                        100% 95%, /* Bottom-right corner */
+                        97.5% 100%, /* Bottom-right corner */
+                        2.5% 100%, /* Bottom-left corner */
+                        0 95%, /* Bottom-left corner */
+                        0 5% /* Top-left corner */
+                    );
+                
+                    #inner-display {
+                        background-color: black;
+                        margin: auto;
+                        height: 70px;
+                        width: 170px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 5px 10px 5px 10px;
+                    
+                        #inner-display-text {
+                            position: absolute;
+                            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                            font-size: 4px;
+                            color: rgba(255, 255, 255, 0.35);
+                            margin-top: -125px;
+                        }
+                    
+                        #display {
+                            height: 60px;
+                            width: 160px;
+                            background-color: rgba(67, 252, 150, 0.58);
+                            padding: 2.5px;
+                            text-align: center;
+                            align-content: center;
+                            font-family: "Genos", sans-serif;
+                            font-size: 16pt;
+                        
+                            #display-border {
+                                border: 0.1px solid black;
+                                height: 48px;
+                                width: 148px;
+                                padding: 5px;
+                                
+                                #display-spans {
+                                    display: flex;
+                                    flex-direction: column;
+                                
+                                    #time {
+                                        position: absolute;
+                                        font-size: 10px;
+                                        margin-top: -6px;
+                                        width: 148px;
+                                        display: flex;
+                                        justify-content: space-between;
+                                    }
+                                
+                                    #display-logo {
+                                        position: absolute;
+                                        background-image: url('https://1000logos.net/wp-content/uploads/2021/05/Akai-logo.png');
+                                        background-size: 50px;
+                                        width: 50px;
+                                        height: 30px;
+                                        margin-left: 55px;
+                                        margin-top: 10px;
+                                    }
+                                
+                                    #viz-span {
+                                        position: absolute;
+                                        width: 196px;
+                                        margin-left: 84px;
+                                        margin-top: 55.5px;
+                                    }
+                                
+                                    #file-top {
+                                        border: 0.5px solid black;
+                                        position: absolute;
+                                        width: 100px;
+                                        height: 8px;
+                                        margin-left: 82px;
+                                        margin-top: 4.5px;
+                                        background: 
+                                          linear-gradient(to right, rgba(41, 153, 91, 0.58) 15%, rgba(67, 252, 150, 0.58) 10%, black 10%, black 50%);
+                                        border-top-right-radius: 2px;
+                                        font-size: 10px;
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: center;
+                                        justify-content: flex-start;
+                                        padding: 0 0 0 2px;
+                                    
+                                        #sq {
+                                            margin-bottom: 1px;
+                                        
+                                            #sq-id {
+                                                position: absolute;
+                                                font-size: 7px;
+                                                width: 85px;
+                                                color: rgba(67, 252, 150, 0.58);
+                                                display: flex;
+                                                flex-direction: row;
+                                                flex-wrap: nowrap;
+                                                margin-top: -10px;
+                                                margin-left: 17px;
+                                                overflow: hidden;
+                                                height: 10px;
+                                                justify-content: flex-start;
+                                            
+                                            }
+                                        
+                                            #dots {
+                                                position: absolute;
+                                                border-top: 0.5px dotted rgba(67, 252, 150, 0.58);
+                                                width: 101.7px;
+                                                margin-top: 10.5px;
+                                                z-index: 2;
+                                                margin-left: -13.6px;
+                                                border-left: none;
+                                                border-right: none;
+                                                border-bottom: none;
+                                            }
+                                        }
+                                        
+                                    }
+                                
+                                    #program-span {
+                                        border-top: 0.5px solid black;
+                                        border-left: 0.5px solid black;
+                                        position: absolute;
+                                        width: 191px;
+                                        height: 81px;
+                                        margin-left: 82px;
+                                        margin-top: 13px;
+                                    }
+                                
+                                    #display-text {
+                                        position: absolute;
+                                        margin-left: 131.5px;
+                                        min-width: 100px;
+                                        max-width: fit-content;
+                                        height: 20px;
+                                        margin-top: 52.5px;
+                                        font-size: 15px;
+                                        text-align: center;
+                                    }
+                                
+                                    #pad-bank-text {
+                                        position: absolute;
+                                        font-size: 11px;
+                                        margin-top: 56px;
+                                        margin-left: 84px;
+                                        border-bottom: 0.5px solid black;
+                                        border-right: 0.5px solid black;
+                                        width: 42px;
+                                    }
+                                
+                                    #pad-text {
+                                        position: absolute;
+                                        font-size: 11px;
+                                        margin-top: 56px;
+                                        margin-left: 237.5px;
+                                        border-bottom: 0.5px solid black;
+                                        border-left: 0.5px solid black;
+                                        width: 35px;
+                                    }
+                                
+                                    #note-text {
+                                        position: absolute;
+                                        font-size: 13px;
+                                        margin-top: 77.5px;
+                                    }
+                                
+                                    #volume {
+                                        position: absolute;
+                                        margin-top: 56.5px;
+                                        font-size: 13px;
+                                        height: 20px;
+                                    }
+                                
+                                    #data-text {
+                                        position: absolute;
+                                        font-size: 13px;
+                                        margin-top: 46px;
+                                    }
+                                    
+                                    #rec-gain-text {
+                                        position: absolute;
+                                        font-size: 13px;
+                                        margin-top: 67px;
+                                    }
+                                    
+                                    #button-clicked-text {
+                                        position: absolute;
+                                        font-size: 11px;
+                                        min-width: 60px;
+                                        width: auto;
+                                        max-width: 160px;
+                                        margin-left: -2px;
+                                        margin-top: 5px;
+                                        display: flex;
+                                        flex-direction: row;
+                                        flex-wrap: nowrap;
+                                        justify-content: flex-start;
+                                        padding: 2px;
+                                    }
+                                
+                                    #recording-info {
+                                        position: absolute;
+                                        font-size: 14px;
+                                        margin-top: 56px;
+                                        margin-left: 84px;
+                                        height: 37.5px;
+                                        width: 185px;
+                                        display: flex;
+                                        padding: 0px 2px;
+                                        justify-content: center;
+                                        border-top: 0.5px solid black;
+                                        border-left: 0.5px solid black;
+                                        z-index: 3;
+                                    }
+                                
+                                    #data-icon {
+                                        margin-left: -242px;
+                                        margin-top: 12px;
+                                    }
+                                }
+                            }
+                        }
+                    
+                        #f-lights {
+                            width: 250px;
+                            position: absolute;
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: nowrap;
+                            justify-content: space-between;
+                            align-items: center;
+                            align-content: center;
+                            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                            font-size: 8px;
+                            color: rgba(255, 255, 255, 0.35);
+                            margin-top: 128.5px;
+                            margin-left: 5px;
+                        }
+                    
+                        .f-on {
+                            color: rgb(125, 205, 7);
+                        }
+                        
+                        .f-off {
+                            color: black;
+                        }
+                        
+                    }
+                    
+                }            
+            
+                #dials {
+                    margin-left: -460px;
+                    margin-top: 180px;
+                    width: 190px;
+                    height: 280px;
+                    padding: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5em;
+                
+                    #dials-top {
+                        height: 110px;
+                        display: flex;
+                        flex-direction: column;
+                    
+                        #f-buttons {
+                            position: absolute;
+                            padding-top: 20px;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            margin-left: 30px;
+                            z-index: 1;
+                        
+                            .f-button-labels {
+                                position: relative;
+                                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                                font-size: 8px;
+                                width: 20px;
+                                bottom: 30px;
+                                border: 0.5px solid black;
+                                text-align: center;
+                                background-color: darkgrey;
+                                left: 22px;
+                                margin-left: 3px;
+                            }
+                        
+                            .f-button {
+                                border: 0.5px solid black;
+                                border-radius: 2px;
+                                width: 35px;
+                                height: 12px;
+                                background-color: beige;
+                                box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+                                margin-left: -8px;
+                            }
+                        }
+                    
+                        #blue-buttons-container {
+                            position: absolute;
+                            height: 200px;
+                            width: 175px;
+                            margin: 30px;
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            gap: 1em;
+                            align-content: center;
+                            justify-content: space-between;
+                            margin-left: -11px;
+                            text-align: center;
+                            margin-top: 70px;
+                            
+                            .blue-buttons {
+                                position: static;
+                                border: 0.5px solid black;
+                                height: 12px;
+                                width: 40px;
+                                border-radius: 2px;
+                                background-color: rgb(6, 104, 184);
+                                box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+                                margin-bottom: 4px;
+                            }
+                        
+                            .white-button {
+                                border: 0.5px solid black;
+                                height: 12px;
+                                width: 40px;
+                                border-radius: 2px;
+                                background-color: beige;
+                            }
+                        
+                            .shift {
+                                background-color: darkgrey;
+                                height: auto;
+                                width: auto;
+                                padding:3px;
+                                margin-left: -10px;
+                                margin-top: -15px;
+                                border-radius: 2px;
+                                font-size: 5pt;
+                                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                                margin-bottom: 6px;
+                            }
+                            
+                            .no-shift {
+                                background-color: transparent;
+                            }
+                            
+                            .blue-button-label-spans {
+                                height: auto;
+                                width: auto;
+                                background-color: darkgrey;
+                            }
+                        }
+                    
+                        #above-data-dial {
+                            position: absolute;
+                            width: 200px;
+                            margin-left: 170px;
+                            margin-top: 108px;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 4em;
+                        
+                            .above-dd-btns {
+                                border: 0.5px solid black;
+                                height: 16px;
+                                width: 45px;
+                                border-radius: 2px;
+                                margin-top: -40px;
+                                font-size: 6pt;
+                                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                                box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+                                position: absolute;
+                            }
+                        
+                            #main-screen {
+                                background-color: beige;
+                                margin-left: -100px;
+                            
+                                #main-screen-label {
+                                    position: absolute;
+                                    margin-top: -15px;
+                                    margin-left: -4px;
+                                    width: 65px;
+                                    display: flex;
+                                    flex-direction: row;
+                                    flex-wrap: nowrap;
+                                }
+                            }
+                        
+                            #open-window {
+                                background-color: orange;
+                                margin-left: 100px;
+                            
+                                #open-window-label {
+                                    position: absolute;
+                                    margin-top: -15px;
+                                    margin-left: -6px;
+                                    width: 65px;
+                                    display: flex;
+                                    flex-direction: row;
+                                    flex-wrap: nowrap;
+                                }
+                            }
+                        
+                            #data {
+                                position: absolute;
+                                height: 80px;
+                                width: 80px;
+                                text-align: center;
+                                margin-top: 100px;
+                                font-size: 6pt;
+                                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                            }
+                        }
+                    
+                        #data-knob {
+                            position: absolute;
+                            border: 3px solid black;
+                            height: 150px;
+                            margin-top: 135px;
+                            margin-left: 193px;
+                            width: 150px;
+                            border-radius: 100px;
+                            background-color: rgb(58, 56, 56);
+                            display: flex;
+                            transform: rotate(382deg);
+                            box-shadow: 1.25px 1.25px 5px .5px #000000;
+                        
+                            .data-dial {
+                                background-color: rgb(58, 56, 56);
+                            }
+                        
+                            #dial-png3 {
+                                position: absolute;
+                                transform: rotate(-22.5deg);
+                                width: 150px;
+                                border-radius: 60%;
+                            }
+                        
+                            #inner-knob {
+                                border: 2px solid black;
+                                height: 90px;
+                                width: 90px;
+                                border-radius: 100px;
+                                display: flex;
+                                margin: auto;
+                                box-shadow: 1.25px 1.25px 15px .5px #000000;
+                                background-color: rgb(50, 48, 48);
+                                z-index: 1;
+                            
+                                #knob {
+                                    border: 2px solid black;
+                                    background-color: rgb(58, 56, 56);
+                                    height: 40px;
+                                    width: 40px;
+                                    border-radius: 100px;
+                                    margin-top: -15px;
+                                    margin-left: 7.5px;
+                                    box-shadow: 1.25px 1.25px 5px .5px #000000;
+                                }
+                                
+                            }
+                            
+                            
+                        }
+                    
+                    
+                    }
+                
+                    #dials-bottom {
+                        margin-top: 60px;
+                        margin-left: -40px;
+                    
+                        #bottom-left {
+                            border: 1px solid black;
+                            margin-left: 7px;
+                            width: 70px;
+                            height: 240px;
+                            border-radius: 2px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content:space-evenly;
+                            align-items: center;
+                            gap: 1em;
+                        
+                            #bottom-left-top {
+                                position: absolute;
+                                height: 70px;
+                                width: 70px;
+                                margin-top: -140px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 0.5em;
+                            
+                                #note-variation {
+                                    margin-top: -52px;
+                                    text-align: center;
+                                    font-size: 6pt;
+                                    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                                    background-color: rgb(242, 238, 209);
+                                    width: auto;
+                                    padding: 2px;
+                                }
+                                
+                                #after {
+                                    text-align: center;
+                                    font-size: 6pt;
+                                    margin-bottom: -5px;
+                                    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                                }
+                            
+                                #bottom-left-after {
+                                    #assign {
+                                        border: 0.5px solid black;
+                                        width: 5px;
+                                        height: 5px; 
+                                        border-radius: 60px;
+                                    }
+                                }
+                            
+                                #bottom-left-button {
+                                    border: 0.5px solid black;
+                                    width: 40px;
+                                    height: 18px;
+                                    border-radius: 3px;
+                                    background-color: beige;
+                                    box-shadow: 1.25px 1.25px 2.5px .5px #000000; 
+                                
+                                    #assign-span {
+                                        position: absolute;
+                                        font-size: 8px;
+                                        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                                        background-color: darkgray;
+                                        margin-top: 23px;
+                                        margin-left: 6px;
+                                    }
+                                }
+                            
+                                
+                            
+                                
+                            }
+                        
+                            #note-variation-container { 
+                                transform: rotate(630deg);
+                                margin-top: 60px;
+                                margin-left: -5px;
+                            
+                                .note-variation-slider {
+                                    -webkit-appearance: none; /* Override default CSS styles */
+                                    appearance: none;
+                                    width: 119px; /* Full-width */
+                                    height: 5px; /* Height of the slider */
+                                    background: black; /* Track color */
+                                    outline: none; /* Remove outline */
+                                    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+                                    transition: opacity .2s; /* 0.2 seconds transition on hover */
+                                    border-radius: 5px; /* Rounded corners */
+                                    margin-right: 20px;
+                                }
+                                  
+                                  /* Mouse-over effects */
+                                  .note-variation-slider:hover {
+                                    opacity: 1; /* Fully shown on hover */
+                                }
+                                  
+                                  /* The slider handle (the thumb) */
+                                  .note-variation-slider::-webkit-slider-thumb {
+                                    -webkit-appearance: none; /* Override default look */
+                                    appearance: none;
+                                    width: 20px; /* Handle width */
+                                    height: 40px; /* Handle height */
+                                    /* background: beige; */
+                                    cursor: grabbing; /* Mouse pointer on hover */
+                                    border: .5px solid black;
+                                    border-radius: 4px;
+                                    box-shadow: -1.25px 1.25px 2.5px .5px #000000;
+                                    background-image: url('../public/blue-line.png');
+                                    background-size: 20px;
+                                    
+                                }
+                                
+                                  .note-variation-slider::-webkit-slider-thumb:hover {
+                                    background-color: #f3f4c8;
+                                }
+                                  
+                                  .note-variation-slider::-moz-range-thumb {
+                                    width: 20px; /* Handle width */
+                                    height: 40px; /* Handle height */
+                                    background: beige; /* Handle color */
+                                    cursor: pointer; /* Mouse pointer on hover */
+                                    border-radius: 2px; /* Rounded handle */
+                                    border: .5px solid black;
+                                    border-radius: 2px;
+                                }
+                            }
+                            
+                        }
+                    
+                        #bottom-left-right-top-container {
+                            position: absolute;
+                            margin-top: -240px;
+                            margin-left: 158px;
+                            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                            font-size: 8px;
+                            height: 100px;
+                            display: flex;
+                            flex-direction: column;
+                        
+                            #tap-tempo {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 0.5em;
+                                width: 42px;
+                                text-align: center;
+                                align-items: center;
+                                align-content: center;
+                            
+                                #tap-tempo-span {
+                                    width: 60px;
+                                }
+                            }
+                            
+                            #tap-tempo-button {
+                                position: relative;
+                                bottom: 20px;
+                                border: 0.5px solid black;
+                                width: 40px;
+                                height: 30px;
+                                border-radius: 2px;
+                                margin: auto;
+                                background-color: beige;
+                                box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+                            }
+                        }
+                    
+                        #bottom-left-right-mid-container {
+                            position: absolute;
+                            margin-top: -170px;
+                            margin-left: 93px;
+                            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                            font-size: 8px;
+                            height: 50px;
+                            display: flex;
+                            flex-direction: column;
+                        
+                            #undo-seq-container {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 1em;
+                                width: 42px;
+                                text-align: center;
+                                align-items: center;
+                                align-content: center;
+                                
+                                
+                                #undo-seq-span {
+                                    margin-top: -3px;
+                                }
+                            
+                                #undo-seq {
+                                    border: 0.5px solid black;
+                                    width: 5px;
+                                    height: 5px; 
+                                    border-radius: 60px;
+                                }
+                            
+                                #undo-seq-button {
+                                    border: 0.5px solid black;
+                                    width: 35px;
+                                    height: 14px;
+                                    border-radius: 2px;
+                                    margin: auto;
+                                    background-color: beige;
+                                    box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+                                }
+                            }
+                        
+                        }
+                    
+                        #bottom-left-right-bottom-container {
+                            position: absolute;
+                            margin-top: -165px;
+                            margin-left: 158px;
+                            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                            font-size: 8px;
+                            height: 50px;
+                            display: flex;
+                            flex-direction: column;
+                        
+                            #erase {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 0.5em;
+                                width: 42px;
+                                height: 9px;
+                                text-align: center;
+                                align-items: center;
+                                align-content: center;
+                            
+                                #erase-span {
+                                    top: 7px;
+                                    position: absolute; 
+                                }
+                            }
+                        
+                            #erase-button {
+                                margin-top: 5px;
+                                border: 0.5px solid black;
+                                width: 35px;
+                                height: 14px;
+                                border-radius: 2px;
+                                margin: auto;
+                                background-color: beige;
+                                box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+                            }
+                        
+                        }
+                    
+                        #bottom-left-right-bottom-right-container {
+                            position: absolute;
+                            margin-top: -215px;
+                            margin-left: 270px;
+                            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                            font-size: 8px;
+                            height: 80px;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        
+                            #cursor {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 0.5em;
+                                width: 42px;
+                                text-align: center;
+                                align-items: center;
+                                align-content: center;
+                            
+                                #cursor-span {
+                                    margin-bottom: 5px;
+                                }
+                            }
+                        
+                            #cursor-buttons {
+                                border: 0.5px solid black;
+                                width: 80px;
+                                height: 65px;
+                                border-radius: 2px;
+                                box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+                                background-color: beige;
+                                display: flex;
+                                flex-direction: row;
+                                flex-wrap: nowrap;
+                            
+                                #line-top-left {
+                                    position: absolute;
+                                    border-right: 0.5px solid black;
+                                    width: 18.5px;
+                                    height: 32.5px;
+                                    transform: skew(17deg);
+                                }
+                                
+                                #line-top-right {
+                                    position: absolute;
+                                    border-right: 0.5px solid black;
+                                    width: 18.5px;
+                                    height: 32.5px;
+                                    transform: skew(-17deg);
+                                    margin-left: 42px;  
+                                }
+                                
+                                #line-bottom-left {
+                                    position: absolute;
+                                    border-right: 0.5px solid black;
+                                    width: 18.5px;
+                                    height: 32.5px;
+                                    transform: skew(-17deg);
+                                    margin-top: 32px;
+                                }
+                                
+                                #line-bottom-right {
+                                    position: absolute;
+                                    border-right: 0.5px solid black;
+                                    width: 18.5px;
+                                    height: 32.5px;
+                                    transform: skew(17deg);
+                                    margin-left: 42px;
+                                    margin-top: 32px;
+                                }
+                            
+                                #cursor-left {
+                                    width: 27px;
+                                    z-index: 1;
+                                
+                                    #chevron-left {
+                                        position: absolute;
+                                        transform: rotate(270deg);
+                                        width: 15px;
+                                        top: 40px;
+                                        margin-left: 2.5px; 
+                                    }
+                                }
+                            
+                                #cursor-button-middle-container {
+                                    display: flex;
+                                    flex-direction: column;
+                                    width: 27px;
+                                
+                                    #cursor-top {
+                                        width: 27px;
+                                        height: 32.5px;
+                                        z-index: 1;
+                                    
+                                        #chevron-up {
+                                            position: absolute;
+                                            width: 15px;
+                                            left: 34px;
+                                            top: 20px; 
+                                        }
+                                    }
+                                
+                                    #line-middle {
+                                        border-top: 1px solid black;
+                                        width: 32px;
+                                        margin-left: -2.5px;
+                                    }
+                                
+                                    #cursor-bottom {
+                                        width: 27px;
+                                        z-index: 1;
+                                    
+                                        #chevron-down {
+                                            position: absolute;
+                                            width: 15px;
+                                            left: 34px;
+                                            top: 62.5px;
+                                            transform: rotate(180deg);
+                                        }
+                                    }
+                                
+                                
+                                }
+                            
+                                #cursor-right {
+                                    width: 27px;
+                                    z-index: 1;
+                                
+                                    #chevron-right {
+                                        position: absolute;
+                                        transform: rotate(90deg);
+                                        width: 15px;
+                                        top: 39px;
+                                        margin-left: 10px; 
+                                    }
+                                }
+                            
+                                #digit-span {
+                                    position: absolute;
+                                    font-size: 7px;
+                                    background-color: darkgray;
+                                    left: 16.5px;
+                                    top: 85px;
+                                    width: 50px;
+                                    display: flex;
+                                    justify-content: center;
+                                
+                                    #chevron-left-small {
+                                        transform: rotate(90deg);
+                                        width: 5px;  
+                                    }
+                                
+                                    .digit-span-gap {
+                                        width: 5px;
+                                    }
+                                    
+                                    #chevron-right-small {
+                                        transform: rotate(270deg);
+                                        width: 5px;
+                                    }
+                                }
+                            }
+                        }
+                    
+                        #bottom-left-right-bottom {
+                            position: absolute;
+                            height: 35px;
+                            width: 340px;
+                            margin-left: 78px;
+                            margin-top: -33px;
+                        
+                            #bottom-left-right-bottom-row-1 {
+                                position: absolute;
+                                width: 340px;
+                                height: 50px;
+                                margin-top: -75px;
+                                margin-left: -4px;
+                                display: flex;
+                                flex-direction: row;
+                                flex-wrap: nowrap;
+                                justify-content: space-evenly;
+                                gap: 1em;
+                                align-items: center;
+                                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                                font-size: 8px;
+                            
+                                #locate {
+                                    position: absolute;
+                                    padding: 2px;
+                                    margin-top: -50px;
+                                    font-size: 8px;
+                                    background-color: rgb(242, 238, 209);
+                                    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                                }
+                                
+                                #locate-line {
+                                    position: absolute;
+                                    border-top: 1px solid black;
+                                    width: 310px;
+                                    bottom: 50px;
+                                    z-index: -1;
+                                }
+                            
+                                #locate-labels-container {
+                                    position: absolute;
+                                    width: 330px;
+                                    display: flex;
+                                    flex-direction: row;
+                                    flex-wrap: nowrap;
+                                    justify-content: space-evenly;
+                                    margin-top: -27.5px;
+                                    margin-left: 15px;
+                                    font-size: 7px;
+                                    
+                                    #step-chev-left {
+                                        margin-left: -12px;
+                                        margin-top: 3px;
+                                    }
+                                
+                                    #step-span {
+                                        margin-left: -10px;
+                                        margin-top: 4px;
+                                        margin-right: 5px; 
+                                    }
+                                    
+                                    #step-chev-right {
+                                        margin-left: -15px;
+                                        transform: rotate(180deg);
+                                        margin-right: 15px;
+                                        margin-top: 3px;
+                                        color: rgb(6, 104, 184);
+                                    }
+                                    
+                                    #goto-span {
+                                        margin-right: 27px;
+                                        margin-top: 3px;
+                                    }
+                                    
+                                    #bar-chev-left {
+                                        margin-left: -10px;
+                                        margin-top: 3px;
+                                        margin-right: 10px; 
+                                    }
+                                
+                                    #bar-span {
+                                        margin-left: -19px;
+                                        margin-top: 4px;
+                                        margin-right: 5px;
+                                    }
+                                    
+                                    #bar-chev-right {
+                                        position: absolute;
+                                        margin-left: -15px;
+                                        transform: rotate(180deg);
+                                        margin-top: 3px;
+                                    }
+                                    
+                                    .chev {
+                                        width: 10px;
+                                    }
+                                    
+                                    .bar-chev {
+                                        width: 10px;
+                                    }
+                                    
+                                }
+                            
+                                .bottom-left-right-bottom-row-1-buttons {
+                                    border: 0.5px solid black;
+                                    height: 14px;
+                                    width: 35px;
+                                    border-radius: 2px;
+                                    background-color: beige;
+                                    box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+                                }
+                            
+                                #locate-bottom-container {
+                                    position: absolute;
+                                    width: 330px;
+                                    height: 15px;
+                                    margin-top: 30px;
+                                    display: flex;
+                                    flex-direction: row;
+                                    flex-wrap: nowrap;
+                                    justify-content: center;
+                                    
+                                
+                                    .locate-bottom-labels {
+                                        position: absolute;
+                                        width: 30px;
+                                        height: 8px;
+                                        border: 0.5px solid #870c27ea;
+                                        top: 5px;
+                                        border-radius: 2px;
+                                        background-color: #870c27ea;
+                                        font-size: 6px;
+                                        text-align: center;
+                                        color: beige;
+                                    }
+                                
+                                    #event-chev-left-span {
+                                        margin-left: -260px;
+                                        display: flex;
+                                        text-align: center;
+                                        justify-content: center;
+                                    
+                                        #event-chev-left {
+                                            height: 5px;
+                                            margin-top: 1px;
+                                        }
+                                    }
+                                
+                                    #event-span {
+                                        position: absolute;
+                                        color: #870c27ea;
+                                        margin-top: 5px;
+                                        margin-left: -195px;
+                                        font-size: 6px;
+                                        font-weight: bold;
+                                        
+                                    }
+                                
+                                    #event-chev-right-span {
+                                        margin-left: -130px;
+                                        display: flex;
+                                        text-align: center;
+                                        justify-content: center;
+                                    
+                                        #event-chev-right {
+                                            transform: rotate(180deg);
+                                            height: 5px;
+                                            margin-top: 1px;
+                                        }  
+                                    }
+                                
+                                    #bar-start {
+                                        margin-right: -132px;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                    }
+                                
+                                    #bar-end {
+                                        margin-right: -262px;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                    }
+                                
+                                    #red-line-container {
+                                        margin-left: 10px;
+                                        width: 266px;
+                                        display: flex;
+                                        z-index: -1;
+                                    
+                                        #red-line-left {
+                                            width: 47px;
+                                            margin-top: 10px;
+                                            margin-left: 77px;
+                                            border-top: 1.5px solid #870c27ea;
+                                        }
+                                    
+                                        #red-line-divider {
+                                            position: absolute;
+                                            border-left: 3px solid #870c27ea;
+                                            border-right: 3px solid #870c27ea;
+                                            margin-top: 3.5px;
+                                            margin-left: 122px;
+                                            width: 7.5px;
+                                            height: 7.5px;
+                                        }
+                                    
+                                        #red-line-right {
+                                            width: 110px;
+                                            margin-top: 10px;
+                                            margin-left: 10px;
+                                            border-top: 1.5px solid #870c27ea;
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                            }
+                        
+                            #bottom-left-right-bottom-row-2 {
+                                display: flex;
+                                flex-direction: row;
+                                flex-wrap: nowrap;
+                                justify-content: space-evenly;
+                                margin-left: -10px;
+                            
+                                .bottom-left-right-bottom-row-2-buttons {
+                                    border: 0.5px solid black;
+                                    height: 30px;
+                                    width: 40px;
+                                    border-radius: 2px;
+                                    text-align: center;
+                                    font-size: 6pt;
+                                    background-color: beige;
+                                    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                                    box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+                                    
+                                }
+                            
+                                .red-button {
+                                    background-color: #bc012dea;
+                                }
+                            
+                                #record {
+                                    position: absolute;
+                                    border: 0.5px solid black;
+                                    width: 5px;
+                                    height: 5px; 
+                                    border-radius: 60px;
+                                    margin-top: -18px;
+                                    margin-left: 10px;
+                                }
+                            
+                                #rec {
+                                    position: absolute;
+                                    margin-top: -19.5px;
+                                    margin-left: -13px;
+                                    width: 40px;
+                                }
+                            
+                                #over-dub {
+                                    position: absolute;
+                                    border: 0.5px solid black;
+                                    width: 5px;
+                                    height: 5px; 
+                                    border-radius: 60px;
+                                    margin-top: -18px;
+                                    margin-left: 4px;
+                                }
+                            
+                                #over {
+                                    position: absolute;
+                                    margin-top: -25px;
+                                    margin-left: -7px;
+                                }
+                            
+                                #stop {
+                                    position: absolute;
+                                    margin-top: -20px;
+                                    margin-left: -10px;
+                                }
+                                
+                                #play {
+                                    position: absolute;
+                                    border: 0.5px solid black;
+                                    width: 5px;
+                                    height: 5px; 
+                                    border-radius: 60px;
+                                    margin-top: -18px;
+                                    margin-left: 6px;
+                                }
+                                
+                                #play-span {
+                                    position: absolute;
+                                    margin-top: -20px;
+                                    margin-left: -5px;
+                                }
+                                
+                                #play-start {
+                                    position: absolute;
+                                    margin-top: -25px;
+                                    margin-left: -11px;
+                                }
+                            
+                            }
+                        }
+                    }
+                }
+                
+            }
+            #right-col {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5em;
+                align-items: center;
+                width: 240px;
+            
+                #logo {
+                    position: relative;
+                    height: 75px;
+                    width: 200px;
+                    padding: 5px;
+                    margin-top: -60px;
+                    
+                
+                    #akai-logo {
+                        width: 125px;
+                        margin-left: -10px;
+                        margin-top: 10px;
+                    }
+                
+                    #logo-div {
+                        position: absolute;
+                        margin-top: -89px;
+                        margin-left: 120px;
+                        font-family: "Genos", sans-serif;
+                        font-size: 18pt;
+                        width: auto;
+                    
+                        #line {
+                            height: 2px;
+                            width: 120px;
+                            background: linear-gradient(to right, black 50%, #D8102B 50%);
+                            margin-top: -2px;
+                        }
+                    
+                        #midi {
+                            font-size: 8.1pt;
+                            margin-left: 0px;
+                            margin-top: -3px;
+                        }
+                    }
+                }
+            }
+        
+            #panel {
+                height: 50px;
+                width: 240px;
+                background-color: darkgrey;
+                margin-left: 40px;
+                margin-top: 20px;
+            
+                #panel-top {
+                    width: 240px;
+                    height: 26px;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    padding: 20px;
+                    gap: 5em;
+                
+                    #panel-top-left {
+                        position: absolute;
+                        width: 70px;
+                        height: 15px;
+                        margin-left: -15px;
+                        margin-top: -15px;
+                        font-size: 4px;
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        align-items: center;
+                        gap: 1em;
+                        background-color: rgb(242, 238, 209);
+                        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                        border-radius: 1px;
+                    
+                        #full-level-div {
+                            position: absolute;
+                            display: flex;
+                            width: auto;
+                            align-content: center;
+                            text-align: center;
+                            
+                            gap: 4em;
+                            margin-left: 15px;
+                            margin-top: -7px;
+                        
+                            #full-level-span {
+                                margin-left: -7px;
+                            }
+                        
+                            #full-level {
+                                position: absolute;
+                                border: 0.1px solid black;
+                                width: 1px;
+                                height: 1px; 
+                                border-radius: 60px;
+                                margin-top: 6px;
+                                margin-left: 2px;
+                            }
+                        
+                            #Aa {
+                                position: absolute;
+                                border: 0.5px solid black;
+                                height: 6px;
+                                width: 17.5px;
+                                background-color: beige;
+                                top: 10px;
+                                left: -6px;
+                                border-radius: 2px;
+                                box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+                            }
+
+                            #Aa-span {
+                                position: absolute;
+                                margin-right: 10px;
+                                margin-top: 18px;
+                                color: rgb(242, 238, 209);
+                            }
+                        
+                            #sixteen-levels-span {
+                                margin-left: -2px;
+                            }
+                        
+                            #sixteen-levels {
+                                position: absolute;
+                                border: 0.5px solid black;
+                                width: 1px;
+                                height: 1px; 
+                                border-radius: 60px;
+                                margin-top: 5px;
+                                margin-left: 37.5px;
+                            }
+                        
+                            #space {
+                                position: absolute;
+                                border: 0.5px solid black;
+                                height: 6px;
+                                width: 17.5px;
+                                background-color: beige;
+                                top: 28px;
+                                left: 69px;
+                                border-radius: 2px;
+                                box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+                            
+                                #space-span {
+                                    position: absolute;
+                                    right: 5px;
+                                    top: 17px;
+                                    color: rgb(242, 238, 209);
+                                }
+                            }
+                        }
+                    }
+                
+                    #panel-top-right {
+                        width: auto;
+                        height: 30px;
+                        display: flex;
+                        align-items: center;
+                        gap: 2em;
+                        margin-top: 5px;
+                    
+                        #panel-top-right-labels {
+                            margin-left: 22px;
+                            margin-top: -95px;
+                            width: 140px;
+                            position: absolute;
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: nowrap;
+                            justify-content: space-between;
+                            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                            font-size: 5px;
+                        }
+                    
+                        #dial-png {
+                            position: absolute;
+                            margin-top: -8px;
+                            width: 40px;
+                            margin-left: 1px;
+                        }
+                    
+                        .viewport-box{
+                            padding: 2.5px;
+                            margin-left: 1.25px;
+                        
+                            .rec-gain-dial {
+                                width: 25px;
+                                height: 25px;
+                                background: rgb(242, 238, 209);
+                                position: relative;
+                                border-radius: 100%;
+                                display: flex;
+                                justify-content: center;
+                                margin: auto;
+                                border: 0.5px solid #000;
+                                box-shadow: 0.625px 0.625px 4px .25px #000000;
+                            
+                                .dial-inner {
+                                    width: 17.25px;
+                                    height: 16px;
+                                    background: rgb(242, 238, 209);
+                                    position: absolute;
+                                    border-radius: 50%;
+                                    border-bottom-left-radius: 8px;
+                                    border-bottom-right-radius: 8px;
+                                    border: 0.5px solid #000;
+                                    top: 3px;
+                                    box-shadow: 1.25px 1.25px 7px .5px #000000;
+                                }
+                            
+                                .indicator {
+                                    width: 2.5px;
+                                    height: 15px;
+                                    border: 0.1px solid black;
+                                    border-top: none;
+                                    background: darkgrey;
+                                    position: absolute;
+                                    left: 50%;
+                                    transform-origin: bottom center;
+                                    transform: translateX(-50%);
+                                }
+                            }
+                        }
+                        #min-max {
+                            margin-left: 104px;
+                            margin-top: 58px;
+                            width: 90px;
+                            position: absolute;
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: nowrap;
+                            justify-content: space-between;
+                            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                            font-size: 4px;
+                        }
+                    
+                        #dial-png2 {
+                            position: absolute;
+                            margin-top: -40px;
+                            width: 40px;
+                            margin-left: 170px;
+                        }
+                    
+                        .viewport-box{
+                            padding: 5px;
+                            margin-left: 2.5px;
+                        
+                            .volume-dial {
+                                width: 25px;
+                                height: 25px;
+                                background: rgb(242, 238, 209);
+                                position: relative;
+                                border-radius: 100%;
+                                display: flex;
+                                justify-content: center;
+                                margin: auto;
+                                border: 0.5px solid #000;
+                                box-shadow: 0.625px 0.625px 4px .25px #000000;
+                                margin-left: 99px;
+                                margin-top: -30px;
+                            
+                                .dial-inner {
+                                    width: 17.5px;
+                                    height: 16px;
+                                    background: rgb(242, 238, 209);
+                                    position: absolute;
+                                    border-radius: 50%;
+                                    border-bottom-left-radius: 8px;
+                                    border-bottom-right-radius: 8px;
+                                    border: 0.5px solid #000;
+                                    top: 3px;
+                                    box-shadow: 1.25px 1.25px 7px .5px #000000;
+                                }
+                            
+                                .indicator {
+                                    width: 2.5px;
+                                    height: 15px;
+                                    border: 0.1px solid black;
+                                    border-top: none;
+                                    background: darkgrey;
+                                    position: absolute;
+                                    left: 50%;
+                                    transform-origin: bottom center;
+                                    transform: translateX(-50%);
+                                }
+                            }
+                        }
+                    
+                        #min-max2 {
+                            margin-left: -4px;
+                            margin-top: 58px;
+                            width: 90px;
+                            position: absolute;
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: nowrap;
+                            justify-content: space-between;
+                            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                            font-size: 6px;
+                        }
+                    }
+                }
+            
+                #panel-bottom {
+                    width: 456px;
+                    height: 45px;
+                    padding: 10px;
+                    display: flex;
+                    margin-top: -10px;
+                
+                    #panel-bottom-left {
+                        width: 150px;
+                        height: 45px;
+                        font-size: 6pt;
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        align-items: center;
+                        gap: 2em;
+                        background-color: rgb(242, 238, 209);
+                        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                        border-radius: 1px;
+                        margin-left: 8px;
+                    
+                        #panel-bottom-left-inner {
+                            position: absolute;
+                            display: flex;
+                            width: auto;
+                            align-content: center;
+                            text-align: center;
+                            gap: 4em;
+                            margin-left: 20px;
+                            margin-top: -15px;
+                        
+                            #next-seq-span {
+                                margin-left: -6px;
+                            }
+                            
+                            #next-seq {
+                                position: absolute;
+                                border: 0.5px solid black;
+                                width: 5px;
+                                height: 5px; 
+                                border-radius: 60px;
+                                margin-top: 14px;
+                                margin-left: 12px;
+                            }
+                        
+                            #track-mute-span {
+                                margin-left: -3px;
+                            }
+                            
+                            #track-mute {
+                                position: absolute;
+                                border: 0.5px solid black;
+                                width: 5px;
+                                height: 5px; 
+                                border-radius: 60px;
+                                margin-top: 14px;
+                                margin-left: 85px;
+                            }
+                        }
+                    }
+                
+                    #panel-bottom-right {
+                        width: 300px;
+                        font-size: 8px;
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        align-items: center;
+                        gap: 2em;
+                        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                        border-radius: 1px;
+                        margin-left: 10px;
+                        margin-top: 15px;
+                    
+                        #pad-bank-line {
+                            margin-top: -17px;
+                        
+                            #pad-bank-top-border {
+                                position: absolute;
+                                border-top: 1px solid black;
+                                width: 280px;
+                                margin-top: -15px;
+                            }
+                        
+                            #pad-bank-label {
+                                position: absolute;
+                                margin-top: -22px;
+                                margin-left: 120px;
+                                padding: 2px;
+                                background-color: darkgrey;
+                            }
+                        
+                            #pad-bank-labels {
+                                width: 295px;
+                                height: 20px;
+                                position: absolute;
+                                display: flex;
+                                justify-content: space-evenly;
+                                gap: 4.5em;
+                                margin-left: -7.5px;
+                                margin-top: -12px;
+                            
+                                #pad-bank-a-light, #pad-bank-b-light, #pad-bank-c-light, #pad-bank-d-light {
+                                    position: absolute;
+                                    border: 0.5px solid black;
+                                    width: 5px;
+                                    height: 5px; 
+                                    border-radius: 60px;
+                                    margin-top: 5px;
+                                }
+                            }
+                        }
+                    
+                        #pad-bank-buttons {
+                            width: 458px;
+                            margin-top: 7px;
+                            margin-left: -180px;
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: nowrap;
+                            justify-content: space-evenly;
+                            gap: 1.5em;
+                        
+                            .pad-bank-buttons {
+                                border: 0.5px solid black;
+                                width: 35px;
+                                height: 12px;
+                                margin-top: 23.5px;
+                                background-color: beige;
+                                border-radius: 2px;
+                                box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+                            }
+                        }
+                    
+                    }
+                    
+                }
+                
+            }
+        
+            #drum-pad {
+                padding: 40px 30px 40px 30px;
+                width: 180px;
+                height: 97px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                row-gap: 15px;
+                column-gap: 26px;
+                justify-content: space-evenly;
+                align-items: center;
+                align-content: center;
+                background-color: darkgrey;
+                margin-left: 40px;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            
+                #drums-line {
+                    position: absolute;
+                    border-top: 1px solid black;
+                    width: 200px;
+                    margin-top: -165px;
+                    
+                
+                    #drums {
+                        position: absolute;
+                        background-color: darkgrey;
+                        left: 92.5px;
+                        font-size: 5px;
+                        top: -4px;
+                        padding: 0 2px; 
+                    
+                    }
+                }
+            
+                .drum-pad {
+                    width: 25px;
+                    height: 25px;
+                    text-align: center;
+                    align-content: center;
+                    background-color: rgb(134, 133, 133);
+                    border-radius: 2px;
+                    font-family: "Genos", sans-serif;
+                    font-size: 5px;
+                    box-shadow: 1.25px 1.25px 2.5px .25px #000000;
+                    cursor: pointer;
+                
+                    .pads {
+                        display: flex;
+                        justify-content: space-between;
+                        margin-top: -20px;
+                    
+                        .pad-numbers {
+                            color: rgb(242, 238, 209);
+                        }
+                    }
+                    
+                }
+                
+            }
+        
+            // #bottom-line {
+            //     position: absolute;
+            //     width: 480px;
+            //     margin-top: 29px;
+            //     margin-left: -30px;
+            //     border-top: 0.5px solid black;
+                
+            // }
+        }
+    
+        #bottom-line2 {
+            position: absolute;
+            width: 470px;
+            margin-top: 330px;
+            z-index: -2;
+            background-color: rgb(217, 217, 191);
+            height: 25px;
+            clip-path: polygon(
+                        100% 0,  /* Top-left corner */
+                        100% 0,  /* Top-right corner */
+                        100% 5%, /* Top-right corner */
+                        0 0, /* Bottom-right corner */
+                        75% 100%, /* Bottom-right corner */
+                        25% 100%, /* Bottom-left corner */
+                        0 0, /* Bottom-left corner */
+                        0 0 /* Top-left corner */
+            );
+        }
+    
+        #bottom-line3 {
+            position: absolute;
+            width: 200px;
+            margin-top: 343px;
+            margin-left: 270px;
+            z-index: -2;
+            background-color: rgb(217, 217, 191);
+            height: 25px;
+            clip-path: polygon(
+                        100% 0,  /* Top-left corner */
+                        100% 0,  /* Top-right corner */
+                        100% 5%, /* Top-right corner */
+                        100% 0, /* Bottom-right corner */
+                        75% 100%, /* Bottom-right corner */
+                        35% 100%, /* Bottom-left corner */
+                        -33% 0, /* Bottom-left corner */
+                        0 0 /* Top-left corner */
+            );
+        }
+    
+        #small-shape {
+            position: absolute;
+            width: 480px;
+            fill: rgb(217, 217, 191);
+            margin-top: 315px;
+            height: 60px;
+            z-index: -2;
+          }
+      
+        #bottom-left-corner {
+            position: absolute;
+            background-color: #0a0a23;
+            width: 50px;
+            height: 30px;
+            margin-right: 480px;
+            margin-top: 333px;
+            transform: rotate(225deg);
+        }
+    
+        #zip-disk {
+            position: absolute;
+            width: 100px;
+            height: 20px;
+            background-color: grey;
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+            margin-top: 343px;
+            margin-right: 325px;
+            display: flex;
+            justify-content: center;
+            z-index: -2;
+        
+            #inner-disk {
+                border: 2px solid rgba(92, 89, 89, 0.597);
+                width: 60%;
+                height: 67.5%;
+                background-color: grey;
+                border-radius: 2px;
+                display: flex;
+                justify-content: center;
+                padding: 0 2.5px 10px 2.5px;
+            
+                #disk-label {
+                    width: 80px;
+                    background-color: rgb(223, 223, 223);
+                    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/011/896/216/small_2x/abstract-light-gray-background-painting-monochrome-backdrop-black-and-white-minimalistic-art-brush-strokes-on-paper-photo.jpg');
+                    background-position: center;
+                    background-size: 80px;
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: nowrap;
+                    justify-content: flex-end;
+                    font-size: 4px;
+                    color: #000;
+                    padding: 2.5px;
+                    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                
+                    #label-line {
+                        position: absolute;
+                        border-top: 0.5px solid black;
+                        width: 49px;
+                        margin-left: 2px;
+                        margin-bottom: 2px;
+                    }
+                
+                    #label-line2 {
+                        position: absolute;
+                        border-top: 1px solid black;
+                        width: 49px;
+                        margin-left: 2px;
+                        margin-bottom: 1px;
+                    }
+                
+                    #disk-label-inner-container {
+                        display: flex;
+                        justify-content: space-between;
+                    
+                        a {
+                            text-decoration: none;
+                            cursor: pointer;
+                            color: black;
+                        }
+                    
+                        #avatar {
+                            width: 5px;
+                            height: 5px;
+                            border-radius: 100%;
+                            background-image: url('../public/hiddenciphers.jpeg');
+                            background-size: 5px;
+                            background-position: center;
+                        }
+                    
+                        #hiddenciphers {
+                            position: absolute;
+                            margin-left: 1px;
+                            margin-top: 1px;
+                        }
+                    
+                        #year {
+                            font-size: 5px;
+                            font-weight: bolder;
+                            margin-top: 3px;
+                            color: #D8102B;
+                            display: flex;
+                            flex-direction: column;
+                        
+                            #iomega {
+                                position: absolute;
+                                font-size: 3.75px;
+                                color: #000;
+                                margin-top: 4.25px;
+                                margin-left: -1px;
+                            }
+                        }
+                    } 
+                }
+            }
+        }
+    
+        #shape {
+            position: absolute;
+            width: 480px;
+            fill: $drum-machine;
+            margin-top: 327px;
+            height: 30px;
+            z-index: -1;
+        }
+    
+        #curved-border-shape {
+            position: absolute;
+            width: 670px;
+            fill: black;
+            margin-top: 305px;
+            height: 60px;
+            z-index: -2;
+        }
+    
+        #bottom-right-corner {
+            position: absolute;
+            background-color: #0a0a23;
+            width: 50px;
+            height: 50px;
+            margin-left: 485px;
+            margin-top: 333px;
+            transform: rotate(225deg);
+        }
+    
+    } 
+    
+}
