@@ -765,17 +765,18 @@ $drum-machine: rgb(242, 238, 209);
                                 height: 5px; 
                                 border-radius: 60px;
                             }
+
+                            #undo-seq-button {
+                                border: 0.5px solid black;
+                                width: 35px;
+                                height: 14px;
+                                border-radius: 2px;
+                                margin: auto;
+                                background-color: beige;
+                                box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+                            }
                         }
                     
-                        #undo-seq-button {
-                            border: 0.5px solid black;
-                            width: 35px;
-                            height: 14px;
-                            border-radius: 2px;
-                            margin: auto;
-                            background-color: beige;
-                            box-shadow: 1.25px 1.25px 2.5px .5px #000000;
-                        }
                     }
 
                     #bottom-left-right-bottom-container {
@@ -1986,67 +1987,107 @@ $drum-machine: rgb(242, 238, 209);
         margin-top: 790px;
         transform: rotate(225deg);
     }
+
+    /* SHARED CLASSES */
+
+    .hidden {
+        visibility: hidden;
+    }
+
+    .visible {
+        visibility: visible;
+    }
+
+    .power-off {
+        background-color: red;
+    }
+
+    .on {
+        background-color: rgb(125, 205, 7);
+    }
+
+    .off {
+        background-color: black;
+    }
+
+    .button {
+        cursor: pointer;
+    }
+
+    .pressed {
+        transition: background-color 0.1s ease;
+        box-shadow: 2.5px 2.5px 5px .5px darkgrey;  
+    }
+
+    .f-pressed {
+        margin-top: 0.5px;
+        transition: background-color 0.1s ease;
+        box-shadow: 1.25px 1.25px 2.5px .5px rgb(242, 238, 209); 
+    }
+
+    .full-sixteen-pressed {
+        margin-top: 0.5px;
+        transition: background-color 0.1s ease;
+        box-shadow: 2.5px 2.5px 5px .5px darkgrey;
+    }
+
+    .recording {
+        padding: 5px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .recording:hover {
+        background-color: #f0f0f0;
+    }
 }
 /* ----------------------------------------------------- END ------------------------------------------------------ */
 
-/* SHARED CLASSES */
-
-.hidden {
-    visibility: hidden;
-}
-
-.visible {
-    visibility: visible;
-}
-
-.power-off {
-    background-color: red;
-}
-
-.on {
-    background-color: rgb(125, 205, 7);
-}
-
-.off {
-    background-color: black;
-}
-
-.button {
-    cursor: pointer;
-}
-
-.pressed {
-    transition: background-color 0.1s ease;
-    box-shadow: 2.5px 2.5px 5px .5px darkgrey;  
-}
-
-.f-pressed {
-    margin-top: 0.5px;
-    transition: background-color 0.1s ease;
-    box-shadow: 1.25px 1.25px 2.5px .5px rgb(242, 238, 209); 
-}
-
-.full-sixteen-pressed {
-    margin-top: 0.5px;
-    transition: background-color 0.1s ease;
-    box-shadow: 2.5px 2.5px 5px .5px darkgrey;
-}
-
-.recording {
-    padding: 5px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-  
-.recording:hover {
-    background-color: #f0f0f0;
-}
 
 
 
 
+// @media (min-width: 1477px) {
+//     body {
+//         background-color: ;
+//     }
+// }
 
 
+// @media (max-width: 1102px) {
+//     body {
+//         background-color: yellow;
+//     }
+
+//     #undo-seq-container {
+//         display: flex;
+//         flex-direction: column;
+//         gap: 1em;
+//         width: 42px;
+//         height: 60px;
+//         text-align: center;
+//         align-items: center;
+//         align-content: center;
+//         margin-top: -10px;
+
+//         #undo-seq {
+//             border: 0.5px solid black;
+//             width: 5px;
+//             height: 5px; 
+//             border-radius: 60px;
+//         }
+
+//         #undo-seq-button {
+//             border: 0.5px solid black;
+//             width: 35px;
+//             height: 14px;
+//             border-radius: 2px;
+//             margin: auto;
+//             background-color: beige;
+//             box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+//         }
+//     }
+// }

@@ -456,8 +456,8 @@ const DrumMachine = () => {
                 <div id='undo-seq-container'>
                   <span id='undo-seq-span'>UNDO SEQ</span>
                   <div id='undo-seq' className='off'></div>
+                  <div id='undo-seq-button' className='button' name='undo-seq'></div>
                 </div>
-                <div id='undo-seq-button' className='button' name='undo-seq'></div>
               </div>
               <div id='bottom-left-right-bottom-container'>
                 <div id='erase'>
