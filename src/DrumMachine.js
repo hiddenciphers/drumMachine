@@ -186,10 +186,10 @@ const DrumMachine = () => {
     );
 
     audioMotionRef.current.registerGradient('black', {
-      bgColor: 'black',
+      bgColor: '#0000003e',
       colorStops: [
-        { pos: 0, color: 'black' },
-        { pos: 1, color: 'black' },
+        { pos: 0, color: '#0000003e' },
+        { pos: 1, color: '#0000003e' },
       ],
     });
 
