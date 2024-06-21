@@ -46,7 +46,7 @@ const padBanks = {
         pad8: {
             id: 'F',
             name: 'AFriend',
-            src: 'https://ipfs.io/ipfs/QmWH6SPnzRd2SZy3QZPMrS1wSRFwc76fsEzfJ6TRjhemcq?filename=AFriend.mp3',
+            src: 'https://ipfs.io/ipfs/QmWH6SPnzRd2SZy3QZPMrS1wSRFwc76fsEzfJ6TRjhemcq',
             type: 'audio/wav'
         },
         pad9: {
