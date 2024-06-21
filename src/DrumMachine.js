@@ -576,19 +576,21 @@ const DrumMachine = () => {
                   ></div>
                   <div id='locate-bottom-container'>
                     <span id='event-chev-left-span' className='locate-bottom-labels'>
-                      <img
-                        id='event-chev-left'
-                        src='https://ipfs.io/ipfs/QmfLEZ27ZSRJeX7rpsdsPG4zmGYjLb1X4tCMGEMmo4YnDr?filename=arrow-step.png'
-                        alt='Arrow Left Icon'
-                      />
+                    <svg id='event-chev-left' viewBox="0 0 24 24" fill="#ffffff" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter">
+                      <g>
+                      <line x1="4" y1="20" x2="4" y2="4"/>
+                      <polygon points="20 20 20 4 8 12 20 20"/>
+                      </g>
+                    </svg>
                     </span>
                     <span id='event-span'>-EVENT-</span>
                     <span id='event-chev-right-span' className='locate-bottom-labels'>
-                      <img
-                        id='event-chev-right'
-                        src='https://ipfs.io/ipfs/QmfLEZ27ZSRJeX7rpsdsPG4zmGYjLb1X4tCMGEMmo4YnDr?filename=arrow-step.png'
-                        alt='Arrow Right Icon'
-                      />
+                    <svg id='event-chev-right' viewBox="0 0 24 24" fill="#ffffff" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter">
+                      <g>
+                      <line x1="4" y1="20" x2="4" y2="4"/>
+                      <polygon points="20 20 20 4 8 12 20 20"/>
+                      </g>
+                    </svg>
                     </span>
                     <span id='bar-start' className='locate-bottom-labels'>START</span>
                     <span id='bar-end' className='locate-bottom-labels'>END</span>
@@ -993,7 +995,7 @@ const DrumMachine = () => {
             <div id='label-line'></div>
             <div id='label-line2'></div>
             <div id='disk-label-inner-container'>
-              <a href='https://www.github.com/hiddenciphers' rel='noreferrer' target='_blank'><img id='github-avatar' src='https://ipfs.io/ipfs/QmRnTNKZzVuJfL3peNmDuebAHEmujrLMDmycPKqEWjhbgP?filename=github_avatar.png' alt='My Github Avatar'/><span id='hiddenciphers'>@hiddenciphers</span></a>
+              <div id='avatar'></div><span id='hiddenciphers'>@hiddenciphers</span>
               <span id='year'>2024<span id='iomega'>iomega</span></span>
             </div>
           </div>

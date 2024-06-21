@@ -8,7 +8,7 @@ $drum-machine: rgb(242, 238, 209);
     width: 1050px;
     display: flex;
     justify-content: center;
-    margin-top: -30px;
+    margin-top: -10px;
     
 
     #power-button:hover {
@@ -752,11 +752,12 @@ $drum-machine: rgb(242, 238, 209);
                         #undo-seq-container {
                             display: flex;
                             flex-direction: column;
-                            gap: 0.5em;
+                            gap: 1em;
                             width: 42px;
                             text-align: center;
                             align-items: center;
                             align-content: center;
+                            margin-top: -3px;
                     
                             #undo-seq {
                                 border: 0.5px solid black;
@@ -1922,13 +1923,18 @@ $drum-machine: rgb(242, 238, 209);
                         color: black;
                     }
     
-                    #github-avatar {
+                    #avatar {
                         width: 20px;
+                        height: 20px;
+                        border-radius: 100%;
+                        background-image: url('../public/hiddenciphers.jpeg');
+                        background-size: 27px;
+                        background-position: center;
                     }
 
                     #hiddenciphers {
                         position: absolute;
-                        margin-left: 5px;
+                        margin-left: 26px;
                         margin-top: 10px;
                     }
 
@@ -2038,7 +2044,6 @@ $drum-machine: rgb(242, 238, 209);
 .recording:hover {
     background-color: #f0f0f0;
 }
-
 
 
 
