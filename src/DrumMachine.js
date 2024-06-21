@@ -475,35 +475,27 @@ const DrumMachine = () => {
                   <div id='line-bottom-left'></div>
                   <div id='line-bottom-right'></div>
                   <div id='cursor-left' className='button' name='cursor-left'>
-                    <img
-                      id='chevron-left'
-                      src='https://ipfs.io/ipfs/QmSbfPEsLA1hFofY88siCe16AzwSzvxgjg4ZT7PxvUmtZu?filename=blue-chevron.png'
-                      alt='Chevron Left'
-                    />
+                  <svg id="chevron-left" viewBox="0 0 32 32" fill="none" stroke="#2b6ae9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="M30 20 L16 8 2 20"></path>
+                      </svg>
                   </div>
                   <div id='cursor-button-middle-container'>
                     <div id='cursor-top' className='button' name='cursor-top'>
-                      <img
-                        id='chevron-up'
-                        src='https://ipfs.io/ipfs/QmSbfPEsLA1hFofY88siCe16AzwSzvxgjg4ZT7PxvUmtZu?filename=blue-chevron.png'
-                        alt='Chevron Up'
-                      />
+                      <svg id="chevron-up" viewBox="0 0 32 32" fill="none" stroke="#2b6ae9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="M30 20 L16 8 2 20"></path>
+                      </svg>
                     </div>
                     <div id='line-middle'></div>
                     <div id='cursor-bottom' className='button' name='cursor-bottom'>
-                      <img
-                        id='chevron-down'
-                        src='https://ipfs.io/ipfs/QmSbfPEsLA1hFofY88siCe16AzwSzvxgjg4ZT7PxvUmtZu?filename=blue-chevron.png'
-                        alt='Chevron Down'
-                      />
+                    <svg id="chevron-down" viewBox="0 0 32 32" fill="none" stroke="#2b6ae9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="M30 20 L16 8 2 20"></path>
+                      </svg>
                     </div>
                   </div>
                   <div id='cursor-right' className='button' name='cursor-right'>
-                    <img
-                      id='chevron-right'
-                      src='https://ipfs.io/ipfs/QmSbfPEsLA1hFofY88siCe16AzwSzvxgjg4ZT7PxvUmtZu?filename=blue-chevron.png'
-                      alt='Chevron Down'
-                    />
+                  <svg id="chevron-right" viewBox="0 0 32 32" fill="none" stroke="#2b6ae9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="M30 20 L16 8 2 20"></path>
+                      </svg>
                   </div>
                   <span id='digit-span'>
                     <img
