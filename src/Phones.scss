@@ -413,11 +413,11 @@
                         }
                     
                         #blue-buttons-container {
-                            
+                            border: 0.1px solid blue;
                             position: absolute;
                             height: 65px;
-                            width: 65px;
-                            margin-left: 65px;
+                            width: 54px;
+                            margin-left: 70px;
                             display: flex;
                             flex-direction: row;
                             flex-wrap: wrap;
