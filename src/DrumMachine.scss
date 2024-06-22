@@ -1437,17 +1437,19 @@ $drum-machine: rgb(242, 238, 209);
                             height: 12px;
                             width: 35px;
                             background-color: beige;
-                            top: 28px;
+                            top: 27px;
                             left: 69px;
                             border-radius: 2px;
                             box-shadow: 1.25px 1.25px 2.5px .5px #000000;
                         
-                            #space-span {
-                                position: absolute;
-                                right: 5px;
-                                top: 17px;
-                                color: rgb(242, 238, 209);
-                            }
+                            
+                        }
+
+                        #space-span {
+                            position: absolute;
+                            right: 5px;
+                            top: 44px;
+                            color: rgb(242, 238, 209);
                         }
                     }
                 }

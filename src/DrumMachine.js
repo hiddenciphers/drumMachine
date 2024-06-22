@@ -585,21 +585,19 @@ const DrumMachine = () => {
                   ></div>
                   <div id='locate-bottom-container'>
                     <span id='event-chev-left-span' className='locate-bottom-labels'>
-                    <svg id='event-chev-left' viewBox="0 0 24 24" fill="#ffffff" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter">
-                      <g>
-                      <line x1="4" y1="20" x2="4" y2="4"/>
-                      <polygon points="20 20 20 4 8 12 20 20"/>
-                      </g>
-                    </svg>
+                      <img
+                        id='event-chev-left'
+                        src='https://ipfs.io/ipfs/QmfLEZ27ZSRJeX7rpsdsPG4zmGYjLb1X4tCMGEMmo4YnDr'
+                        alt='Step Chevron'
+                      />
                     </span>
                     <span id='event-span'>-EVENT-</span>
                     <span id='event-chev-right-span' className='locate-bottom-labels'>
-                    <svg id='event-chev-right' viewBox="0 0 24 24" fill="#ffffff" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter">
-                      <g>
-                      <line x1="4" y1="20" x2="4" y2="4"/>
-                      <polygon points="20 20 20 4 8 12 20 20"/>
-                      </g>
-                    </svg>
+                      <img
+                        id='event-chev-right'
+                        src='https://ipfs.io/ipfs/QmfLEZ27ZSRJeX7rpsdsPG4zmGYjLb1X4tCMGEMmo4YnDr'
+                        alt='Step Chevron'
+                      />
                     </span>
                     <span id='bar-start' className='locate-bottom-labels'>START</span>
                     <span id='bar-end' className='locate-bottom-labels'>END</span>

@@ -460,6 +460,7 @@
                                 font-size: 2px;
                                 font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
                                 margin-bottom: 6px;
+                                z-index: 1;
                                 
                             }
                             
@@ -657,6 +658,7 @@
                                     border-radius: 1px;
                                     background-color: beige;
                                     box-shadow: 0.525px 0.525px 1.25px .25px #000000;
+                                    z-index: 2;
                                 
                                     #assign-span {
                                         position: absolute;
@@ -677,6 +679,7 @@
                                 transform: rotate(630deg);
                                 margin-top: -17px;
                                 margin-left: -5px;
+                                z-index: 1;
                             
                                 .note-variation-slider {
                                     -webkit-appearance: none; /* Override default CSS styles */
@@ -1040,13 +1043,13 @@
                                 position: absolute;
                                 width: 340px;
                                 height: 50px;
-                                margin-top: -75px;
-                                margin-left: -4px;
+                                margin-top: -25px;
+                                margin-left: -182px;
                                 display: flex;
                                 flex-direction: row;
                                 flex-wrap: nowrap;
-                                justify-content: space-evenly;
-                                gap: 1em;
+                                justify-content: center;
+                                gap: 13px;
                                 align-items: center;
                                 font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
                                 font-size: 8px;
@@ -1054,43 +1057,49 @@
                                 #locate {
                                     position: absolute;
                                     padding: 2px;
-                                    margin-top: -50px;
-                                    font-size: 8px;
+                                    margin-top: -29px;
+                                    margin-left: 1px;
+                                    font-size: 4px;
                                     background-color: rgb(242, 238, 209);
                                     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
                                 }
                                 
                                 #locate-line {
                                     position: absolute;
-                                    border-top: 1px solid black;
-                                    width: 310px;
-                                    bottom: 50px;
+                                    border-top: 0.1px solid black;
+                                    width: 144px;
+                                    bottom: 39px;
                                     z-index: -1;
                                 }
                             
                                 #locate-labels-container {
                                     position: absolute;
-                                    width: 330px;
+                                    width: 180px;
                                     display: flex;
                                     flex-direction: row;
                                     flex-wrap: nowrap;
                                     justify-content: space-evenly;
-                                    margin-top: -27.5px;
+                                    gap: 0;
+                                    margin-top: -18px;
                                     margin-left: 15px;
-                                    font-size: 7px;
+                                    font-size: 4px;
                                     
                                     #step-chev-left {
-                                        margin-left: -12px;
+                                        margin-left: 2px;
                                         margin-top: 3px;
                                     }
                                 
                                     #step-span {
+                                        position: relative;
                                         margin-left: -10px;
-                                        margin-top: 4px;
+                                        margin-top: 3.5px;
                                         margin-right: 5px; 
+                                        left: 3.5px;
                                     }
                                     
                                     #step-chev-right {
+                                        position: relative;
+                                        left: 6px;
                                         margin-left: -15px;
                                         transform: rotate(180deg);
                                         margin-right: 15px;
@@ -1099,51 +1108,57 @@
                                     }
                                     
                                     #goto-span {
-                                        margin-right: 27px;
-                                        margin-top: 3px;
+                                        position: relative;
+                                        margin-right: 25.5px;
+                                        left: -3.5px;
                                     }
                                     
                                     #bar-chev-left {
+                                        position: relative;
                                         margin-left: -10px;
                                         margin-top: 3px;
-                                        margin-right: 10px; 
+                                        margin-right: 10px;
+                                        right: 13px; 
                                     }
                                 
                                     #bar-span {
+                                        position: relative;
                                         margin-left: -19px;
-                                        margin-top: 4px;
+                                        margin-top: 3px;
                                         margin-right: 5px;
+                                        right: 10px;
                                     }
                                     
                                     #bar-chev-right {
-                                        position: absolute;
+                                        position: relative;
                                         margin-left: -15px;
                                         transform: rotate(180deg);
                                         margin-top: 3px;
+                                        right: 5px;
                                     }
                                     
                                     .chev {
-                                        width: 10px;
+                                        width: 5px;
                                     }
                                     
                                     .bar-chev {
-                                        width: 10px;
+                                        width: 5px;
                                     }
                                     
                                 }
                             
                                 .bottom-left-right-bottom-row-1-buttons {
                                     border: 0.5px solid black;
-                                    height: 14px;
-                                    width: 35px;
-                                    border-radius: 2px;
+                                    height: 6px;
+                                    width: 17px;
+                                    border-radius: 1px;
                                     background-color: beige;
-                                    box-shadow: 1.25px 1.25px 2.5px .5px #000000;
+                                    box-shadow: 0.525px 0.525px 1.25px .25px #000000;
                                 }
                             
                                 #locate-bottom-container {
                                     position: absolute;
-                                    width: 330px;
+                                    width: 180px;
                                     height: 15px;
                                     margin-top: 30px;
                                     display: flex;
@@ -1154,11 +1169,11 @@
                                 
                                     .locate-bottom-labels {
                                         position: absolute;
-                                        width: 30px;
-                                        height: 8px;
-                                        border: 0.5px solid #870c27ea;
+                                        width: 17px;
+                                        height: 3px;
+                                        border: 0.1px solid #870c27ea;
                                         top: 5px;
-                                        border-radius: 2px;
+                                        border-radius: 1px;
                                         background-color: #870c27ea;
                                         font-size: 6px;
                                         text-align: center;
@@ -1166,82 +1181,93 @@
                                     }
                                 
                                     #event-chev-left-span {
-                                        margin-left: -260px;
+                                        margin-left: -124px;
+                                        margin-top: -6px;
                                         display: flex;
                                         text-align: center;
                                         justify-content: center;
                                     
                                         #event-chev-left {
-                                            height: 5px;
+                                            position: relative;
+                                            height: 3px;
                                             margin-top: 1px;
+                                            bottom: 1px;
                                         }
                                     }
                                 
                                     #event-span {
                                         position: absolute;
                                         color: #870c27ea;
-                                        margin-top: 5px;
-                                        margin-left: -195px;
-                                        font-size: 6px;
+                                        margin-top: -0.5px;
+                                        margin-left: -93px;
+                                        font-size: 2.5px;
                                         font-weight: bold;
                                         
                                     }
                                 
                                     #event-chev-right-span {
-                                        margin-left: -130px;
+                                        margin-left: -62px;
+                                        margin-top: -6px;
                                         display: flex;
                                         text-align: center;
                                         justify-content: center;
                                     
                                         #event-chev-right {
+                                            position: relative;
+                                            bottom: 1px;
                                             transform: rotate(180deg);
-                                            height: 5px;
-                                            margin-top: 1px;
+                                            height: 3px;
+                                            
                                         }  
                                     }
                                 
                                     #bar-start {
-                                        margin-right: -132px;
+                                        margin-right: -62px;
+                                        margin-top: -6px;
                                         display: flex;
                                         justify-content: center;
                                         align-items: center;
+                                        font-size: 2.5px;
                                     }
                                 
                                     #bar-end {
-                                        margin-right: -262px;
+                                        margin-right: -125px;
+                                        margin-top: -6px;
                                         display: flex;
                                         justify-content: center;
                                         align-items: center;
+                                        font-size: 2.5px;
                                     }
                                 
                                     #red-line-container {
-                                        margin-left: 10px;
+                                        margin-top: -6px;
+                                        margin-left: -13px;
                                         width: 266px;
                                         display: flex;
                                         z-index: -1;
                                     
                                         #red-line-left {
-                                            width: 47px;
-                                            margin-top: 10px;
-                                            margin-left: 77px;
-                                            border-top: 1.5px solid #870c27ea;
+                                            width: 20px;
+                                            margin-top: 7px;
+                                            margin-left: 79px;
+                                            border-top: 0.1px solid #870c27ea;
                                         }
                                     
                                         #red-line-divider {
                                             position: absolute;
-                                            border-left: 3px solid #870c27ea;
-                                            border-right: 3px solid #870c27ea;
+                                            border-left: 1.5px solid #870c27ea;
+                                            border-right: 1.5px solid #870c27ea;
                                             margin-top: 3.5px;
-                                            margin-left: 122px;
+                                            margin-left: 98px;
                                             width: 7.5px;
-                                            height: 7.5px;
+                                            height: 4px;
                                         }
                                     
                                         #red-line-right {
-                                            width: 110px;
-                                            margin-top: 10px;
-                                            margin-left: 10px;
-                                            border-top: 1.5px solid #870c27ea;
+                                            width: 50px;
+                                            margin-top: 7px;
+                                            margin-left: 8px;
+                                            border-top: 0.1px solid #870c27ea;
                                         }
                                         
                                     }
@@ -1447,13 +1473,13 @@
                         
                             #Aa {
                                 position: absolute;
-                                border: 0.5px solid black;
+                                border: 0.1px solid black;
                                 height: 6px;
                                 width: 17.5px;
                                 background-color: beige;
                                 top: 10px;
                                 left: -6px;
-                                border-radius: 2px;
+                                border-radius: 1px;
                                 box-shadow: 0.525px 0.525px 1.25px .25px #000000;
                             }
 
@@ -1470,7 +1496,7 @@
                         
                             #sixteen-levels {
                                 position: absolute;
-                                border: 0.5px solid black;
+                                border: 0.1px solid black;
                                 width: 1px;
                                 height: 1px; 
                                 border-radius: 60px;
@@ -1480,13 +1506,13 @@
                         
                             #space {
                                 position: absolute;
-                                border: 0.5px solid black;
+                                border: 0.1px solid black;
                                 height: 6px;
                                 width: 17.5px;
                                 background-color: beige;
                                 margin-top: -18px;
                                 margin-left: -42.5px;
-                                border-radius: 2px;
+                                border-radius: 1px;
                                 box-shadow: 0.525px 0.525px 1.25px .25px #000000;
                             }
 
@@ -1769,7 +1795,7 @@
                                 }
 
                                 #pad-bank-a-light {
-                                    margin-left: 1px;
+                                    margin-left: 0.5px;
                                 }
 
                                 #pad-bank-b-light {
@@ -1803,7 +1829,7 @@
                                 height: 6px;
                                 margin-top: 23.5px;
                                 background-color: beige;
-                                border-radius: 2px;
+                                border-radius: 1px;
                                 box-shadow: 0.525px 0.525px 1.25px .25px #000000;
                             }
                         }
@@ -1855,10 +1881,10 @@
                     text-align: center;
                     align-content: center;
                     background-color: rgb(134, 133, 133);
-                    border-radius: 2px;
+                    border-radius: 1px;
                     font-family: "Genos", sans-serif;
                     font-size: 4px;
-                    box-shadow: 1.25px 1.25px 2.5px .25px #000000;
+                    box-shadow: 0.525px 0.525px 1.25px .25px #000000;
                     cursor: pointer;
                 
                     .pads {
@@ -1947,19 +1973,19 @@
     
         #zip-disk {
             position: absolute;
-            width: 100px;
+            width: 90px;
             height: 20px;
             background-color: grey;
             border-bottom-right-radius: 4px;
             border-bottom-left-radius: 4px;
             margin-top: 343px;
-            margin-right: 270px;
+            margin-right: 280px;
             display: flex;
             justify-content: center;
             z-index: -2;
         
             #inner-disk {
-                border: 2px solid rgba(92, 89, 89, 0.597);
+                border: 1px solid rgba(92, 89, 89, 0.597);
                 width: 60%;
                 height: 67.5%;
                 background-color: grey;
@@ -1970,12 +1996,13 @@
             
                 #disk-label {
                     width: 80px;
+                    height: 14px;
                     background-color: rgb(223, 223, 223);
                     background-image: url('https://static.vecteezy.com/system/resources/thumbnails/011/896/216/small_2x/abstract-light-gray-background-painting-monochrome-backdrop-black-and-white-minimalistic-art-brush-strokes-on-paper-photo.jpg');
                     background-position: center;
                     background-size: 80px;
-                    border-bottom-left-radius: 10px;
-                    border-bottom-right-radius: 10px;
+                    border-bottom-left-radius: 6px;
+                    border-bottom-right-radius: 6px;
                     display: flex;
                     flex-direction: column;
                     flex-wrap: nowrap;
@@ -1987,18 +2014,18 @@
                 
                     #label-line {
                         position: absolute;
-                        border-top: 0.5px solid black;
-                        width: 49px;
-                        margin-left: 2px;
-                        margin-bottom: 2px;
+                        border-top: 0.1px solid black;
+                        width: 45px;
+                        margin-left: 5px;
+                        margin-bottom: 14px;
                     }
                 
                     #label-line2 {
                         position: absolute;
-                        border-top: 1px solid black;
-                        width: 49px;
-                        margin-left: 2px;
-                        margin-bottom: 1px;
+                        border-top: 0.1px solid black;
+                        width: 45px;
+                        margin-left: 5px;
+                        margin-bottom: 10px;
                     }
                 
                     #disk-label-inner-container {
@@ -2022,14 +2049,15 @@
                     
                         #hiddenciphers {
                             position: absolute;
-                            margin-left: 1px;
+                            margin-left: 6px;
                             margin-top: 1px;
+                            font-size: 2.6px;
                         }
                     
                         #year {
                             font-size: 5px;
                             font-weight: bolder;
-                            margin-top: 3px;
+                            margin-top: -3px;
                             color: #D8102B;
                             display: flex;
                             flex-direction: column;
