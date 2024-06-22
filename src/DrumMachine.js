@@ -476,27 +476,35 @@ const DrumMachine = () => {
                   <div id='line-bottom-left'></div>
                   <div id='line-bottom-right'></div>
                   <div id='cursor-left' className='button' name='cursor-left'>
-                  <svg id="chevron-left" viewBox="0 0 32 32" fill="none" stroke="#2b6ae9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                        <path d="M30 20 L16 8 2 20"></path>
-                      </svg>
+                  <img
+                      id='chevron-left'
+                      src='https://ipfs.io/ipfs/QmSbfPEsLA1hFofY88siCe16AzwSzvxgjg4ZT7PxvUmtZu'
+                      alt='Blue chevron'
+                      />
                   </div>
                   <div id='cursor-button-middle-container'>
                     <div id='cursor-top' className='button' name='cursor-top'>
-                      <svg id="chevron-up" viewBox="0 0 32 32" fill="none" stroke="#2b6ae9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                        <path d="M30 20 L16 8 2 20"></path>
-                      </svg>
+                      <img
+                        id='chevron-up'
+                        src='https://ipfs.io/ipfs/QmSbfPEsLA1hFofY88siCe16AzwSzvxgjg4ZT7PxvUmtZu'
+                        alt='Blue chevron'
+                      />
                     </div>
                     <div id='line-middle'></div>
                     <div id='cursor-bottom' className='button' name='cursor-bottom'>
-                    <svg id="chevron-down" viewBox="0 0 32 32" fill="none" stroke="#2b6ae9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                        <path d="M30 20 L16 8 2 20"></path>
-                      </svg>
+                      <img
+                        id='chevron-down'
+                        src='https://ipfs.io/ipfs/QmSbfPEsLA1hFofY88siCe16AzwSzvxgjg4ZT7PxvUmtZu'
+                        alt='Blue chevron'
+                      />
                     </div>
                   </div>
                   <div id='cursor-right' className='button' name='cursor-right'>
-                  <svg id="chevron-right" viewBox="0 0 32 32" fill="none" stroke="#2b6ae9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                        <path d="M30 20 L16 8 2 20"></path>
-                      </svg>
+                    <img
+                      id='chevron-right'
+                      src='https://ipfs.io/ipfs/QmSbfPEsLA1hFofY88siCe16AzwSzvxgjg4ZT7PxvUmtZu'
+                      alt='Blue chevron'
+                    />
                   </div>
                   <span id='digit-span'>
                     <img
