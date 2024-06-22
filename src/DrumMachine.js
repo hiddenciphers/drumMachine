@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './DrumMachine.scss';
+import './Phones.scss';
 import padBanks from './PadBanks';
 import togglePadBanks from './PadToggle';
 import setDefaultPads from './Default';
@@ -299,9 +300,9 @@ const DrumMachine = () => {
                     </span>
                     <span id='data-icon' className={isPoweredOn ? '' : 'hidden'}>
                       <img
+                        id='data-icon-30px'
                         src='https://www.svgrepo.com/show/447559/assessment.svg'
                         alt='Data Icon'
-                        width='30px'
                       />
                     </span>
                   </div>
@@ -669,9 +670,8 @@ const DrumMachine = () => {
                   <span id='Aa-span'>A/a</span>
                   <span id='sixteen-levels-span'>16 LEVELS</span>
                   <div id='sixteen-levels' className='off'></div>
-                  <div id='space' className='button' name='sixteen-levels'>
-                    <span id='space-span'>SPACE</span>
-                  </div>
+                  <div id='space' className='button' name='sixteen-levels'></div>
+                  <span id='space-span'>SPACE</span>
                 </div>
               </div>
               <div id='panel-top-right'>
