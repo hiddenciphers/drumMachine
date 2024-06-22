@@ -50,11 +50,11 @@
         }
     
         #drum-machine {
-            width: 390px;
+            width: 360px;
             height: 290px;
             display: flex;
             flex-direction: row;
-            gap: 2.5em;
+            gap: 1em;
             padding: 30px;
             background-color: $drum-machine;
             clip-path: polygon(
@@ -84,7 +84,7 @@
                 #display-container {
                     position: relative;
                     width: 150px;
-                    margin-left: -10px;
+                    margin-left: -5px;
                     height: 70px;
                     display: flex;
                     padding: 5px 10px 5px 10px;
@@ -1333,6 +1333,7 @@
                 gap: 0.4em;
                 align-items: center;
                 width: 240px;
+                border: 1px solid black;
             
                 #logo {
                     position: relative;
@@ -1344,14 +1345,14 @@
                 
                     #akai-logo {
                         width: 100px;
-                        margin-left: 26px;
+                        margin-left: 5px;
                         margin-top: 23px;
                     }
                 
                     #logo-div {
                         position: absolute;
                         margin-top: -74.5px;
-                        margin-left: 133.5px;
+                        margin-left: 105px;
                         font-family: "Genos", sans-serif;
                         font-size: 21px;
                         width: auto;
@@ -1377,7 +1378,7 @@
                 height: 60px;
                 width: 207px;
                 background-color: darkgrey;
-                margin-left: 75px;
+                margin-left: 30px;
                 margin-top: 20px;
             
                 #panel-top {
@@ -1812,7 +1813,7 @@
                 align-items: center;
                 align-content: center;
                 background-color: darkgrey;
-                margin-left: 75px;
+                margin-left: 30px;
                 font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             
                 #drums-line {
