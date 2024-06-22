@@ -413,19 +413,20 @@
                         }
                     
                         #blue-buttons-container {
+                            
                             position: absolute;
-                            height: 200px;
-                            width: 60px;
-                            margin: 30px;
+                            height: 65px;
+                            width: 65px;
+                            margin-left: 22px;
                             display: flex;
                             flex-direction: row;
                             flex-wrap: wrap;
-                            column-gap: 15px;
+                            column-gap: 9px;
                             row-gap: 9px;
                             align-content: center;
                             justify-content: center;
                             text-align: center;
-                            margin-top: -40px;
+                            margin-top: 15px;
                             
                             left: 25px;
                             
@@ -450,17 +451,21 @@
                             }
                         
                             .shift {
+                                position: relative;
+                                border: 0.1px solid transparent;
                                 background-color: darkgrey;
                                 height: auto;
                                 width: auto;
                                 padding: 1.5px;
-                                margin-left: -10px;
+                                margin-left: -5px;
                                 margin-top: -15px;
                                 border-radius: 2px;
                                 font-size: 2px;
                                 font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
                                 margin-bottom: 6px;
                                 z-index: 1;
+                                top: 10px;
+                                left: 2.5px;
                                 
                             }
                             
