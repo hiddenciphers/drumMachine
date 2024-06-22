@@ -382,7 +382,7 @@ const DrumMachine = () => {
                 </span>
                 <span className='shift'>
                   SHIFT
-                  <div className='button blue-buttons white-button left' name='shift'></div>
+                  <div className='button blue-buttons white-button left' name='shift' id='shift'></div>
                 </span>
                 <span className='shift no-shift'>
                   0
