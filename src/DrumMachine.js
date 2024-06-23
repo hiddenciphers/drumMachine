@@ -237,6 +237,8 @@ const DrumMachine = () => {
 
   return (
     <div id='container'>
+      <div id='top-left-corner'></div>
+      <div id='top-right-corner'></div>
       <div id='power-button' onClick={togglePower}>
         <div id='power-light' className={isPoweredOn ? 'on' : 'power-off'}></div>
       </div>

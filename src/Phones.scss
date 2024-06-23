@@ -39,6 +39,17 @@
                 border-radius: 60px;
             }
         }
+
+        #top-left-corner {
+            position: absolute;
+            border: 0.1px solid white;
+            background-color: #0a0a23;
+            width: 30px;
+            height: 45px;
+            margin-left: 438px;
+            margin-top: 320px;
+            transform: rotate(222deg);
+        }
     
         #top-cover {
             position: absolute;

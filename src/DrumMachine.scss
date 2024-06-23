@@ -39,9 +39,29 @@ $drum-machine: rgb(242, 238, 209);
         }
     }
 
+    #top-left-corner {
+        position: absolute;
+        background-color: #0a0a23;
+        width: 45px;
+        height: 50px;
+        margin-left: -1019px;
+        margin-top: -15px;
+        transform: rotate(231.5deg);
+    }
+
+    #top-right-corner {
+        position: absolute;
+        background-color: #0a0a23;
+        width: 45px;
+        height: 50px;
+        margin-left: 1024px;
+        margin-top: -16px;
+        transform: rotate(218.7deg);
+    }
+
     #top-cover {
         position: absolute;
-        width: 960px;
+        width: 1035px;
         height: 40px;
         margin-top: -25px;
         background-color: #0a0a23;
