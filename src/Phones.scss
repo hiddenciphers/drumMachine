@@ -163,7 +163,7 @@
                                         position: absolute;
                                         width: 80px;
                                         margin-left: 35.5px;
-                                        margin-top: 40px;
+                                        margin-top: 30px;
                                     }
                                 
                                     #file-top {
@@ -622,6 +622,7 @@
                             gap: 1em;
                             margin-top: 5px;
                             top: 5px;
+                            left: 2px;
                         
                             #bottom-left-top {
                                 position: absolute;
@@ -677,7 +678,7 @@
                                         font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
                                         background-color: darkgray;
                                         margin-top: 8.5px;
-                                        margin-left: 1.5px;
+                                        margin-left: 1px;
                                     }
                                 }
                             
@@ -703,7 +704,7 @@
                                     transition: opacity .2s; /* 0.2 seconds transition on hover */
                                     border-radius: 5px; /* Rounded corners */
                                     margin-right: 51px;
-                                    margin-bottom: 7px;
+                                    margin-bottom: 8px;
                                 }
                                   
                                   /* Mouse-over effects */
@@ -1028,8 +1029,8 @@
                                     position: absolute;
                                     font-size: 3px;
                                     background-color: darkgray;
-                                    left: 10px;
-                                    top: 34px;
+                                    left: 9px;
+                                    top: 35px;
                                     width: 24px;
                                     display: flex;
                                     justify-content: center;
@@ -1332,7 +1333,7 @@
                             
                                 #rec {
                                     position: absolute;
-                                    margin-top: -6px;
+                                    margin-top: -7px;
                                     margin-left: -18px;
                                     width: 40px;
                                 }
@@ -1349,13 +1350,13 @@
                             
                                 #over {
                                     position: absolute;
-                                    margin-top: -9.5px;
+                                    margin-top: -10.5px;
                                     margin-left: -2px;
                                 }
                             
                                 #stop {
                                     position: absolute;
-                                    margin-top: -6px;
+                                    margin-top: -7px;
                                     margin-left: -4px;
                                 }
                                 
@@ -1371,13 +1372,13 @@
                                 
                                 #play-span {
                                     position: absolute;
-                                    margin-top: -6px;
+                                    margin-top: -7px;
                                     margin-left: -2px;
                                 }
                                 
                                 #play-start {
                                     position: absolute;
-                                    margin-top: -9.5px;
+                                    margin-top: -10.5px;
                                     margin-left: -4.5px;
                                 }
                             
@@ -1512,7 +1513,7 @@
                             }
                         
                             #sixteen-levels-span {
-                                margin-left: -5px;
+                                margin-left: -7px;
                             }
                         
                             #sixteen-levels {
