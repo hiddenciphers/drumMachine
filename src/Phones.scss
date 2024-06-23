@@ -725,7 +725,7 @@
                                     opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
                                     transition: opacity .2s; /* 0.2 seconds transition on hover */
                                     border-radius: 5px; /* Rounded corners */
-                                    margin-right: 51px;
+                                    margin-right: 52px;
                                     margin-bottom: 8px;
                                 }
                                   
@@ -738,7 +738,7 @@
                                   .note-variation-slider::-webkit-slider-thumb {
                                     -webkit-appearance: none; /* Override default look */
                                     appearance: none;
-                                    width: 5px; /* Handle width */
+                                    width: 7px; /* Handle width */
                                     height: 15px; /* Handle height */
                                     /* background: beige; */
                                     cursor: grabbing; /* Mouse pointer on hover */
