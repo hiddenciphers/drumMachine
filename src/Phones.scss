@@ -42,9 +42,9 @@
     
         #top-cover {
             position: absolute;
-            width: 390px;
-            height: 40px;
-            margin-top: -18px;
+            width: 415px;
+            height: 23px;
+            margin-top: -1px;
             background-color: #0a0a23;
             z-index: 1;
         }
@@ -163,7 +163,7 @@
                                         position: absolute;
                                         width: 80px;
                                         margin-left: 35.5px;
-                                        margin-top: 30px;
+                                        margin-top: 35px;
                                     }
                                 
                                     #file-top {
@@ -171,8 +171,8 @@
                                         position: absolute;
                                         width: 40px;
                                         height: 6px;
-                                        margin-left: 33px;
-                                        margin-top: 7px;
+                                        margin-left: 33.5px;
+                                        margin-top: 6.6px;
                                         background: 
                                           linear-gradient(to right, rgba(41, 153, 91, 0.58) 20%, rgba(67, 252, 150, 0.58) 10%, black 10%, black 50%);
                                         border-top-right-radius: 2px;
@@ -206,8 +206,8 @@
                                             #dots {
                                                 position: absolute;
                                                 border-top: 0.5px dotted rgba(67, 252, 150, 0.58);
-                                                width: 42.5px;
-                                                margin-top: 7px;
+                                                width: 42.2px;
+                                                margin-top: 6.6px;
                                                 z-index: 2;
                                                 margin-left: -7px;
                                                 border-left: none;
@@ -308,7 +308,7 @@
                                         font-size: 10px;
                                         margin-top: 25px;
                                         margin-left: 35px;
-                                        height: 17.5px;
+                                        height: 18px;
                                         width: 75px;
                                         display: flex;
                                         padding: 0px 2px;
@@ -611,7 +611,7 @@
                         #bottom-left {
                             position: relative;
                             border: 0.1px solid black;
-                            margin-left: -32.2px;
+                            margin-left: -32.5px;
                             width: 20px;
                             height: 108px;
                             border-radius: 1px;
@@ -1350,8 +1350,8 @@
                             
                                 #over {
                                     position: absolute;
-                                    margin-top: -10.5px;
-                                    margin-left: -2px;
+                                    margin-top: -11px;
+                                    margin-left: -2.5px;
                                 }
                             
                                 #stop {
@@ -1378,8 +1378,8 @@
                                 
                                 #play-start {
                                     position: absolute;
-                                    margin-top: -10.5px;
-                                    margin-left: -4.5px;
+                                    margin-top: -11px;
+                                    margin-left: -5px;
                                 }
                             
                             }
@@ -1513,7 +1513,7 @@
                             }
                         
                             #sixteen-levels-span {
-                                margin-left: -7px;
+                                margin-left: -8px;
                             }
                         
                             #sixteen-levels {
@@ -1748,7 +1748,7 @@
                                 margin-top: 6px;
                                 margin-left: 7px;
                                 left: 0.5px;
-                                top: 0.5px;
+                                
                             }
                         
                             #track-mute-span {
@@ -1764,7 +1764,7 @@
                                 margin-top: 6px;
                                 margin-left: 39.5px;
                                 left: 0.5px;
-                                top: 0.5px;
+                                
                             }
                         }
                     }
@@ -1843,7 +1843,7 @@
                         #pad-bank-buttons {
                             position: absolute;
                             width: 220px;
-                            margin-top: -51px;
+                            margin-top: -52px;
                             margin-left: -94px;
                             display: flex;
                             flex-direction: row;
