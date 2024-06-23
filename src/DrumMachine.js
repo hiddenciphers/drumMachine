@@ -1010,7 +1010,7 @@ const DrumMachine = () => {
         <path d="M0,0 L0,40 Q250,80 500,40 L500,0 Z" />
       </svg>
       <svg id='curved-border-shape' viewBox="0 0 500 80" preserveAspectRatio="none">
-        <path d="M0,0 L0,40 Q250,80 500,40 L500,0 Z" />
+        <path d="M0,0 L0,60 Q250,100 500,60 L500,0 Z" />
       </svg>
       <div id='bottom-right-corner'></div>
     </div>

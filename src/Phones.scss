@@ -6,7 +6,7 @@
     
     #container {
         height: 380px;
-        width: 410px;
+        width: 100vw;
         display: flex;
         justify-content: center;
         margin-top: -10px;
@@ -163,7 +163,7 @@
                                         position: absolute;
                                         width: 80px;
                                         margin-left: 35.5px;
-                                        margin-top: 22px;
+                                        margin-top: 40px;
                                     }
                                 
                                     #file-top {
@@ -171,8 +171,8 @@
                                         position: absolute;
                                         width: 40px;
                                         height: 6px;
-                                        margin-left: 33.5px;
-                                        margin-top: 6.5px;
+                                        margin-left: 33px;
+                                        margin-top: 7px;
                                         background: 
                                           linear-gradient(to right, rgba(41, 153, 91, 0.58) 20%, rgba(67, 252, 150, 0.58) 10%, black 10%, black 50%);
                                         border-top-right-radius: 2px;
@@ -195,7 +195,7 @@
                                                 display: flex;
                                                 flex-direction: row;
                                                 flex-wrap: nowrap;
-                                                margin-top: -5px;
+                                                margin-top: -6px;
                                                 margin-left: 10px;
                                                 overflow: hidden;
                                                 height: 10px;
@@ -207,7 +207,7 @@
                                                 position: absolute;
                                                 border-top: 0.5px dotted rgba(67, 252, 150, 0.58);
                                                 width: 42.5px;
-                                                margin-top: 6.5px;
+                                                margin-top: 7px;
                                                 z-index: 2;
                                                 margin-left: -7px;
                                                 border-left: none;
@@ -513,7 +513,7 @@
                                 #main-screen-label {
                                     position: absolute;
                                     margin-top: -7px;
-                                    margin-left: -3px;
+                                    margin-left: -3.5px;
                                     width: 65px;
                                     display: flex;
                                     flex-direction: row;
@@ -613,20 +613,21 @@
                             border: 0.1px solid black;
                             margin-left: -32.2px;
                             width: 20px;
-                            height: 110px;
+                            height: 108px;
                             border-radius: 1px;
                             display: flex;
                             flex-direction: column;
                             justify-content:space-evenly;
                             align-items: center;
                             gap: 1em;
+                            margin-top: 5px;
                             top: 5px;
                         
                             #bottom-left-top {
                                 position: absolute;
                                 height: 10px;
                                 width: 70px;
-                                margin-top: -35px;
+                                margin-top: -30px;
                                 display: flex;
                                 flex-direction: column;
                                 justify-content: center;
@@ -634,7 +635,7 @@
                                 gap: 0.1em;
                             
                                 #note-variation {
-                                    margin-top: -60px;
+                                    margin-top: -63px;
                                     text-align: center;
                                     font-size: 2.5px;
                                     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -656,6 +657,8 @@
                                         width: 1px;
                                         height: 1px; 
                                         border-radius: 60px;
+                                        position: relative;
+                                        top: -0.5px;
                                     }
                                 }
                             
@@ -699,7 +702,7 @@
                                     opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
                                     transition: opacity .2s; /* 0.2 seconds transition on hover */
                                     border-radius: 5px; /* Rounded corners */
-                                    margin-right: 50px;
+                                    margin-right: 51px;
                                     margin-bottom: 7px;
                                 }
                                   
@@ -817,6 +820,8 @@
                                     width: 1px;
                                     height: 1px; 
                                     border-radius: 60px;
+                                    position: relative;
+                                    top: -0.5px;
                                 }
                             
                                 #undo-seq-button {
@@ -862,7 +867,7 @@
                         
                             #erase-button {
                                 position: relative;
-                                border: 0.5px solid black;
+                                border: 0.1px solid black;
                                 width: 13px;
                                 height: 5px;
                                 border-radius: 1px;
@@ -978,7 +983,7 @@
                                             position: absolute;
                                             width: 5px;
                                             left: 19px;
-                                            top: 6px; 
+                                            top: 8px; 
                                         }
                                     }
                                 
@@ -1024,7 +1029,7 @@
                                     font-size: 3px;
                                     background-color: darkgray;
                                     left: 10px;
-                                    top: 35px;
+                                    top: 34px;
                                     width: 24px;
                                     display: flex;
                                     justify-content: center;
@@ -1304,7 +1309,7 @@
                                     width: 19px;
                                     border-radius: 1px;
                                     text-align: center;
-                                    font-size: 2.5px;
+                                    font-size: 3.5px;
                                     background-color: beige;
                                     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
                                     box-shadow: 0.525px 0.525px 1.25px .25px #000000;
@@ -1327,7 +1332,7 @@
                             
                                 #rec {
                                     position: absolute;
-                                    margin-top: -5.75px;
+                                    margin-top: -6px;
                                     margin-left: -18px;
                                     width: 40px;
                                 }
@@ -1344,14 +1349,14 @@
                             
                                 #over {
                                     position: absolute;
-                                    margin-top: -8.5px;
+                                    margin-top: -9.5px;
                                     margin-left: -2px;
                                 }
                             
                                 #stop {
                                     position: absolute;
                                     margin-top: -6px;
-                                    margin-left: -2.5px;
+                                    margin-left: -4px;
                                 }
                                 
                                 #play {
@@ -1366,14 +1371,14 @@
                                 
                                 #play-span {
                                     position: absolute;
-                                    margin-top: -5.5px;
+                                    margin-top: -6px;
                                     margin-left: -2px;
                                 }
                                 
                                 #play-start {
                                     position: absolute;
-                                    margin-top: -8.5px;
-                                    margin-left: -3px;
+                                    margin-top: -9.5px;
+                                    margin-left: -4.5px;
                                 }
                             
                             }
@@ -1477,6 +1482,8 @@
                         
                             #full-level {
                                 position: absolute;
+                                left: 0.5px;
+                                top: 0.5px;
                                 border: 0.1px solid black;
                                 width: 1px;
                                 height: 1px; 
@@ -1499,13 +1506,13 @@
 
                             #Aa-span {
                                 position: absolute;
-                                right: 39px;
+                                right: 41px;
                                 margin-top: 18px;
                                 color: rgb(242, 238, 209);
                             }
                         
                             #sixteen-levels-span {
-                                margin-left: -4.5px;
+                                margin-left: -5px;
                             }
                         
                             #sixteen-levels {
@@ -1516,6 +1523,8 @@
                                 border-radius: 60px;
                                 margin-top: 5.9px;
                                 margin-left: 35px;
+                                left: 0.5px;
+                                top: 0.5px;
                             }
                         
                             #space {
@@ -1524,7 +1533,7 @@
                                 height: 6px;
                                 width: 17.5px;
                                 background-color: beige;
-                                margin-top: -18px;
+                                margin-top: -17.15px;
                                 margin-left: -42.5px;
                                 border-radius: 1px;
                                 box-shadow: 0.525px 0.525px 1.25px .25px #000000;
@@ -1532,7 +1541,7 @@
 
                             #space-span {
                                 position: absolute;
-                                right: 3.5px;
+                                right: 4px;
                                 top: 18px;
                                 color: rgb(242, 238, 209);
                             }
@@ -1581,7 +1590,7 @@
                                 border: 0.5px solid #000;
                                 box-shadow: 0.625px 0.625px 4px .25px #000000;
                                 margin-top: -9px;
-                                margin-left: -8.4px;
+                                margin-left: -8.1px;
                             
                                 .dial-inner {
                                     width: 13.5px;
@@ -1644,8 +1653,8 @@
                                 margin: auto;
                                 border: 0.5px solid #000;
                                 box-shadow: 0.625px 0.625px 4px .25px #000000;
-                                margin-left: -13px;
-                                margin-top: -10px;
+                                margin-left: -12.5px;
+                                margin-top: -9.5px;
                                 
                             
                                 .dial-inner {
@@ -1737,10 +1746,12 @@
                                 border-radius: 60px;
                                 margin-top: 6px;
                                 margin-left: 7px;
+                                left: 0.5px;
+                                top: 0.5px;
                             }
                         
                             #track-mute-span {
-                                margin-left: 2px;
+                                margin-left: 1px;
                             }
                             
                             #track-mute {
@@ -1751,6 +1762,8 @@
                                 border-radius: 60px;
                                 margin-top: 6px;
                                 margin-left: 39.5px;
+                                left: 0.5px;
+                                top: 0.5px;
                             }
                         }
                     }
@@ -1813,7 +1826,7 @@
                                 }
 
                                 #pad-bank-b-light {
-                                    margin-left: 0px;
+                                    margin-left: 0.5px;
                                 }
 
                                 #pad-bank-c-light {
@@ -2100,10 +2113,10 @@
     
         #curved-border-shape {
             position: absolute;
-            width: 570px;
+            width: 410px;
             fill: #0a0a23;
-            margin-top: 305px;
-            height: 60px;
+            margin-top: 320px;
+            height: 30px;
             z-index: -2;
         }
     
