@@ -321,8 +321,8 @@ const padBanks = {
         },
         pad4: {
             id: 'R',
-            name: 'TakeFlight',
-            src: 'https://ipfs.io/ipfs/QmfZUReWD7pzPDdA5oqELEifsMnJ9JnbftcLoW29RaGAbi',
+            name: 'FocusedDaily',
+            src: 'https://ipfs.io/ipfs/QmQ9Q2icsB89UZrvy6EN8GZyCZprRJeC7duCBHEPQdfvvv',
             type: 'audio/mpeg'
         },
         pad5: {
@@ -345,8 +345,8 @@ const padBanks = {
         },
         pad8: {
             id: 'F',
-            name: 'DeadlyNeedles',
-            src: 'https://ipfs.io/ipfs/QmakK62aFfuNYnewVW9uywRmVWiRi6mkbUyY1EMi9AMYvw',
+            name: 'ShaolinSatellite',
+            src: 'https://ipfs.io/ipfs/QmXy9ajayG5UWRUAF6LQEE5wMnzmjfU2S5vZRU9jAdjybF',
             type: 'audio/mpeg'
         },
         pad9: {
