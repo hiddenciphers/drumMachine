@@ -42,13 +42,24 @@
 
         #top-left-corner {
             position: absolute;
-            border: 0.1px solid white;
             background-color: #0a0a23;
             width: 30px;
             height: 45px;
-            margin-left: 438px;
-            margin-top: 320px;
-            transform: rotate(222deg);
+            margin-left: -404px;
+            margin-top: -13px;
+            transform: rotate(230deg);
+            z-index: 2;
+        }
+
+        #top-right-corner {
+            position: absolute;
+            background-color: #0a0a23;
+            width: 30px;
+            height: 45px;
+            margin-left: 404px;
+            margin-top: -13px;
+            transform: rotate(130deg);
+            z-index: 2;
         }
     
         #top-cover {
@@ -400,12 +411,12 @@
                                 position: relative;
                                 font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
                                 font-size: 4px;
-                                width: 10px;
+                                width: 9.5px;
                                 bottom: 30px;
                                 border: 0.1px solid black;
                                 text-align: center;
                                 background-color: darkgrey;
-                                left: 65px;
+                                left: 66.75px;
                                 top: -29px;
                             }
                         
@@ -418,7 +429,7 @@
                                 background-color: beige;
                                 box-shadow: 0.525px 0.525px 1.25px .25px #000000;
                                 margin-left: -8px;
-                                left: 59px;
+                                left: 61px;
                                 top: -16px;
                             }
                         }
@@ -1968,6 +1979,7 @@
                         0 0, /* Bottom-left corner */
                         0 0 /* Top-left corner */
             );
+            visibility: hidden;
         }
     
         #bottom-line3 {
@@ -2136,8 +2148,8 @@
         #bottom-right-corner {
             position: absolute;
             background-color: #0a0a23;
-            width: 30px;
-            height: 45px;
+            width: 33px;
+            height: 48px;
             margin-left: 438px;
             margin-top: 320px;
             transform: rotate(222deg);
